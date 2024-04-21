@@ -1,4 +1,4 @@
-package com.nicos.pokedex_compose
+package com.nicos.pokedex_compose.compose
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity

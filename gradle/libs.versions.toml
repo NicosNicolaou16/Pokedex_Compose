@@ -17,10 +17,14 @@ materialVersion = "1.11.0"
 hiltVersion = "2.51.1"
 hiltCompilerVersion = "1.2.0"
 composeNavigationVersion = "2.7.7"
+swipeRefreshLayoutVersion = "1.1.0"
+
 
 [libraries]
+# Architecture
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
+androidx-swipe-refresh-layout = {group = "androidx.swiperefreshlayout", name = "swiperefreshlayout", version.ref = "swipeRefreshLayoutVersion"}
 # Compose
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
 androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
