@@ -5,6 +5,6 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class DummyEntity(
-    @PrimaryKey(autoGenerate = true)
-    val id: Int,
-    val test: String)
+    @PrimaryKey
+    val name: Int,
+    val url: String)

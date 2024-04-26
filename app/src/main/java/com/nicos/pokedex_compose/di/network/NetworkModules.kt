@@ -11,7 +11,7 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object ServiceModules {
-    private const val BASE_URL = ""
+    private const val BASE_URL = "https://pokeapi.co/api/v2/pokemon/"
 
     @Provides
     @Singleton
