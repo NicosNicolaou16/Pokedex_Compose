@@ -1,5 +1,6 @@
 package com.nicos.pokedex_compose.di.network
 
+import com.nicos.pokedex_compose.domain.remote.init_network.MyNetworkManager
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -10,13 +11,10 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object ServiceModules {
-    private const val BASE_URL = "https://pokeapi.co/api/v2/pokemon/"
+object NetworkModules {
+
 
     @Provides
     @Singleton
-    fun requestBuilder(): Retrofit = Retrofit.Builder()
-        .baseUrl(BASE_URL)
-        .addConverterFactory(GsonConverterFactory.create())
-        .build()
+    fun requestBuilder(): Retrofit = MyNetworkManager.initNetworkManager()
 }

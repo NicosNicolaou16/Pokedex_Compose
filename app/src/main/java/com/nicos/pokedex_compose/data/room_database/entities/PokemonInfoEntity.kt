@@ -2,9 +2,12 @@ package com.nicos.pokedex_compose.data.room_database.entities
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.google.gson.annotations.SerializedName
+
 
 @Entity
-data class DummyEntity(
+data class PokemonInfoEntity(
     @PrimaryKey
-    val name: Int,
-    val url: String)
+    val name: String,
+    val url: String,
+)

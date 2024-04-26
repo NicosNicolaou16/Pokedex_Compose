@@ -5,13 +5,11 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.nicos.pokedex_compose.data.room_database.entities.DummyEntity
-import com.nicos.pokedex_compose.di.database.MyRoomDatabaseModule
-import javax.inject.Inject
+import com.nicos.pokedex_compose.data.room_database.entities.PokemonInfoEntity
 
 
 @Database(
-    entities = [DummyEntity::class],
+    entities = [PokemonInfoEntity::class],
     version = 1,
     exportSchema = false
 )
@@ -20,7 +18,7 @@ abstract class MyRoomDatabase : RoomDatabase() {
 
 
     companion object {
-        private const val DB_NAME = "pokedex"
+        private const val DB_NAME = "pokemon"
         fun initDatabase(context: Context) =
             Room.databaseBuilder(
                 context.applicationContext,
