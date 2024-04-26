@@ -11,6 +11,7 @@ composeBom = "2024.04.01"
 roomVersion = "2.6.1"
 kspVersion = "1.9.23-1.0.20"
 retrofitVersion = "2.11.0"
+okHttpVersion = "4.12.0"
 coilVersion = "2.6.0"
 coroutineVersion = "1.8.0"
 materialVersion = "1.11.0"
@@ -47,6 +48,8 @@ androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = 
 # Retrofit
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofitVersion" }
 retrofit-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofitVersion" }
+# OkHttp
+okHttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okHttpVersion" }
 # Coil
 coil = { group = "io.coil-kt", name = "coil-compose", version.ref = "coilVersion" }
 # Coroutine

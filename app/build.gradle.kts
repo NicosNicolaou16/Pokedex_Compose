@@ -80,6 +80,8 @@ dependencies {
     //Retrofit
     implementation(libs.retrofit)
     implementation(libs.retrofit.gson)
+    //OkHttp
+    implementation(libs.okHttp)
     //Coil
     implementation(libs.coil)
     //Coroutines
