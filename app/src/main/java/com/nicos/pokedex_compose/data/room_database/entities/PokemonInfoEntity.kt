@@ -4,10 +4,12 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
-
 @Entity
 data class PokemonInfoEntity(
     @PrimaryKey
     val name: String,
-    val url: String,
-)
+    val url: String?,
+    @SerializedName("sprites.other.home.front_default")
+    val photo: String?
+) {}
+

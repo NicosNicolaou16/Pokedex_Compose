@@ -82,6 +82,8 @@ dependencies {
     implementation(libs.retrofit.gson)
     //OkHttp
     implementation(libs.okHttp)
+    //Gson
+    implementation(libs.gson)
     //Coil
     implementation(libs.coil)
     //Coroutines
