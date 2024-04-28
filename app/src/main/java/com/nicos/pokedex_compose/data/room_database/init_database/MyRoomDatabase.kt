@@ -5,11 +5,10 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.nicos.pokedex_compose.data.room_database.entities.PokemonInfoEntity
-
+import com.nicos.pokedex_compose.data.room_database.entities.PokemonEntity
 
 @Database(
-    entities = [PokemonInfoEntity::class],
+    entities = [PokemonEntity::class, PokemonEntity::class],
     version = 1,
     exportSchema = false
 )
