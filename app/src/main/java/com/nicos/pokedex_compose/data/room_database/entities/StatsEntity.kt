@@ -20,18 +20,27 @@ import kotlinx.coroutines.flow.flow
 )
 data class StatsEntity(
     @PrimaryKey(autoGenerate = true) var id: Long = 0,
-    @SerializedName("base_stat") var baseStat: Int? = null,
-    @Ignore val stat: StatEntity? = null,
-    var statName: String? = null,
-    var pokemonName: String? = null,
+    @SerializedName("base_stat") var baseStat: Int?,
+    @Ignore val stat: StatEntity?,
+    var statName: String?,
+    var pokemonName: String?,
 ) {
+
+    constructor() : this(
+        0,
+        null,
+        null,
+        null,
+        null
+    )
+
     companion object {
         fun saveStats(statsEntityList: MutableList<StatsEntity>?, myRoomDatabase: MyRoomDatabase) =
             flow {
-                statsEntityList?.forEach {
-                    it.statName = it.stat?.name
-                    if (it.statName != null) {
-                        myRoomDatabase.statsDao().insertOrReplaceObject(it)
+                statsEntityList?.forEach { stat ->
+                    stat.statName = stat.stat?.name
+                    if (stat.statName != null) {
+                        myRoomDatabase.statsDao().insertOrReplaceObject(stat)
                     }
                 }
                 emit(statsEntityList)

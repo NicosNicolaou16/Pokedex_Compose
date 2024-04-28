@@ -20,6 +20,7 @@ data class PokemonDetailsEntity(
             myRoomDatabase: MyRoomDatabase
         ) = flow {
             myRoomDatabase.statsDao().deleteAll()
+
             StatsEntity.saveStats(pokemonDetailsEntity.statsEntity, myRoomDatabase)
             myRoomDatabase.pokemonDetailDao().insertOrReplaceObject(pokemonDetailsEntity)
 

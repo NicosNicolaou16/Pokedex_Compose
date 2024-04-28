@@ -64,8 +64,8 @@ dependencies {
     //Architecture
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.swipe.refresh.layout)
-    //Compose
     implementation(libs.androidx.lifecycle.runtime.ktx)
+    //Compose
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)
@@ -73,6 +73,10 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     implementation(libs.androidx.navigate.compose)
+    implementation(libs.androidx.hilt.compose)
+    implementation(libs.androidx.compose.runtime)
+    implementation(libs.androidx.compose.runtime.livedata)
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
     //Room Database
     implementation(libs.androidx.room.runtime)
     ksp(libs.androidx.room.compiler)

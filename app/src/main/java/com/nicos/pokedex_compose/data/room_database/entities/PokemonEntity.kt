@@ -1,5 +1,6 @@
 package com.nicos.pokedex_compose.data.room_database.entities
 
+import androidx.core.text.isDigitsOnly
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.nicos.pokedex_compose.data.room_database.init_database.MyRoomDatabase
@@ -15,6 +16,7 @@ data class PokemonEntity(
     companion object {
         private const val BASE_IMAGE_URL =
             "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/"
+        private const val PNG_FORMAT = ".png"
 
         suspend fun savePokemonList(
             pokemonEntityList: MutableList<PokemonEntity>,
@@ -31,9 +33,10 @@ data class PokemonEntity(
         }
 
         private fun buildPokemonImageUrl(pokemonEntity: PokemonEntity): String? {
-            val pokemonIdAsString = pokemonEntity.url?.substringBeforeLast("/")?.last()
-            if (pokemonIdAsString != null && pokemonIdAsString.isDigit()) {
-                return "$BASE_IMAGE_URL$pokemonIdAsString.png"
+            val pokemonIdAsString =
+                pokemonEntity.url?.substringBeforeLast("/")?.substringAfterLast("/")
+            if (pokemonIdAsString != null && pokemonIdAsString.isDigitsOnly()) {
+                return "$BASE_IMAGE_URL$pokemonIdAsString$PNG_FORMAT"
             }
             return null
         }
