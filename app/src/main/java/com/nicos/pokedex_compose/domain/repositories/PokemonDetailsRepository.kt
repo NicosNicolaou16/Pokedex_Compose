@@ -14,7 +14,7 @@ class PokemonDetailsRepository @Inject constructor(
     private val handlingError: HandlingError,
 ) {
 
-    suspend fun fetchPokemonList(url: String, name: String): Resource<PokemonDetailsEntity> {
+    suspend fun fetchPokemonDetails(url: String, name: String): Resource<PokemonDetailsEntity> {
         return try {
             val pokemonDetailsEntity = pokemonService.getPokemonDetails(url = url)
             savePokemonDetails(pokemonDetailsEntity = pokemonDetailsEntity)
