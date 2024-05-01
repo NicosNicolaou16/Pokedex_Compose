@@ -1,5 +1,6 @@
 package com.nicos.pokedex_compose.data.room_database.entities
 
+import android.util.Log
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.Ignore
@@ -38,6 +39,10 @@ data class StatsEntity(
         fun saveStats(statsEntityList: MutableList<StatsEntity>?, myRoomDatabase: MyRoomDatabase) =
             flow {
                 statsEntityList?.forEach { stat ->
+                    Log.d(
+                        "rerwrwr",
+                        stat.stat?.name.toString()
+                    )
                     stat.statName = stat.stat?.name
                     if (stat.statName != null) {
                         myRoomDatabase.statsDao().insertOrReplaceObject(stat)

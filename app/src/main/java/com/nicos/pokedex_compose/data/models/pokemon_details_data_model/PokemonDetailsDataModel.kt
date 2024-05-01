@@ -6,6 +6,7 @@ import com.nicos.pokedex_compose.data.room_database.entities.StatsEntity
 data class PokemonDetailsDataModel(
     val imageUrl: String? = null,
     val name: String? = null,
+    val weight: Int? = null,
     val statsEntity: StatsEntity? = null,
     val pokemonDetailsViewTypes: PokemonDetailsViewTypes,
 ) {
@@ -18,6 +19,7 @@ data class PokemonDetailsDataModel(
                 PokemonDetailsDataModel(
                     imageUrl = imageUrl,
                     name = pokemonDetailsEntity?.name ?: "",
+                    weight = pokemonDetailsEntity?.weight ?: 0,
                     pokemonDetailsViewTypes = PokemonDetailsViewTypes.IMAGE_AND_NAME_VIEW_TYPE
                 )
             )

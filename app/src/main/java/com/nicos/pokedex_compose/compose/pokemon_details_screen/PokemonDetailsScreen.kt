@@ -20,8 +20,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.input.pointer.motionEventSpy
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.AsyncImage
@@ -94,19 +96,22 @@ fun ImageAndName(pokemonDetailsDataModel: PokemonDetailsDataModel) {
                 .fillMaxSize()
         )
         Spacer(modifier = Modifier.padding(top = 15.dp))
-        Text(text = pokemonDetailsDataModel.name ?: "")
+        Text(
+            text = (pokemonDetailsDataModel.name
+                ?: "") + " " + pokemonDetailsDataModel.weight + stringResource(
+                com.nicos.pokedex_compose.R.string.kg
+            )
+        )
     }
 }
 
 @Composable
 fun StatView(pokemonDetailsViewModel: PokemonDetailsDataModel) {
-    Log.d(
-        "rerwrwr",
-        (pokemonDetailsViewModel.statsEntity?.baseStat?.toFloat() ?: 0.0.toFloat()).toString()
-    )
     Column {
-        Text(text = pokemonDetailsViewModel.statsEntity?.statName ?: "")
-        Spacer(modifier = Modifier.padding(top = 5.dp))
+        Text(
+            text = pokemonDetailsViewModel.statsEntity?.statName ?: "",
+            modifier = Modifier.padding(start = 15.dp)
+        )
         LinearProgressIndicator(
             progress = {
                 pokemonDetailsViewModel.statsEntity?.baseStat?.toFloat()?.div(100) ?: 0.0.toFloat()
@@ -115,8 +120,8 @@ fun StatView(pokemonDetailsViewModel: PokemonDetailsDataModel) {
                 .padding(15.dp)
                 .height(25.dp)
                 .clip(RoundedCornerShape(16.dp)),
-            color = Color.Red,
-            trackColor = Color.Gray
+            color = Color.Green,
+            trackColor = Color.LightGray
         )
     }
 }
