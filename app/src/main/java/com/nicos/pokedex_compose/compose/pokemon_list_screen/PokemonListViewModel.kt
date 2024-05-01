@@ -19,6 +19,7 @@ class PokemonListViewModel @Inject constructor(
 
     init {
         requestToFetchPokemon()
+        offline()
     }
 
     private fun requestToFetchPokemon() = viewModelScope.launch(Dispatchers.IO) {

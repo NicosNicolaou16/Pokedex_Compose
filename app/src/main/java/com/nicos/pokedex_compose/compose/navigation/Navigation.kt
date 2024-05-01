@@ -12,24 +12,30 @@ import com.nicos.pokedex_compose.compose.pokemon_details_screen.PokemonDetailsSc
 import com.nicos.pokedex_compose.compose.pokemon_list_screen.PokemonListScreen
 import com.nicos.pokedex_compose.utils.screen_routes.Screens
 import com.nicos.pokedex_compose.utils.screen_routes.Screens.POKEMON_DETAILS_SCREEN
+import com.nicos.pokedex_compose.utils.screen_routes.Screens.POKEMON_LIST_SCREEN
 
 @Composable
 fun Navigation() {
     val navController = rememberNavController()
     NavHost(
         navController = navController,
-        startDestination = Screens.POKEMON_LIST_SCREEN
+        startDestination = POKEMON_LIST_SCREEN
     ) {
         /*composable(Screens.LAUNCHER_SCREEN) {
             LauncherScreen(navController = navController)
         }*/
-        composable(Screens.POKEMON_LIST_SCREEN) {
+        composable(route = POKEMON_LIST_SCREEN) {
             PokemonListScreen(navController = navController)
         }
         composable(
-            "${POKEMON_DETAILS_SCREEN}/{$POKEMON_DETAILS_URL_KEY}{$POKEMON_DETAILS_NAME_KEY}",
+            route = "$POKEMON_DETAILS_SCREEN/{$POKEMON_DETAILS_URL_KEY}/{$POKEMON_DETAILS_NAME_KEY}",
             arguments = listOf(
                 navArgument(POKEMON_DETAILS_URL_KEY) {
+                    type = NavType.StringType
+                    defaultValue = ""
+                    nullable = false
+                },
+                navArgument(POKEMON_DETAILS_NAME_KEY) {
                     type = NavType.StringType
                     defaultValue = ""
                     nullable = false
