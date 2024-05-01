@@ -1,5 +1,6 @@
 package com.nicos.pokedex_compose.compose.pokemon_details_screen
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.nicos.pokedex_compose.data.models.pokemon_details_data_model.PokemonDetailsDataModel
@@ -20,11 +21,12 @@ class PokemonDetailsViewModel @Inject constructor(
         MutableStateFlow<PokemonDetailsState>(PokemonDetailsState(pokemonDetailsDataModelList = emptyList<PokemonDetailsDataModel>().toMutableList()))
 
     fun requestToFetchPokemonDetails(
+        url: String,
         imageUrl: String,
         name: String,
     ) = viewModelScope.launch(Dispatchers.IO) {
         pokemonDetailsState.value = pokemonDetailsState.value.copy(isLoading = true)
-        pokemonDetailsRepository.fetchPokemonDetails(imageUrl, name).let { resource ->
+        pokemonDetailsRepository.fetchPokemonDetails(url, name).let { resource ->
             when (resource) {
                 is Resource.Success -> {
                     pokemonDetailsState.value =

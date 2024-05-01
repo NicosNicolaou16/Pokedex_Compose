@@ -38,7 +38,7 @@ fun PokemonListScreen(
     Scaffold { paddingValues ->
         GridViewPokemonList(
             listener = { pokemonEntity ->
-                navController.navigate("$POKEMON_DETAILS_SCREEN/{${pokemonEntity.imageUrl?.encodeStringUrl()}}/{${pokemonEntity.name}}")
+                navController.navigate("$POKEMON_DETAILS_SCREEN/${pokemonEntity.url?.encodeStringUrl()}/${pokemonEntity.imageUrl?.encodeStringUrl()}/${pokemonEntity.name}")
             },
         )
     }
@@ -53,7 +53,9 @@ fun GridViewPokemonList(
     LazyVerticalGrid(
         columns = GridCells.Fixed(2)
     ) {
-        items(state.pokemonMutableList?.toMutableList() ?: emptyList()) { pokemon ->
+        items(state.pokemonMutableList?.toMutableList() ?: emptyList(), key = { pokemon ->
+            pokemon.name
+        }) { pokemon ->
             LoadPokemonImage(listener = listener, pokemonEntity = pokemon)
         }
     }
