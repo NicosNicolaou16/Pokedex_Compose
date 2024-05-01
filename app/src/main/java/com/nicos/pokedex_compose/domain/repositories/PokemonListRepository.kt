@@ -14,9 +14,10 @@ class PokemonListRepository @Inject constructor(
     private val handlingError: HandlingError,
 ) {
 
-    suspend fun fetchPokemonList(): Resource<MutableList<PokemonEntity>> {
+    suspend fun fetchPokemonList(url: String?): Resource<MutableList<PokemonEntity>> {
         return try {
-            val pokemonService = pokemonService.getPokemon()
+            val pokemonService =
+                if (url == null) pokemonService.getPokemon() else pokemonService.getPokemon(url)
             val nextUrl = pokemonService.nextUrl
             val pokemonEntityList = pokemonService.results
             savePokemon(pokemonEntityList = pokemonEntityList)

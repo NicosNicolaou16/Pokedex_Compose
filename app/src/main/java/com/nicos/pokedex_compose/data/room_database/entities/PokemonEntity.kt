@@ -11,7 +11,8 @@ data class PokemonEntity(
     @PrimaryKey
     val name: String,
     val url: String?,
-    var imageUrl: String?
+    var imageUrl: String?,
+    var order: Int?,
 ) {
     companion object {
         private const val BASE_IMAGE_URL =
@@ -24,7 +25,7 @@ data class PokemonEntity(
         ) = flow {
 
             pokemonEntityList.forEach {
-                it.imageUrl = buildPokemonImageUrl(it)
+                buildPokemonImageUrl(it)
                 if (it.imageUrl != null) {
                     myRoomDatabase.pokemonDao().insertOrReplaceObject(it)
                 }
@@ -32,13 +33,13 @@ data class PokemonEntity(
             emit(pokemonEntityList)
         }
 
-        private fun buildPokemonImageUrl(pokemonEntity: PokemonEntity): String? {
+        private fun buildPokemonImageUrl(pokemonEntity: PokemonEntity) {
             val pokemonIdAsString =
                 pokemonEntity.url?.substringBeforeLast("/")?.substringAfterLast("/")
             if (pokemonIdAsString != null && pokemonIdAsString.isDigitsOnly()) {
-                return "$BASE_IMAGE_URL$pokemonIdAsString$PNG_FORMAT"
+                pokemonEntity.order = pokemonIdAsString.toInt()
+                pokemonEntity.imageUrl = "$BASE_IMAGE_URL$pokemonIdAsString$PNG_FORMAT"
             }
-            return null
         }
     }
 }

@@ -1,23 +1,26 @@
 package com.nicos.pokedex_compose.compose.pokemon_list_screen
 
 import android.annotation.SuppressLint
+import android.util.Log
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.lazy.grid.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardColors
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -25,6 +28,8 @@ import androidx.navigation.NavController
 import coil.compose.AsyncImage
 import coil.request.CachePolicy
 import coil.request.ImageRequest
+import com.nicos.pokedex_compose.compose.generic_compose_views.ShowDialog
+import com.nicos.pokedex_compose.compose.generic_compose_views.StartDefaultLoader
 import com.nicos.pokedex_compose.data.room_database.entities.PokemonEntity
 import com.nicos.pokedex_compose.utils.extensions.encodeStringUrl
 import com.nicos.pokedex_compose.utils.extensions.getProgressDrawable
@@ -50,13 +55,25 @@ fun GridViewPokemonList(
     pokemonListViewModel: PokemonListViewModel = hiltViewModel()
 ) {
     val state = pokemonListViewModel.pokemonListState.collectAsState().value
+    if (state.isLoading) StartDefaultLoader()
+    if (!state.error.isNullOrEmpty()) ShowDialog(
+        title = stringResource(id = com.nicos.pokedex_compose.R.string.error),
+        message = state.error
+    )
     LazyVerticalGrid(
         columns = GridCells.Fixed(2)
     ) {
-        items(state.pokemonMutableList?.toMutableList() ?: emptyList(), key = { pokemon ->
+        itemsIndexed(state.pokemonMutableList?.toMutableList() ?: emptyList(), key = { _, pokemon ->
             pokemon.name
-        }) { pokemon ->
+        }) { index, pokemon ->
             LoadPokemonImage(listener = listener, pokemonEntity = pokemon)
+        }
+        item {
+            LaunchedEffect(key1 = true) {
+                if (!state.nextPage.isNullOrEmpty()) pokemonListViewModel.requestToFetchPokemon(
+                    state.nextPage
+                )
+            }
         }
     }
 }
@@ -74,9 +91,6 @@ fun LoadPokemonImage(
                 listener(pokemonEntity)
             },
         shape = RoundedCornerShape(20.dp),
-        elevation = CardDefaults.cardElevation(
-            defaultElevation = 10.dp
-        ),
         colors = CardColors(
             contentColor = colorResource(id = android.R.color.holo_green_light),
             containerColor = colorResource(id = android.R.color.holo_green_light),
@@ -109,6 +123,6 @@ fun GridViewPokemonListPreview() {
         listener = { pokemonEntity ->
 
         },
-        PokemonEntity("", "", "")
+        PokemonEntity("", "", "", -1)
     )
 }
