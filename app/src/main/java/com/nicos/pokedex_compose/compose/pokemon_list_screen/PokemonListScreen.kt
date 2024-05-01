@@ -1,5 +1,6 @@
 package com.nicos.pokedex_compose.compose.pokemon_list_screen
 
+import android.R
 import android.annotation.SuppressLint
 import android.util.Log
 import androidx.compose.foundation.clickable
@@ -12,6 +13,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardColors
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.CardElevation
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -90,20 +92,23 @@ fun LoadPokemonImage(
             .clickable {
                 listener(pokemonEntity)
             },
+        elevation = CardDefaults.cardElevation(
+            defaultElevation = 0.dp
+        ),
         shape = RoundedCornerShape(20.dp),
         colors = CardColors(
-            contentColor = colorResource(id = android.R.color.holo_green_light),
-            containerColor = colorResource(id = android.R.color.holo_green_light),
-            disabledContentColor = colorResource(id = android.R.color.holo_green_light),
-            disabledContainerColor = colorResource(id = android.R.color.holo_green_light),
+            contentColor = colorResource(id = R.color.holo_green_light),
+            containerColor = colorResource(id = R.color.holo_green_light),
+            disabledContentColor = colorResource(id = R.color.holo_green_light),
+            disabledContainerColor = colorResource(id = R.color.holo_green_light),
         )
     ) {
         AsyncImage(
             model = ImageRequest.Builder(context = context).apply {
                 data(pokemonEntity.imageUrl)
                 placeholder(getProgressDrawable(context))
-                error(android.R.drawable.stat_notify_error)
-                fallback(android.R.drawable.stat_notify_error)
+                error(R.drawable.stat_notify_error)
+                fallback(R.drawable.stat_notify_error)
                 memoryCachePolicy(CachePolicy.ENABLED)
                 //networkCachePolicy(CachePolicy.ENABLED)
                 //diskCachePolicy(CachePolicy.ENABLED)
