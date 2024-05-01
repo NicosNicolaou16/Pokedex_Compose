@@ -19,7 +19,7 @@ class PokemonDetailsViewModel @Inject constructor(
     val pokemonDetailsState =
         MutableStateFlow<PokemonDetailsState>(PokemonDetailsState(pokemonDetailsDataModelList = emptyList<PokemonDetailsDataModel>().toMutableList()))
 
-    private fun requestToFetchPokemonDetails(
+    fun requestToFetchPokemonDetails(
         imageUrl: String,
         name: String,
     ) = viewModelScope.launch(Dispatchers.IO) {
@@ -48,7 +48,7 @@ class PokemonDetailsViewModel @Inject constructor(
         }
     }
 
-    private fun offline(imageUrl: String, name: String) = viewModelScope.launch(Dispatchers.IO) {
+    fun offline(imageUrl: String, name: String) = viewModelScope.launch(Dispatchers.IO) {
         pokemonDetailsState.value = pokemonDetailsState.value.copy(isLoading = true)
         pokemonDetailsRepository.offline(name).let { resource ->
             when (resource) {
