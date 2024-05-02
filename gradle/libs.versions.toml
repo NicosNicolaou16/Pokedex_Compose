@@ -10,6 +10,10 @@ composeCompilerVersion = "1.5.13"
 activityCompose = "1.9.0"
 composeVersion = "1.6.7"
 composeHiltNavigationVersion = "1.2.0"
+composeNavigationVersion = "2.8.0-alpha08"
+uiComposeVersion = "1.7.0-alpha08"
+animationComposeVersion = "1.7.0-alpha08"
+foundationComposeVersion = "1.7.0-alpha08"
 composeBom = "2024.05.00"
 roomVersion = "2.6.1"
 kspVersion = "1.9.23-1.0.20"
@@ -20,12 +24,9 @@ coroutineVersion = "1.8.0"
 materialVersion = "1.11.0"
 hiltVersion = "2.51.1"
 hiltCompilerVersion = "1.2.0"
-composeNavigationVersion = "2.8.0-alpha08"
 swipeRefreshLayoutVersion = "1.1.0"
 gsonVersion = "2.10.1"
-uiComposeVersion = "1.7.0-alpha08"
-animationComposeVersion = "1.7.0-alpha08"
-foundationComposeVersion = "1.7.0-alpha08"
+paletteVersion = "1.0.0"
 
 [libraries]
 # Architecture
@@ -70,6 +71,8 @@ material = { group = "com.google.android.material", name = "material", version.r
 dagger-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hiltVersion" }
 dagger-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hiltVersion" }
 hilt-compiler = { group = "androidx.hilt", name = "hilt-compiler", version.ref = "hiltCompilerVersion" }
+# Palette
+androidx-palette-ktx = { group = "androidx.palette", name = "palette-ktx", version.ref = "paletteVersion" }
 # Unit Test
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }

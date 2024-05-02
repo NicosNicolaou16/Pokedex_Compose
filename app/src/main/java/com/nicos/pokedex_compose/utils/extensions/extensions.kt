@@ -1,6 +1,10 @@
 package com.nicos.pokedex_compose.utils.extensions
 
 import android.content.Context
+import android.graphics.Bitmap
+import android.graphics.drawable.Drawable
+import androidx.core.graphics.drawable.toBitmap
+import androidx.palette.graphics.Palette
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import java.net.URLDecoder
 import java.net.URLEncoder
@@ -20,4 +24,13 @@ fun String.encodeStringUrl(): String {
 
 fun String.decodeStringUrl(): String {
     return URLDecoder.decode(this, StandardCharsets.UTF_8.toString())
+}
+
+fun Drawable.colorToInt(
+    context: Context,
+    color: Int = com.nicos.pokedex_compose.R.color.green
+): Int {
+    val drawable = this.toBitmap().copy(Bitmap.Config.ARGB_8888, false);
+    return Palette.from(drawable).generate()
+        .getDominantColor(context.resources.getColor(color, null))
 }

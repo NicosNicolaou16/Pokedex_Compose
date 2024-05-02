@@ -102,6 +102,8 @@ dependencies {
     implementation(libs.dagger.android)
     ksp(libs.dagger.compiler)
     ksp(libs.hilt.compiler)
+    //Palette
+    implementation(libs.androidx.palette.ktx)
     //Unit Test
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
