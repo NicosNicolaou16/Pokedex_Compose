@@ -1,6 +1,5 @@
 package com.nicos.pokedex_compose.compose.pokemon_details_screen
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.nicos.pokedex_compose.data.models.pokemon_details_data_model.PokemonDetailsDataModel
@@ -17,20 +16,21 @@ class PokemonDetailsViewModel @Inject constructor(
     private val pokemonDetailsRepository: PokemonDetailsRepository
 ) : ViewModel() {
 
-    val pokemonDetailsState =
+    private val _pokemonDetailsState =
         MutableStateFlow<PokemonDetailsState>(PokemonDetailsState(pokemonDetailsDataModelList = emptyList<PokemonDetailsDataModel>().toMutableList()))
+    val pokemonDetailsState: MutableStateFlow<PokemonDetailsState> = _pokemonDetailsState
 
     fun requestToFetchPokemonDetails(
         url: String,
         imageUrl: String,
         name: String,
     ) = viewModelScope.launch(Dispatchers.IO) {
-        pokemonDetailsState.value = pokemonDetailsState.value.copy(isLoading = true)
+        _pokemonDetailsState.value = _pokemonDetailsState.value.copy(isLoading = true)
         pokemonDetailsRepository.fetchPokemonDetails(url, name).let { resource ->
             when (resource) {
                 is Resource.Success -> {
-                    pokemonDetailsState.value =
-                        pokemonDetailsState.value.copy(
+                    _pokemonDetailsState.value =
+                        _pokemonDetailsState.value.copy(
                             isLoading = false,
                             pokemonDetailsDataModelList = PokemonDetailsDataModel.createPokemonDetailsDataModel(
                                 resource.data,
@@ -40,8 +40,8 @@ class PokemonDetailsViewModel @Inject constructor(
                 }
 
                 is Resource.Error -> {
-                    pokemonDetailsState.value =
-                        pokemonDetailsState.value.copy(
+                    _pokemonDetailsState.value =
+                        _pokemonDetailsState.value.copy(
                             isLoading = false,
                             error = resource.message
                         )
@@ -51,12 +51,12 @@ class PokemonDetailsViewModel @Inject constructor(
     }
 
     fun offline(imageUrl: String, name: String) = viewModelScope.launch(Dispatchers.IO) {
-        pokemonDetailsState.value = pokemonDetailsState.value.copy(isLoading = true)
+        _pokemonDetailsState.value = _pokemonDetailsState.value.copy(isLoading = true)
         pokemonDetailsRepository.offline(name).let { resource ->
             when (resource) {
                 is Resource.Success -> {
-                    pokemonDetailsState.value =
-                        pokemonDetailsState.value.copy(
+                    _pokemonDetailsState.value =
+                        _pokemonDetailsState.value.copy(
                             isLoading = false,
                             pokemonDetailsDataModelList = PokemonDetailsDataModel.createPokemonDetailsDataModel(
                                 resource.data,
@@ -66,8 +66,8 @@ class PokemonDetailsViewModel @Inject constructor(
                 }
 
                 is Resource.Error -> {
-                    pokemonDetailsState.value =
-                        pokemonDetailsState.value.copy(
+                    _pokemonDetailsState.value =
+                        _pokemonDetailsState.value.copy(
                             isLoading = false,
                             error = resource.message
                         )
