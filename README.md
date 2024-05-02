@@ -1,9 +1,10 @@
 # Pokedex_Compose
-The Pokedex Compose project is using some latest technologies about the Android Jetpack Compose
+The Pokedex Compose project is using some latest technologies about the Android Jetpack Compose.
 
 # The Project Contain the following technologies
+Kotlin - https://kotlinlang.org/docs/getting-started.html
 Jetpack Compose https://developer.android.com/develop/ui/compose <br />
-Jetpack Compose Navigation - Share Element - 
+Jetpack Compose Navigation - New Share Element Technology - 
 https://fvilarino.medium.com/shared-element-transitions-in-jetpack-compose-8f553078101e - https://getstream.io/blog/shared-element-compose/  <br />
 Retrofit for Network Manager https://square.github.io/retrofit/ - https://github.com/square/retrofit <br />
 Room Database https://developer.android.com/training/data-storage/room <br />
@@ -11,7 +12,6 @@ Palette - https://developer.android.com/develop/ui/views/graphics/palette-colors
 KSP - https://developer.android.com/build/migrate-to-ksp - https://github.com/google/ksp <br />
 Coil For Compose - https://coil-kt.github.io/coil/compose/ - https://coil-kt.github.io/coil/ - https://github.com/coil-kt/coil <br />
 Hilt Dependencies Injection - https://developer.android.com/training/dependency-injection/hilt-android  <br />
-Kotlin - https://kotlinlang.org/docs/getting-started.html
 
 # Others
 Offline Support <br />
