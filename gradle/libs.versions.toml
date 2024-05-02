@@ -1,16 +1,16 @@
 [versions]
 agp = "8.4.0"
 kotlin = "1.9.23"
-coreKtx = "1.13.0"
+coreKtx = "1.13.1"
 junit = "4.13.2"
 junitVersion = "1.1.5"
 espressoCore = "3.5.1"
 lifecycleRuntimeKtx = "2.7.0"
 composeCompilerVersion = "1.5.13"
 activityCompose = "1.9.0"
-composeVersion = "1.6.6"
+composeVersion = "1.6.7"
 composeHiltNavigationVersion = "1.2.0"
-composeBom = "2024.04.01"
+composeBom = "2024.05.00"
 roomVersion = "2.6.1"
 kspVersion = "1.9.23-1.0.20"
 retrofitVersion = "2.11.0"
@@ -20,9 +20,12 @@ coroutineVersion = "1.8.0"
 materialVersion = "1.11.0"
 hiltVersion = "2.51.1"
 hiltCompilerVersion = "1.2.0"
-composeNavigationVersion = "2.7.7"
+composeNavigationVersion = "2.8.0-alpha08"
 swipeRefreshLayoutVersion = "1.1.0"
 gsonVersion = "2.10.1"
+uiComposeVersion = "1.7.0-alpha08"
+animationComposeVersion = "1.7.0-alpha08"
+foundationComposeVersion = "1.7.0-alpha08"
 
 [libraries]
 # Architecture
@@ -33,7 +36,7 @@ androidx-swipe-refresh-layout = { group = "androidx.swiperefreshlayout", name = 
 androidx-compose-compiler = { group = "androidx.compose.compiler", name = "compiler", version.ref = "composeCompilerVersion" }
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
 androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
-androidx-ui = { group = "androidx.compose.ui", name = "ui" }
+androidx-ui = { group = "androidx.compose.ui", name = "ui", version.ref = "uiComposeVersion" }
 androidx-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
 androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
@@ -43,6 +46,8 @@ androidx-hilt-compose = { group = "androidx.hilt", name = "hilt-navigation-compo
 androidx-compose-runtime = { group = "androidx.compose.runtime", name = "runtime", version.ref = "composeVersion" }
 androidx-compose-runtime-livedata = { group = "androidx.compose.runtime", name = "runtime-livedata", version.ref = "composeVersion" }
 androidx-lifecycle-viewmodel-compose = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "lifecycleRuntimeKtx" }
+androidx-animation = { group = "androidx.compose.animation", name = "animation", version.ref = "animationComposeVersion" }
+androidx-foundation = { group = "androidx.compose.foundation", name = "foundation", version.ref = "foundationComposeVersion" }
 # Room Database
 androidx-room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "roomVersion" }
 androidx-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "roomVersion" }

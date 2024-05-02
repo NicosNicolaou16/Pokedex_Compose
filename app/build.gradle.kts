@@ -78,6 +78,8 @@ dependencies {
     implementation(libs.androidx.compose.runtime)
     implementation(libs.androidx.compose.runtime.livedata)
     implementation(libs.androidx.lifecycle.viewmodel.compose)
+    implementation(libs.androidx.animation)
+    implementation(libs.androidx.foundation)
     //Room Database
     implementation(libs.androidx.room.runtime)
     ksp(libs.androidx.room.compiler)

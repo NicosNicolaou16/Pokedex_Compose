@@ -1,12 +1,15 @@
+@file:OptIn(ExperimentalSharedTransitionApi::class)
+
 package com.nicos.pokedex_compose.compose.pokemon_details_screen
 
 import android.R
 import android.annotation.SuppressLint
+import androidx.compose.animation.AnimatedVisibilityScope
+import androidx.compose.animation.ExperimentalSharedTransitionApi
+import androidx.compose.animation.SharedTransitionScope
 import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
-import androidx.compose.compiler.plugins.kotlin.ComposeCallableIds.remember
-import androidx.compose.compiler.plugins.kotlin.ComposeFqNames.remember
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -23,7 +26,6 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -48,10 +50,11 @@ const val POKEMON_DETAILS_NAME_KEY = "pokemon_details_name_key"
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun PokemonDetailsScreen(
+fun SharedTransitionScope.PokemonDetailsScreen(
     url: String,
     imageUrl: String,
     name: String,
+    animatedVisibilityScope: AnimatedVisibilityScope,
     pokemonDetailsViewModel: PokemonDetailsViewModel = hiltViewModel()
 ) {
     pokemonDetailsViewModel.requestToFetchPokemonDetails(
@@ -61,12 +64,18 @@ fun PokemonDetailsScreen(
     )
     pokemonDetailsViewModel.offline(imageUrl = imageUrl, name = name)
     Scaffold { paddingValues ->
-        DetailsScreen(pokemonDetailsViewModel = pokemonDetailsViewModel)
+        DetailsScreen(
+            pokemonDetailsViewModel = pokemonDetailsViewModel,
+            animatedVisibilityScope = animatedVisibilityScope
+        )
     }
 }
 
 @Composable
-fun DetailsScreen(pokemonDetailsViewModel: PokemonDetailsViewModel) {
+fun SharedTransitionScope.DetailsScreen(
+    pokemonDetailsViewModel: PokemonDetailsViewModel,
+    animatedVisibilityScope: AnimatedVisibilityScope,
+) {
     val pokemonDetailsDataModelList =
         pokemonDetailsViewModel.pokemonDetailsState.collectAsState().value.pokemonDetailsDataModelList
 
@@ -74,7 +83,10 @@ fun DetailsScreen(pokemonDetailsViewModel: PokemonDetailsViewModel) {
         items(pokemonDetailsDataModelList) { pokemonDetailsDataModel ->
             when (pokemonDetailsDataModel.pokemonDetailsViewTypes) {
                 PokemonDetailsViewTypes.IMAGE_AND_NAME_VIEW_TYPE -> {
-                    ImageAndName(pokemonDetailsDataModel)
+                    ImageAndName(
+                        pokemonDetailsDataModel = pokemonDetailsDataModel,
+                        animatedVisibilityScope = animatedVisibilityScope
+                    )
                 }
 
                 else -> {
@@ -86,7 +98,10 @@ fun DetailsScreen(pokemonDetailsViewModel: PokemonDetailsViewModel) {
 }
 
 @Composable
-fun ImageAndName(pokemonDetailsDataModel: PokemonDetailsDataModel) {
+fun SharedTransitionScope.ImageAndName(
+    pokemonDetailsDataModel: PokemonDetailsDataModel,
+    animatedVisibilityScope: AnimatedVisibilityScope,
+) {
     val context = LocalContext.current
     Column(
         horizontalAlignment = Alignment.CenterHorizontally
@@ -103,6 +118,12 @@ fun ImageAndName(pokemonDetailsDataModel: PokemonDetailsDataModel) {
             contentScale = ContentScale.None,
             modifier = Modifier
                 .fillMaxSize()
+                .sharedElement(
+                    state = rememberSharedContentState(
+                        key = pokemonDetailsDataModel.imageUrl ?: ""
+                    ),
+                    animatedVisibilityScope = animatedVisibilityScope,
+                )
         )
         Spacer(modifier = Modifier.padding(top = 15.dp))
         Text(
@@ -141,7 +162,8 @@ fun StatView(pokemonDetailsViewModel: PokemonDetailsDataModel) {
         )
     }
     LaunchedEffect(Unit) {
-        progress = pokemonDetailsViewModel.statsEntity?.baseStat?.toFloat()?.div(100) ?: 0.0.toFloat()
+        progress =
+            pokemonDetailsViewModel.statsEntity?.baseStat?.toFloat()?.div(100) ?: 0.0.toFloat()
     }
 }
 

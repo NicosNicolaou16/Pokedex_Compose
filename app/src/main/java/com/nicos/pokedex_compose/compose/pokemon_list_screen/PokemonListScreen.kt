@@ -1,7 +1,12 @@
+@file:OptIn(ExperimentalSharedTransitionApi::class)
+
 package com.nicos.pokedex_compose.compose.pokemon_list_screen
 
 import android.R
 import android.annotation.SuppressLint
+import androidx.compose.animation.AnimatedVisibilityScope
+import androidx.compose.animation.ExperimentalSharedTransitionApi
+import androidx.compose.animation.SharedTransitionScope
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -37,11 +42,13 @@ import com.nicos.pokedex_compose.utils.screen_routes.Screens.POKEMON_DETAILS_SCR
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun PokemonListScreen(
+fun SharedTransitionScope.PokemonListScreen(
     navController: NavController,
+    animatedVisibilityScope: AnimatedVisibilityScope,
 ) {
     Scaffold { paddingValues ->
         GridViewPokemonList(
+            animatedVisibilityScope = animatedVisibilityScope,
             listener = { pokemonEntity ->
                 navController.navigate("$POKEMON_DETAILS_SCREEN/${pokemonEntity.url?.encodeStringUrl()}/${pokemonEntity.imageUrl?.encodeStringUrl()}/${pokemonEntity.name}")
             },
@@ -50,8 +57,9 @@ fun PokemonListScreen(
 }
 
 @Composable
-fun GridViewPokemonList(
+fun SharedTransitionScope.GridViewPokemonList(
     listener: (PokemonEntity) -> Unit,
+    animatedVisibilityScope: AnimatedVisibilityScope,
     pokemonListViewModel: PokemonListViewModel = hiltViewModel()
 ) {
     val state = pokemonListViewModel.pokemonListState.collectAsState().value
@@ -66,7 +74,11 @@ fun GridViewPokemonList(
         itemsIndexed(state.pokemonMutableList?.toMutableList() ?: emptyList(), key = { _, pokemon ->
             pokemon.name
         }) { index, pokemon ->
-            LoadPokemonImage(listener = listener, pokemonEntity = pokemon)
+            LoadPokemonImage(
+                listener = listener,
+                animatedVisibilityScope = animatedVisibilityScope,
+                pokemonEntity = pokemon
+            )
         }
         item {
             LaunchedEffect(key1 = true) {
@@ -79,8 +91,9 @@ fun GridViewPokemonList(
 }
 
 @Composable
-fun LoadPokemonImage(
+fun SharedTransitionScope.LoadPokemonImage(
     listener: (PokemonEntity) -> Unit,
+    animatedVisibilityScope: AnimatedVisibilityScope,
     pokemonEntity: PokemonEntity
 ) {
     val context = LocalContext.current
@@ -109,21 +122,26 @@ fun LoadPokemonImage(
                 fallback(R.drawable.stat_notify_error)
                 memoryCachePolicy(CachePolicy.ENABLED)
             }.build(),
+            modifier = Modifier
+                .sharedElement(
+                    state = rememberSharedContentState(key = pokemonEntity.imageUrl ?: ""),
+                    animatedVisibilityScope = animatedVisibilityScope,
+                )
+                .fillMaxSize(),
             contentDescription = null,
             contentScale = ContentScale.None,
-            modifier = Modifier
-                .fillMaxSize()
         )
     }
 }
 
 @Preview
 @Composable
-fun GridViewPokemonListPreview() {
-    LoadPokemonImage(
+fun SharedTransitionScope.GridViewPokemonListPreview() {
+    /*LoadPokemonImage(
         listener = { pokemonEntity ->
 
         },
+        this@GridViewPokemonListPreview,
         PokemonEntity("", "", "", -1)
-    )
+    )*/
 }
