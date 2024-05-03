@@ -39,10 +39,6 @@ data class StatsEntity(
         fun saveStats(statsEntityList: MutableList<StatsEntity>?, myRoomDatabase: MyRoomDatabase) =
             flow {
                 statsEntityList?.forEach { stat ->
-                    Log.d(
-                        "rerwrwr",
-                        stat.stat?.name.toString()
-                    )
                     stat.statName = stat.stat?.name
                     if (stat.statName != null) {
                         myRoomDatabase.statsDao().insertOrReplaceObject(stat)
