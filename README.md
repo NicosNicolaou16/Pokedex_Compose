@@ -4,8 +4,7 @@ The Pokedex Compose project is using some of the latest technologies of the Andr
 # The Project Contain the following technologies
 Kotlin - https://kotlinlang.org/docs/getting-started.html
 Jetpack Compose https://developer.android.com/develop/ui/compose <br />
-Jetpack Compose Navigation - New Shared Element Transition - 
-https://fvilarino.medium.com/shared-element-transitions-in-jetpack-compose-8f553078101e - https://getstream.io/blog/shared-element-compose/  <br />
+Jetpack Compose Navigation - New Shared Element Transition - https://developer.android.com/develop/ui/compose/animation/shared-elements - https://fvilarino.medium.com/shared-element-transitions-in-jetpack-compose-8f553078101e - https://getstream.io/blog/shared-element-compose/  <br />
 Retrofit for Network Manager https://square.github.io/retrofit/ - https://github.com/square/retrofit <br />
 Room Database https://developer.android.com/training/data-storage/room <br />
 Palette (Using the Pokemon Color to paint the Linear Indicator with the same color) - https://developer.android.com/develop/ui/views/graphics/palette-colors <br />
