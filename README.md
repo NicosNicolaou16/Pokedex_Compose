@@ -1,5 +1,5 @@
 # Pokedex_Compose
-The Pokedex Compose project is using some latest technologies about the Android Jetpack Compose.
+The Pokedex Compose project is using some of the latest technologies of the Android Jetpack Compose.
 
 # The Project Contain the following technologies
 Kotlin - https://kotlinlang.org/docs/getting-started.html
