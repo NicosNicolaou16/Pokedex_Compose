@@ -20,8 +20,8 @@ Offline Support <br />
 
 # Examples
 <p align="left">
-  <a title="simulator_image"><img src="examples/Screenshot_20240502_230258.png" height="500" width="200"></a>
-  <a title="simulator_image"><img src="examples/Screenshot_20240502_230324.png" height="500" width="200"></a>
+  <a title="simulator_image"><img src="examples/Screenshot_20240506_184354.png" height="500" width="200"></a>
+  <a title="simulator_image"><img src="examples/Screenshot_20240506_184416.png" height="500" width="200"></a>
   <a title="simulator_image"><img src="examples/example_gif.gif" height="500" width="200"></a>
 </p>
 
