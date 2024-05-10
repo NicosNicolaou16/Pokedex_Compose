@@ -26,9 +26,6 @@ fun Navigation() {
             navController = navController,
             startDestination = POKEMON_LIST_SCREEN
         ) {
-            /*composable(Screens.LAUNCHER_SCREEN) {
-                LauncherScreen(navController = navController)
-            }*/
             composable(route = POKEMON_LIST_SCREEN) {
                 PokemonListScreen(
                     navController = navController,

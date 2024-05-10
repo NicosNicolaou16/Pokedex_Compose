@@ -12,10 +12,11 @@ KSP - https://developer.android.com/build/migrate-to-ksp - https://github.com/go
 Coil For Compose - https://coil-kt.github.io/coil/compose/ - https://coil-kt.github.io/coil/ - https://github.com/coil-kt/coil <br />
 Hilt Dependencies Injection - https://developer.android.com/training/dependency-injection/hilt-android  <br />
 
-# Others technologies
+# Others
 View Model <br />
 Repository <br />
 Offline Support <br />
+R8 enabled <br />
 
 # Examples
 <p align="left">
