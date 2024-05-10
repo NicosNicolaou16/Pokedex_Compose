@@ -28,29 +28,24 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.navigation.NavController
 import coil.compose.AsyncImage
 import coil.request.CachePolicy
 import coil.request.ImageRequest
 import com.nicos.pokedex_compose.compose.generic_compose_views.ShowDialog
 import com.nicos.pokedex_compose.compose.generic_compose_views.StartDefaultLoader
 import com.nicos.pokedex_compose.data.room_database.entities.PokemonEntity
-import com.nicos.pokedex_compose.utils.extensions.encodeStringUrl
 import com.nicos.pokedex_compose.utils.extensions.getProgressDrawable
-import com.nicos.pokedex_compose.utils.screen_routes.Screens.POKEMON_DETAILS_SCREEN
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun SharedTransitionScope.PokemonListScreen(
-    navController: NavController,
+    listener: (PokemonEntity) -> Unit,
     animatedVisibilityScope: AnimatedVisibilityScope,
 ) {
     Scaffold { paddingValues ->
         GridViewPokemonList(
             animatedVisibilityScope = animatedVisibilityScope,
-            listener = { pokemonEntity ->
-                navController.navigate("$POKEMON_DETAILS_SCREEN/${pokemonEntity.url?.encodeStringUrl()}/${pokemonEntity.imageUrl?.encodeStringUrl()}/${pokemonEntity.name}")
-            },
+            listener = listener,
         )
     }
 }

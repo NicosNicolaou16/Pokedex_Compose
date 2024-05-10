@@ -3,6 +3,8 @@ plugins {
     alias(libs.plugins.jetbrainsKotlinAndroid)
     alias(libs.plugins.ksp)
     alias(libs.plugins.hilt.android)
+    alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.parcelize)
 }
 
 android {
@@ -96,6 +98,8 @@ dependencies {
     //Coroutines
     implementation(libs.coroutine.core)
     implementation(libs.coroutine.android)
+    //Kotlin Serialization
+    implementation(libs.kotlinx.serialization.json)
     //Material
     implementation(libs.material)
     //Hilt

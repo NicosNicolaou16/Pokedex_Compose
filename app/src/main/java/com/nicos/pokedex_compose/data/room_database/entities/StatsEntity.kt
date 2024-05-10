@@ -1,6 +1,5 @@
 package com.nicos.pokedex_compose.data.room_database.entities
 
-import android.util.Log
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.Ignore

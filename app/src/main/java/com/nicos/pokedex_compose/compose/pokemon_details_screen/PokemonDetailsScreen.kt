@@ -4,7 +4,6 @@ package com.nicos.pokedex_compose.compose.pokemon_details_screen
 
 import android.R
 import android.annotation.SuppressLint
-import android.graphics.Bitmap
 import androidx.compose.animation.AnimatedVisibilityScope
 import androidx.compose.animation.ExperimentalSharedTransitionApi
 import androidx.compose.animation.SharedTransitionScope
@@ -28,24 +27,18 @@ import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
-import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.ColorFilter
-import androidx.compose.ui.graphics.asAndroidColorFilter
-import androidx.compose.ui.graphics.asComposeColorFilter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import androidx.core.graphics.drawable.toBitmap
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.palette.graphics.Palette
 import coil.compose.AsyncImage
 import coil.request.CachePolicy
 import coil.request.ImageRequest
@@ -53,10 +46,6 @@ import com.nicos.pokedex_compose.data.models.pokemon_details_data_model.PokemonD
 import com.nicos.pokedex_compose.data.models.pokemon_details_data_model.PokemonDetailsViewTypes
 import com.nicos.pokedex_compose.utils.extensions.colorToInt
 import com.nicos.pokedex_compose.utils.extensions.getProgressDrawable
-
-const val POKEMON_DETAILS_URL_KEY = "pokemon_details_url_key"
-const val POKEMON_DETAILS_IMAGE_URL_KEY = "pokemon_details_image_url_key"
-const val POKEMON_DETAILS_NAME_KEY = "pokemon_details_name_key"
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
@@ -89,7 +78,7 @@ fun SharedTransitionScope.DetailsScreen(
     val pokemonDetailsDataModelList =
         pokemonDetailsViewModel.pokemonDetailsState.collectAsState().value.pokemonDetailsDataModelList
     val color = remember {
-        mutableStateOf(-1)
+        mutableIntStateOf(-1)
     }
 
     LazyColumn {

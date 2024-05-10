@@ -20,13 +20,14 @@ kspVersion = "1.9.23-1.0.20"
 retrofitVersion = "2.11.0"
 okHttpVersion = "4.12.0"
 coilVersion = "2.6.0"
-coroutineVersion = "1.8.0"
+coroutineVersion = "1.8.1"
 materialVersion = "1.12.0"
 hiltVersion = "2.51.1"
 hiltCompilerVersion = "1.2.0"
 swipeRefreshLayoutVersion = "1.1.0"
 gsonVersion = "2.10.1"
 paletteVersion = "1.0.0"
+kotlinSerializationVersion = "1.6.3"
 
 [libraries]
 # Architecture
@@ -65,6 +66,8 @@ coil = { group = "io.coil-kt", name = "coil-compose", version.ref = "coilVersion
 # Coroutine
 coroutine-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutineVersion" }
 coroutine-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutineVersion" }
+# Kotlin Serialization
+kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinSerializationVersion" }
 # Material
 material = { group = "com.google.android.material", name = "material", version.ref = "materialVersion" }
 # Hilt
@@ -80,9 +83,11 @@ androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-co
 androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest", version.ref = "composeVersion" }
 androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 
-
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 jetbrainsKotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "kspVersion" }
 hilt-android = { id = "com.google.dagger.hilt.android", version.ref = "hiltVersion" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin" }
+
