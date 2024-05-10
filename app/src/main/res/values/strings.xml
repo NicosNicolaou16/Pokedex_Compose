@@ -7,4 +7,6 @@
     <string name="error">Error</string>
     <string name="ok">OK</string>
     <string name="kg">Kg</string>
+    <string name="pokemon_details">Pokemon Details</string>
+    <string name="pokemon_list">Pokemon List</string>
 </resources>

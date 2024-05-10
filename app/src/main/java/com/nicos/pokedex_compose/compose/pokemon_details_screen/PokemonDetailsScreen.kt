@@ -11,6 +11,7 @@ import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
@@ -42,6 +43,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.AsyncImage
 import coil.request.CachePolicy
 import coil.request.ImageRequest
+import com.nicos.pokedex_compose.compose.generic_compose_views.CustomToolbar
 import com.nicos.pokedex_compose.data.models.pokemon_details_data_model.PokemonDetailsDataModel
 import com.nicos.pokedex_compose.data.models.pokemon_details_data_model.PokemonDetailsViewTypes
 import com.nicos.pokedex_compose.utils.extensions.colorToInt
@@ -62,8 +64,9 @@ fun SharedTransitionScope.PokemonDetailsScreen(
         name = name
     )
     pokemonDetailsViewModel.offline(imageUrl = imageUrl, name = name)
-    Scaffold { paddingValues ->
+    Scaffold(topBar = { CustomToolbar(title = stringResource(com.nicos.pokedex_compose.R.string.pokemon_details)) }) { paddingValues ->
         DetailsScreen(
+            paddingValues = paddingValues,
             pokemonDetailsViewModel = pokemonDetailsViewModel,
             animatedVisibilityScope = animatedVisibilityScope
         )
@@ -72,6 +75,7 @@ fun SharedTransitionScope.PokemonDetailsScreen(
 
 @Composable
 fun SharedTransitionScope.DetailsScreen(
+    paddingValues: PaddingValues,
     pokemonDetailsViewModel: PokemonDetailsViewModel,
     animatedVisibilityScope: AnimatedVisibilityScope,
 ) {
@@ -81,7 +85,7 @@ fun SharedTransitionScope.DetailsScreen(
         mutableIntStateOf(-1)
     }
 
-    LazyColumn {
+    LazyColumn(modifier = Modifier.padding(top = paddingValues.calculateTopPadding())) {
         items(pokemonDetailsDataModelList) { pokemonDetailsDataModel ->
             when (pokemonDetailsDataModel.pokemonDetailsViewTypes) {
                 PokemonDetailsViewTypes.IMAGE_AND_NAME_VIEW_TYPE -> {

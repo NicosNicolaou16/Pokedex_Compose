@@ -8,6 +8,7 @@ import androidx.compose.animation.AnimatedVisibilityScope
 import androidx.compose.animation.ExperimentalSharedTransitionApi
 import androidx.compose.animation.SharedTransitionScope
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.grid.GridCells
@@ -31,6 +32,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.AsyncImage
 import coil.request.CachePolicy
 import coil.request.ImageRequest
+import com.nicos.pokedex_compose.compose.generic_compose_views.CustomToolbar
 import com.nicos.pokedex_compose.compose.generic_compose_views.ShowDialog
 import com.nicos.pokedex_compose.compose.generic_compose_views.StartDefaultLoader
 import com.nicos.pokedex_compose.data.room_database.entities.PokemonEntity
@@ -42,9 +44,10 @@ fun SharedTransitionScope.PokemonListScreen(
     listener: (PokemonEntity) -> Unit,
     animatedVisibilityScope: AnimatedVisibilityScope,
 ) {
-    Scaffold { paddingValues ->
+    Scaffold(topBar = { CustomToolbar(title = stringResource(com.nicos.pokedex_compose.R.string.pokemon_list)) }) { paddingValues ->
         GridViewPokemonList(
             animatedVisibilityScope = animatedVisibilityScope,
+            paddingValues = paddingValues,
             listener = listener,
         )
     }
@@ -53,16 +56,17 @@ fun SharedTransitionScope.PokemonListScreen(
 @Composable
 fun SharedTransitionScope.GridViewPokemonList(
     listener: (PokemonEntity) -> Unit,
+    paddingValues: PaddingValues,
     animatedVisibilityScope: AnimatedVisibilityScope,
     pokemonListViewModel: PokemonListViewModel = hiltViewModel()
 ) {
     val state = pokemonListViewModel.pokemonListState.collectAsState().value
-    if (state.isLoading) StartDefaultLoader()
     if (!state.error.isNullOrEmpty()) ShowDialog(
         title = stringResource(id = com.nicos.pokedex_compose.R.string.error),
         message = state.error
     )
     LazyVerticalGrid(
+        modifier = Modifier.padding(top = paddingValues.calculateTopPadding()),
         columns = GridCells.Fixed(2)
     ) {
         itemsIndexed(state.pokemonMutableList?.toMutableList() ?: emptyList(), key = { _, pokemon ->
@@ -82,6 +86,7 @@ fun SharedTransitionScope.GridViewPokemonList(
             }
         }
     }
+    if (state.isLoading) StartDefaultLoader()
 }
 
 @Composable

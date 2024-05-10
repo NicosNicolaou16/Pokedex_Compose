@@ -27,7 +27,7 @@ fun StartDefaultLoader() {
         contentAlignment = Alignment.Center,
         modifier = Modifier
             .fillMaxSize()
-            .background(color = Color.LightGray)
+            .background(color = Color.LightGray.copy(alpha = 0.7.toFloat()))
     ) {
         CircularProgressIndicator(color = Color.Black)
     }
