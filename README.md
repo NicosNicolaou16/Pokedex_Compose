@@ -10,7 +10,8 @@ Room Database https://developer.android.com/training/data-storage/room <br />
 Palette (Using the Pokemon Color to paint the Linear Indicator with the same color) - https://developer.android.com/develop/ui/views/graphics/palette-colors <br />
 KSP - https://developer.android.com/build/migrate-to-ksp - https://github.com/google/ksp <br />
 Coil For Compose - https://coil-kt.github.io/coil/compose/ - https://coil-kt.github.io/coil/ - https://github.com/coil-kt/coil <br />
-Hilt Dependencies Injection - https://developer.android.com/training/dependency-injection/hilt-android  <br />
+Hilt Dependencies Injection - https://developer.android.com/training/dependency-injection/hilt-android <br />
+New Navigation Type Safety - https://medium.com/androiddevelopers/navigation-compose-meet-type-safety-e081fb3cf2f8 <br />
 
 # Others
 View Model <br />
