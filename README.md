@@ -3,7 +3,7 @@ This Pokedex - Pokemon app is a project that contain and apply the latest Androi
 Also, it contains some other important technologies such as Room Database, KSP, Hilt Dependencies Injection, the new Shared Element Transaction and new Navigation Type Safety.
 
 # The Project Contain the following technologies
-Kotlin - https://kotlinlang.org/docs/getting-started.html
+Kotlin - https://kotlinlang.org/docs/getting-started.html <br />
 Jetpack Compose https://developer.android.com/develop/ui/compose <br />
 Jetpack Compose Navigation - New Shared Element Transition - https://developer.android.com/develop/ui/compose/animation/shared-elements - https://fvilarino.medium.com/shared-element-transitions-in-jetpack-compose-8f553078101e - https://getstream.io/blog/shared-element-compose/  <br />
 Retrofit for Network Manager https://square.github.io/retrofit/ - https://github.com/square/retrofit <br />
