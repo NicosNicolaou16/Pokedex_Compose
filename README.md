@@ -1,5 +1,6 @@
 # Pokedex_Compose
-The Pokedex Compose project is using some of the latest technologies of the Android Jetpack Compose.
+This Pokedex - Pokemon app is a project that contain and apply the latest Android technologies recommended by Google such as Jetpack Compose, the new way to build the design.
+Also, it contains some other important technologies such as Room Database, KSP, Hilt Dependencies Injection, the new Shared Element Transaction and new Navigation Type Safety.
 
 # The Project Contain the following technologies
 Kotlin - https://kotlinlang.org/docs/getting-started.html
@@ -14,6 +15,7 @@ Hilt Dependencies Injection - https://developer.android.com/training/dependency-
 New Navigation Type Safety - https://medium.com/androiddevelopers/navigation-compose-meet-type-safety-e081fb3cf2f8 <br />
 
 # Others
+UI State <br />
 View Model <br />
 Repository <br />
 Offline Support <br />
