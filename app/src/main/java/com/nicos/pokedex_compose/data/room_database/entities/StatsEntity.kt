@@ -10,7 +10,7 @@ import com.nicos.pokedex_compose.data.room_database.init_database.MyRoomDatabase
 import kotlinx.coroutines.flow.flow
 
 @Entity(
-    indices = [Index(value = ["id"], unique = true)],
+    indices = [Index(value = ["id"], unique = true), Index(value = ["pokemonName"])],
     foreignKeys = [ForeignKey(
         entity = PokemonDetailsEntity::class,
         parentColumns = arrayOf("name"),
