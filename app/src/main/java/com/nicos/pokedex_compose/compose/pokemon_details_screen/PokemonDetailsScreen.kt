@@ -2,7 +2,6 @@
 
 package com.nicos.pokedex_compose.compose.pokemon_details_screen
 
-import android.R
 import android.annotation.SuppressLint
 import androidx.compose.animation.AnimatedVisibilityScope
 import androidx.compose.animation.ExperimentalSharedTransitionApi
@@ -43,6 +42,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.AsyncImage
 import coil.request.CachePolicy
 import coil.request.ImageRequest
+import com.nicos.pokedex_compose.R
 import com.nicos.pokedex_compose.compose.generic_compose_views.CustomToolbar
 import com.nicos.pokedex_compose.data.models.pokemon_details_data_model.PokemonDetailsDataModel
 import com.nicos.pokedex_compose.data.models.pokemon_details_data_model.PokemonDetailsViewTypes
@@ -118,8 +118,8 @@ fun SharedTransitionScope.ImageAndName(
             model = ImageRequest.Builder(context = context).apply {
                 data(pokemonDetailsDataModel.imageUrl)
                 placeholder(getProgressDrawable(context))
-                error(R.drawable.stat_notify_error)
-                fallback(R.drawable.stat_notify_error)
+                error(android.R.drawable.stat_notify_error)
+                fallback(android.R.drawable.stat_notify_error)
                 memoryCachePolicy(CachePolicy.ENABLED)
             }.build(),
             contentDescription = null,
