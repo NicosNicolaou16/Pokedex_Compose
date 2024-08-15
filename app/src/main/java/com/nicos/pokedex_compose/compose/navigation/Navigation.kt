@@ -40,6 +40,7 @@ fun Navigation() {
             composable<PokemonDetails> {
                 val pokemonDetailsScreen: PokemonDetails = it.toRoute()
                 PokemonDetailsScreen(
+                    navController = navController,
                     url = pokemonDetailsScreen.url.decodeStringUrl(),
                     imageUrl = pokemonDetailsScreen.imageUrl.decodeStringUrl(),
                     name = pokemonDetailsScreen.name,

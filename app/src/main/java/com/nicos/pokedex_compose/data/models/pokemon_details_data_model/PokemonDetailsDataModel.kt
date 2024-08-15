@@ -1,5 +1,6 @@
 package com.nicos.pokedex_compose.data.models.pokemon_details_data_model
 
+import androidx.compose.ui.util.fastForEachIndexed
 import com.nicos.pokedex_compose.data.room_database.entities.PokemonDetailsEntity
 import com.nicos.pokedex_compose.data.room_database.entities.StatsEntity
 
@@ -8,6 +9,7 @@ data class PokemonDetailsDataModel(
     val name: String? = null,
     val weight: Int? = null,
     val statsEntity: StatsEntity? = null,
+    val shouldEnableRoundCorner: Boolean = false,
     val pokemonDetailsViewTypes: PokemonDetailsViewTypes,
 ) {
     companion object {
@@ -24,10 +26,11 @@ data class PokemonDetailsDataModel(
                 )
             )
 
-            pokemonDetailsEntity?.statsEntity?.forEach { statsEntity ->
+            pokemonDetailsEntity?.statsEntity?.forEachIndexed { index, statsEntity ->
                 add(
                     PokemonDetailsDataModel(
                         statsEntity = statsEntity,
+                        shouldEnableRoundCorner = index == 0,
                         pokemonDetailsViewTypes = PokemonDetailsViewTypes.STAT_VIEW_TYPE
                     )
                 )
