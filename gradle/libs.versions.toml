@@ -27,8 +27,11 @@ swipeRefreshLayoutVersion = "1.1.0"
 gsonVersion = "2.11.0"
 paletteVersion = "1.0.0"
 kotlinSerializationVersion = "1.7.1"
+percentagesWithAnimationComposeVersion = "1.0.0"
 
 [libraries]
+# My Library - https://github.com/NicosNicolaou16/PercentagesWithAnimationCompose
+percentages-with-animation-compose = { group = "com.github.NicosNicolaou16", name = "PercentagesWithAnimationCompose", version.ref = "percentagesWithAnimationComposeVersion" }
 # Architecture
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }

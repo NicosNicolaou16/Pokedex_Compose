@@ -37,16 +37,21 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.AsyncImage
 import coil.request.CachePolicy
 import coil.request.ImageRequest
+import com.nicos.percentageswithanimationcompose.LinearPercentage
+import com.nicos.percentageswithanimationcompose.enums.LeftAndRightText
 import com.nicos.pokedex_compose.compose.generic_compose_views.CustomToolbar
 import com.nicos.pokedex_compose.data.models.pokemon_details_data_model.PokemonDetailsDataModel
 import com.nicos.pokedex_compose.data.models.pokemon_details_data_model.PokemonDetailsViewTypes
 import com.nicos.pokedex_compose.utils.extensions.colorToInt
 import com.nicos.pokedex_compose.utils.extensions.getProgressDrawable
+import com.nicos.pokedex_compose.utils.extensions.upperCaseFirstLetter
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
@@ -150,33 +155,29 @@ fun StatView(
     pokemonDetailsViewModel: PokemonDetailsDataModel,
     color: MutableState<Int>,
 ) {
-    var progress by remember { mutableFloatStateOf(0F) }
-    val progressAnimDuration = 1_500
-    val progressAnimation by animateFloatAsState(
-        targetValue = progress,
-        animationSpec = tween(durationMillis = progressAnimDuration, easing = FastOutSlowInEasing),
-        label = "",
-    )
     Column {
         Text(
-            text = pokemonDetailsViewModel.statsEntity?.statName ?: "",
-            modifier = Modifier.padding(start = 15.dp)
+            text = pokemonDetailsViewModel.statsEntity?.statName?.upperCaseFirstLetter() ?: "",
+            style = TextStyle(color = Color.White, fontSize = 15.sp),
+            modifier = Modifier.padding(
+                start = 15.dp,
+                top = 15.dp,
+                bottom = 15.dp
+            )
         )
-        LinearProgressIndicator(
-            progress = {
-                progressAnimation
-            },
-            modifier = Modifier
-                .padding(15.dp)
-                .height(25.dp)
-                .clip(RoundedCornerShape(16.dp)),
-            color = Color(color.value),
-            trackColor = Color.LightGray
+        LinearPercentage(
+            currentPercentage = pokemonDetailsViewModel.statsEntity?.baseStat?.toFloat() ?: 0.0F,
+            maxPercentage = 200F,
+            heightPercentageBackground = 25,
+            heightPercentage = 25,
+            roundedCornerShapeValue = 16,
+            horizontalPadding = 15,
+            colorPercentageBackground = Color.LightGray,
+            colorPercentage = Color(color.value),
+            startTextStyle = TextStyle(color = Color(color.value), fontSize = 15.sp),
+            endTextStyle = TextStyle(color = Color(color.value), fontSize = 15.sp),
+            leftAndRightText = LeftAndRightText.LEFT_ONLY
         )
-    }
-    LaunchedEffect(Unit) {
-        progress =
-            pokemonDetailsViewModel.statsEntity?.baseStat?.toFloat()?.div(100) ?: 0.0.toFloat()
     }
 }
 
