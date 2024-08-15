@@ -131,10 +131,10 @@ fun SharedTransitionScope.ImageAndName(
         )
         Spacer(modifier = Modifier.padding(top = 15.dp))
         Text(
-            text = (pokemonDetailsDataModel.name
-                ?: "") + " " + pokemonDetailsDataModel.weight + stringResource(
+            text = pokemonDetailsDataModel.name.upperCaseFirstLetter() + " " + pokemonDetailsDataModel.weight + stringResource(
                 com.nicos.pokedex_compose.R.string.kg
-            )
+            ),
+            style = TextStyle(color = Color.White, fontSize = 21.sp),
         )
     }
 }
@@ -147,7 +147,7 @@ fun StatView(
     Column {
         Text(
             text = pokemonDetailsViewModel.statsEntity?.statName?.upperCaseFirstLetter() ?: "",
-            style = TextStyle(color = Color.White, fontSize = 15.sp),
+            style = TextStyle(color = Color.White, fontSize = 19.sp),
             modifier = Modifier.padding(
                 start = 15.dp,
                 top = 15.dp,
@@ -163,8 +163,8 @@ fun StatView(
             horizontalPadding = 15,
             colorPercentageBackground = Color.LightGray,
             colorPercentage = Color(color.value),
-            startTextStyle = TextStyle(color = Color(color.value), fontSize = 15.sp),
-            endTextStyle = TextStyle(color = Color(color.value), fontSize = 15.sp),
+            startTextStyle = TextStyle(color = Color(color.value), fontSize = 19.sp),
+            endTextStyle = TextStyle(color = Color(color.value), fontSize = 19.sp),
             leftAndRightText = LeftAndRightText.LEFT_ONLY
         )
     }
