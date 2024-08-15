@@ -42,7 +42,6 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.AsyncImage
 import coil.request.CachePolicy
 import coil.request.ImageRequest
-import com.nicos.pokedex_compose.R
 import com.nicos.pokedex_compose.compose.generic_compose_views.CustomToolbar
 import com.nicos.pokedex_compose.data.models.pokemon_details_data_model.PokemonDetailsDataModel
 import com.nicos.pokedex_compose.data.models.pokemon_details_data_model.PokemonDetailsViewTypes
