@@ -9,7 +9,6 @@ data class PokemonDetailsDataModel(
     val name: String? = null,
     val weight: Int? = null,
     val statsEntity: StatsEntity? = null,
-    val shouldEnableRoundCorner: Boolean = false,
     val pokemonDetailsViewTypes: PokemonDetailsViewTypes,
 ) {
     companion object {
@@ -26,11 +25,10 @@ data class PokemonDetailsDataModel(
                 )
             )
 
-            pokemonDetailsEntity?.statsEntity?.forEachIndexed { index, statsEntity ->
+            pokemonDetailsEntity?.statsEntity?.forEach { statsEntity ->
                 add(
                     PokemonDetailsDataModel(
                         statsEntity = statsEntity,
-                        shouldEnableRoundCorner = index == 0,
                         pokemonDetailsViewTypes = PokemonDetailsViewTypes.STAT_VIEW_TYPE
                     )
                 )
