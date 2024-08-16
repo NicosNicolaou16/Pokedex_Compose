@@ -24,9 +24,9 @@ R8 enabled <br />
 # Examples
 <p align="left">
   <a title="simulator_image"><img src="examples/Screenshot_20240511_012335.png" height="500" width="200"></a>
-  <a title="simulator_image"><img src="examples/Screenshot_20240511_012348.png" height="500" width="200"></a>
-  <a title="simulator_image"><img src="examples/Screenshot_20240511_012400.png" height="500" width="200"></a>
-  <a title="simulator_image"><img src="examples/example_gif.gif" height="500" width="200"></a>
+  <a title="simulator_image"><img src="examples/Screenshot_20240816_221338.png" height="500" width="200"></a>
+  <a title="simulator_image"><img src="examples/Screenshot_20240816_221449.png" height="500" width="200"></a>
+  <a title="simulator_image"><img src="examples/example_gif1.gif" height="500" width="200"></a>
 </p>
 
 # Versioning
@@ -44,3 +44,4 @@ https://github.com/PokeAPI/sprites (GitHub) <br />
 https://fvilarino.medium.com/shared-element-transitions-in-jetpack-compose-8f553078101e <br />
 https://getstream.io/blog/shared-element-compose/  <br />
 https://medium.com/androiddevelopers/navigation-compose-meet-type-safety-e081fb3cf2f8  <br />
+https://dribbble.com/shots/6540871-Pokedex-App# -- Get some UI - not completely use it  <br />
