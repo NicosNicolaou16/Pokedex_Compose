@@ -9,6 +9,7 @@ data class PokemonDetailsDataModel(
     val name: String? = null,
     val weight: Int? = null,
     val statsEntity: StatsEntity? = null,
+    val maxValue: Int? = 0,
     val pokemonDetailsViewTypes: PokemonDetailsViewTypes,
 ) {
     companion object {
@@ -25,10 +26,13 @@ data class PokemonDetailsDataModel(
                 )
             )
 
+            val maxValue: Int = pokemonDetailsEntity?.statsEntity?.maxOfOrNull { it.baseStat ?: 0 }
+                ?: 0
             pokemonDetailsEntity?.statsEntity?.forEach { statsEntity ->
                 add(
                     PokemonDetailsDataModel(
                         statsEntity = statsEntity,
+                        maxValue = maxValue,
                         pokemonDetailsViewTypes = PokemonDetailsViewTypes.STAT_VIEW_TYPE
                     )
                 )

@@ -3,6 +3,7 @@
 package com.nicos.pokedex_compose.compose.pokemon_details_screen
 
 import android.annotation.SuppressLint
+import android.util.Log
 import androidx.activity.SystemBarStyle
 import androidx.compose.animation.AnimatedVisibilityScope
 import androidx.compose.animation.ExperimentalSharedTransitionApi
@@ -37,6 +38,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.graphics.alpha
 import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.AsyncImage
 import coil.request.CachePolicy
@@ -203,7 +205,7 @@ fun StatView(
             LinearPercentage(
                 currentPercentage = pokemonDetailsViewModel.statsEntity?.baseStat?.toFloat()
                     ?: 0.0F,
-                maxPercentage = 200F,
+                maxPercentage = pokemonDetailsViewModel.maxValue?.toFloat() ?: 200F,
                 heightPercentageBackground = 25,
                 heightPercentage = 25,
                 roundedCornerShapeValue = 16,
