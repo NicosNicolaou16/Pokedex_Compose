@@ -2,7 +2,6 @@
 
 package com.nicos.pokedex_compose.compose.pokemon_list_screen
 
-import android.R
 import android.annotation.SuppressLint
 import androidx.compose.animation.AnimatedVisibilityScope
 import androidx.compose.animation.ExperimentalSharedTransitionApi
@@ -44,7 +43,11 @@ fun SharedTransitionScope.PokemonListScreen(
     listener: (PokemonEntity) -> Unit,
     animatedVisibilityScope: AnimatedVisibilityScope,
 ) {
-    Scaffold(topBar = { CustomToolbar(title = stringResource(com.nicos.pokedex_compose.R.string.pokemon_list)) }) { paddingValues ->
+    Scaffold(topBar = {
+        CustomToolbar(
+            title = stringResource(com.nicos.pokedex_compose.R.string.pokemon_list),
+        )
+    }) { paddingValues ->
         GridViewPokemonList(
             animatedVisibilityScope = animatedVisibilityScope,
             paddingValues = paddingValues,
@@ -107,18 +110,18 @@ fun SharedTransitionScope.LoadPokemonImage(
         ),
         shape = RoundedCornerShape(20.dp),
         colors = CardColors(
-            contentColor = colorResource(id = R.color.holo_green_light),
-            containerColor = colorResource(id = R.color.holo_green_light),
-            disabledContentColor = colorResource(id = R.color.holo_green_light),
-            disabledContainerColor = colorResource(id = R.color.holo_green_light),
+            contentColor = colorResource(id = android.R.color.holo_green_light),
+            containerColor = colorResource(id = android.R.color.holo_green_light),
+            disabledContentColor = colorResource(id = android.R.color.holo_green_light),
+            disabledContainerColor = colorResource(id = android.R.color.holo_green_light),
         )
     ) {
         AsyncImage(
             model = ImageRequest.Builder(context = context).apply {
                 data(pokemonEntity.imageUrl)
                 placeholder(getProgressDrawable(context))
-                error(R.drawable.stat_notify_error)
-                fallback(R.drawable.stat_notify_error)
+                error(android.R.drawable.stat_notify_error)
+                fallback(android.R.drawable.stat_notify_error)
                 memoryCachePolicy(CachePolicy.ENABLED)
             }.build(),
             modifier = Modifier

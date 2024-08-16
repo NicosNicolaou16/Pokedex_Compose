@@ -1,5 +1,6 @@
 package com.nicos.pokedex_compose.compose.navigation
 
+import androidx.activity.SystemBarStyle
 import androidx.compose.animation.ExperimentalSharedTransitionApi
 import androidx.compose.animation.SharedTransitionLayout
 import androidx.compose.runtime.Composable
@@ -16,7 +17,7 @@ import com.nicos.pokedex_compose.utils.screen_routes.PokemonList
 
 @OptIn(ExperimentalSharedTransitionApi::class)
 @Composable
-fun Navigation() {
+fun Navigation(changeSystemBarStyle: (SystemBarStyle) -> Unit) {
     val navController = rememberNavController()
     SharedTransitionLayout {
         NavHost(
@@ -43,7 +44,11 @@ fun Navigation() {
                     url = pokemonDetailsScreen.url.decodeStringUrl(),
                     imageUrl = pokemonDetailsScreen.imageUrl.decodeStringUrl(),
                     name = pokemonDetailsScreen.name,
+                    changeSystemBarStyle = changeSystemBarStyle,
                     animatedVisibilityScope = this@composable,
+                    backButton = {
+                        navController.popBackStack()
+                    }
                 )
             }
         }

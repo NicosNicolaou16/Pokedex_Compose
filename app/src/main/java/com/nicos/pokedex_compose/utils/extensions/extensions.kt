@@ -34,3 +34,6 @@ fun Drawable.colorToInt(
     return Palette.from(drawable).generate()
         .getDominantColor(context.resources.getColor(color, null))
 }
+
+fun String?.upperCaseFirstLetter(): String =
+    this?.first()?.uppercase() + this?.replaceFirst(this.first().toString(), "")
