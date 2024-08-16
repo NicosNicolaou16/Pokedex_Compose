@@ -13,6 +13,8 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -36,8 +38,6 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.navigation.NavHostController
-import androidx.navigation.compose.rememberNavController
 import coil.compose.AsyncImage
 import coil.request.CachePolicy
 import coil.request.ImageRequest
@@ -130,39 +130,54 @@ fun SharedTransitionScope.ImageAndName(
     color: MutableIntState,
 ) {
     val context = LocalContext.current
-    Column(
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        AsyncImage(
-            model = ImageRequest.Builder(context = context).apply {
-                data(pokemonDetailsDataModel.imageUrl)
-                placeholder(getProgressDrawable(context))
-                error(android.R.drawable.stat_notify_error)
-                fallback(android.R.drawable.stat_notify_error)
-                memoryCachePolicy(CachePolicy.ENABLED)
-            }.build(),
-            contentDescription = null,
-            contentScale = ContentScale.None,
-            onSuccess = { success ->
-                color.intValue = success.result.drawable.colorToInt(context)
-            },
+    Box {
+        Box(
             modifier = Modifier
-                .fillMaxSize()
-                .sharedElement(
-                    state = rememberSharedContentState(
-                        key = pokemonDetailsDataModel.imageUrl ?: ""
-                    ),
-                    animatedVisibilityScope = animatedVisibilityScope,
+                .height(70.dp)
+                .fillMaxWidth()
+                .clip(
+                    shape = RoundedCornerShape(
+                        topStart = 50.dp,
+                        topEnd = 50.dp,
+                    )
                 )
+                .align(Alignment.BottomCenter)
+                .background(Color.Black)
         )
-        Spacer(modifier = Modifier.padding(top = 15.dp))
-        Text(
-            text = pokemonDetailsDataModel.name.upperCaseFirstLetter() + " " + pokemonDetailsDataModel.weight + stringResource(
-                com.nicos.pokedex_compose.R.string.kg
-            ),
-            style = TextStyle(color = Color.White, fontSize = 21.sp),
-        )
-        Spacer(modifier = Modifier.padding(bottom = 15.dp))
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            AsyncImage(
+                model = ImageRequest.Builder(context = context).apply {
+                    data(pokemonDetailsDataModel.imageUrl)
+                    placeholder(getProgressDrawable(context))
+                    error(android.R.drawable.stat_notify_error)
+                    fallback(android.R.drawable.stat_notify_error)
+                    memoryCachePolicy(CachePolicy.ENABLED)
+                }.build(),
+                contentDescription = null,
+                contentScale = ContentScale.None,
+                onSuccess = { success ->
+                    color.intValue = success.result.drawable.colorToInt(context)
+                },
+                modifier = Modifier
+                    .fillMaxSize()
+                    .sharedElement(
+                        state = rememberSharedContentState(
+                            key = pokemonDetailsDataModel.imageUrl ?: ""
+                        ),
+                        animatedVisibilityScope = animatedVisibilityScope,
+                    )
+            )
+            Spacer(modifier = Modifier.padding(top = 15.dp))
+            Text(
+                text = pokemonDetailsDataModel.name.upperCaseFirstLetter() + " " + pokemonDetailsDataModel.weight + stringResource(
+                    com.nicos.pokedex_compose.R.string.kg
+                ),
+                style = TextStyle(color = Color.White, fontSize = 21.sp),
+            )
+            Spacer(modifier = Modifier.padding(bottom = 5.dp))
+        }
     }
 }
 
@@ -171,18 +186,11 @@ fun StatView(
     pokemonDetailsViewModel: PokemonDetailsDataModel,
     color: MutableIntState,
 ) {
-    val cornerValue = if (pokemonDetailsViewModel.shouldEnableRoundCorner) 50.dp else 0.dp
     Box(
         modifier = Modifier
-            .clip(
-                shape = RoundedCornerShape(
-                    topStart = cornerValue,
-                    topEnd = cornerValue
-                )
-            )
             .background(Color.Black)
     ) {
-        Column(modifier = Modifier.padding(top = if (pokemonDetailsViewModel.shouldEnableRoundCorner) 30.dp else 0.dp)) {
+        Column {
             Text(
                 text = pokemonDetailsViewModel.statsEntity?.statName?.upperCaseFirstLetter() ?: "",
                 style = TextStyle(color = Color.White, fontSize = 19.sp),
