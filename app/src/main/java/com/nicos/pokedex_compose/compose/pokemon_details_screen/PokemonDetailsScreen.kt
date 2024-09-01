@@ -3,7 +3,6 @@
 package com.nicos.pokedex_compose.compose.pokemon_details_screen
 
 import android.annotation.SuppressLint
-import android.util.Log
 import androidx.activity.SystemBarStyle
 import androidx.compose.animation.AnimatedVisibilityScope
 import androidx.compose.animation.ExperimentalSharedTransitionApi
@@ -38,7 +37,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.core.graphics.alpha
 import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.AsyncImage
 import coil.request.CachePolicy
@@ -173,7 +171,7 @@ fun SharedTransitionScope.ImageAndName(
             )
             Spacer(modifier = Modifier.padding(top = 15.dp))
             Text(
-                text = pokemonDetailsDataModel.name.upperCaseFirstLetter() + " " + pokemonDetailsDataModel.weight + stringResource(
+                text = pokemonDetailsDataModel.name?.upperCaseFirstLetter() + " " + pokemonDetailsDataModel.weight + stringResource(
                     com.nicos.pokedex_compose.R.string.kg
                 ),
                 style = TextStyle(color = Color.White, fontSize = 21.sp),

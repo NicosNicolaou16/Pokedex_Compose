@@ -36,4 +36,7 @@ fun Drawable.colorToInt(
 }
 
 fun String?.upperCaseFirstLetter(): String =
-    this?.first()?.uppercase() + this?.replaceFirst(this.first().toString(), "")
+    if (!this.isNullOrEmpty()) this.first().uppercase() + this.replaceFirst(
+        this.first().toString(),
+        ""
+    ) else ""
