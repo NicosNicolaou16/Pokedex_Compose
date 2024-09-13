@@ -11,7 +11,6 @@ import androidx.navigation.toRoute
 import com.nicos.pokedex_compose.compose.pokemon_details_screen.PokemonDetailsScreen
 import com.nicos.pokedex_compose.compose.pokemon_list_screen.PokemonListScreen
 import com.nicos.pokedex_compose.utils.extensions.decodeStringUrl
-import com.nicos.pokedex_compose.utils.extensions.encodeStringUrl
 import com.nicos.pokedex_compose.utils.screen_routes.PokemonDetails
 import com.nicos.pokedex_compose.utils.screen_routes.PokemonList
 
@@ -26,15 +25,7 @@ fun Navigation(changeSystemBarStyle: (SystemBarStyle) -> Unit) {
         ) {
             composable<PokemonList> {
                 PokemonListScreen(
-                    listener = {
-                        navController.navigate(
-                            PokemonDetails(
-                                url = it.url?.encodeStringUrl() ?: "",
-                                imageUrl = it.imageUrl?.encodeStringUrl() ?: "",
-                                name = it.name,
-                            )
-                        )
-                    },
+                    navController,
                     animatedVisibilityScope = this@composable,
                 )
             }
