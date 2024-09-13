@@ -12,7 +12,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.foundation.lazy.grid.itemsIndexed
+import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardColors
@@ -72,9 +72,9 @@ fun SharedTransitionScope.GridViewPokemonList(
         modifier = Modifier.padding(top = paddingValues.calculateTopPadding()),
         columns = GridCells.Fixed(2)
     ) {
-        itemsIndexed(state.pokemonMutableList?.toMutableList() ?: emptyList(), key = { _, pokemon ->
+        items(state.pokemonMutableList ?: mutableListOf(), key = { pokemon ->
             pokemon.name
-        }) { index, pokemon ->
+        }) { pokemon ->
             LoadPokemonImage(
                 listener = listener,
                 animatedVisibilityScope = animatedVisibilityScope,
