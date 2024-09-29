@@ -29,6 +29,10 @@ R8 enabled <br />
   <a title="simulator_image"><img src="examples/example_gif1.gif" height="500" width="200"></a>
 </p>
 
+## Similar project with (Dart Language)
+
+https://github.com/NicosNicolaou16/Pokedex_Flutter <br />
+
 # Versioning
 Target SDK version: 34 <br />
 Minimum SDK version: 27 <br />
