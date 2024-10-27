@@ -27,7 +27,7 @@ swipeRefreshLayoutVersion = "1.1.0"
 gsonVersion = "2.11.0"
 paletteVersion = "1.0.0"
 kotlinSerializationVersion = "1.7.3"
-percentagesWithAnimationComposeVersion = "1.1.1"
+percentagesWithAnimationComposeVersion = "1.2.0"
 
 [libraries]
 # My Library - https://github.com/NicosNicolaou16/PercentagesWithAnimationCompose
