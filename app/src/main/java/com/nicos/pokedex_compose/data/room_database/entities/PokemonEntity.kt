@@ -19,7 +19,7 @@ data class PokemonEntity(
             "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/"
         private const val PNG_FORMAT = ".png"
 
-        suspend fun savePokemonList(
+        fun savePokemonList(
             pokemonEntityList: MutableList<PokemonEntity>,
             myRoomDatabase: MyRoomDatabase
         ) = flow {
