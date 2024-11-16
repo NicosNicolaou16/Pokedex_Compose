@@ -7,6 +7,14 @@ Also, it contains some other important technologies such as Room Database, KSP, 
 > [!IMPORTANT]  
 > Similar project with Flutter (Dart Language) :point_right: [Pokedex_Flutter](https://github.com/NicosNicolaou16/Pokedex_Flutter) :point_left: <br />
 
+# Examples
+<p align="left">
+  <a title="simulator_image"><img src="examples/Screenshot_20240511_012335.png" height="500" width="200"></a>
+  <a title="simulator_image"><img src="examples/Screenshot_20240816_221338.png" height="500" width="200"></a>
+  <a title="simulator_image"><img src="examples/Screenshot_20240816_221449.png" height="500" width="200"></a>
+  <a title="simulator_image"><img src="examples/example_gif1.gif" height="500" width="200"></a>
+</p>
+
 # The Project Contain the following technologies
 The programming language is the [Kotlin](https://kotlinlang.org/docs/getting-started.html), it is a modern, JVM-based programming language that is concise, safe, and interoperable with Java. <br />
 The UI is build using [Jetpack Compose](https://developer.android.com/develop/ui/compose). <br />
@@ -21,15 +29,7 @@ For Animation and Navigation from the main screen to details screen is use the n
 [MVVM](https://developer.android.com/topic/architecture#recommended-app-arch) with repository is an architecture where the Repository manages data sources (e.g., network, database), the ViewModel processes the data for the UI, and the View displays the UI, ensuring a clear separation of concerns. <br />
 [UI State](https://developer.android.com/topic/architecture/ui-layer/events#handle-viewmodel-events) to initial, loading, loaded and error. <br />
 [R8](https://developer.android.com/build/shrink-code) enabled, is a code shrinker and obfuscator for Android that optimizes and reduces the size of APKs by removing unused code and resources, while also obfuscating the remaining code to improve security. <br />
-The percentage for showing the skills of each Pokémon is calculated using the [PercentageWithAnimation](https://github.com/NicosNicolaou16/PercentagesWithAnimationCompose) built by @NicosNicolaou16
-
-# Examples
-<p align="left">
-  <a title="simulator_image"><img src="examples/Screenshot_20240511_012335.png" height="500" width="200"></a>
-  <a title="simulator_image"><img src="examples/Screenshot_20240816_221338.png" height="500" width="200"></a>
-  <a title="simulator_image"><img src="examples/Screenshot_20240816_221449.png" height="500" width="200"></a>
-  <a title="simulator_image"><img src="examples/example_gif1.gif" height="500" width="200"></a>
-</p>
+The percentage for showing the skills of each Pokémon is calculated using the [PercentageWithAnimation](https://github.com/NicosNicolaou16/PercentagesWithAnimationCompose) built by @NicosNicolaou16. <br />
 
 # Versioning
 Target SDK version: 35 <br />
