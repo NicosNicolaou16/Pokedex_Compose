@@ -12,7 +12,7 @@ For Animation and Navigation from the main screen to details screen is use the n
 [Palette](https://developer.android.com/develop/ui/views/graphics/palette-colors) is used to retrieve the color from the image; in our case, we are using the Pokémon color to paint the linear indicator with the same color. <br />
 [KSP](https://developer.android.com/build/migrate-to-ksp) ("Kotlin Symbol Processing") is a tool for efficient annotation processing in Kotlin, providing faster code generation and symbol manipulation compared to KAPT. [Repository](https://github.com/google/ksp) <br />
 [Coil](https://coil-kt.github.io/coil/compose/) for Jetpack Compose is a library that it is responsible for loading the images asynchronous. ([Coil Documentation](https://coil-kt.github.io/coil/), [Repository](https://github.com/coil-kt/coil)) <br />
-Hilt Dependencies Injection - https://developer.android.com/training/dependency-injection/hilt-android <br />
+[Hilt Dependencies Injection](https://developer.android.com/training/dependency-injection/hilt-android) is an Android library that simplifies dependency injection by using annotations to automatically manage and provide dependencies across components, built on top of Dagger. ([Documentation](https://dagger.dev/hilt/)) <br />
 
 # Others
 UI State <br />
