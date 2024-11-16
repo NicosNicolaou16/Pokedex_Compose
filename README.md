@@ -5,7 +5,7 @@ Also, it contains some other important technologies such as Room Database, KSP, 
 <br />
 
 > [!IMPORTANT]  
-> Similar project with (Dart Language)
+> Similar project with Flutter (Dart Language) <br />
 > [Pokedex_Flutter](https://github.com/NicosNicolaou16/Pokedex_Flutter) <br />
 
 # The Project Contain the following technologies
