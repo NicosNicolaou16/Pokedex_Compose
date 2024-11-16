@@ -7,7 +7,7 @@ The programming language is the [Kotlin](https://kotlinlang.org/docs/getting-sta
 The UI is build using [Jetpack Compose](https://developer.android.com/develop/ui/compose). <br />
 For Navigation between screens is use the [New Navigation Type Safety](https://medium.com/androiddevelopers/navigation-compose-meet-type-safety-e081fb3cf2f8). <br />
 For Animation and Navigation from the main screen to details screen is use the new [Shared Element Transition](https://developer.android.com/develop/ui/compose/animation/shared-elements) - [Shared Element Transition](https://fvilarino.medium.com/shared-element-transitions-in-jetpack-compose-8f553078101e) - [Shared Element Transition](https://getstream.io/blog/shared-element-compose/).  <br />
-Retrofit for Network Manager https://square.github.io/retrofit/ - https://github.com/square/retrofit <br />
+[Retrofit](https://square.github.io/retrofit/) is responsible for making requests and retrieving data from the remote server. ([Repo](https://github.com/square/retrofit)) <br />
 Room Database https://developer.android.com/training/data-storage/room <br />
 Palette (Using the Pokemon Color to paint the Linear Indicator with the same color) - https://developer.android.com/develop/ui/views/graphics/palette-colors <br />
 KSP - https://developer.android.com/build/migrate-to-ksp - https://github.com/google/ksp <br />
