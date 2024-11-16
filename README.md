@@ -9,7 +9,7 @@ For Navigation between screens is use the [New Navigation Type Safety](https://m
 For Animation and Navigation from the main screen to details screen is use the new [Shared Element Transition](https://developer.android.com/develop/ui/compose/animation/shared-elements) - [Shared Element Transition](https://fvilarino.medium.com/shared-element-transitions-in-jetpack-compose-8f553078101e) - [Shared Element Transition](https://getstream.io/blog/shared-element-compose/).  <br />
 [Retrofit](https://square.github.io/retrofit/) is responsible for making requests and retrieving data from the remote server. ([Repository](https://github.com/square/retrofit)) <br />
 [Room Database](https://developer.android.com/training/data-storage/room) is responsible for saving the retrieved data from the remote server, querying data from the local database, and supporting offline functionality.  <br />
-Palette (Using the Pokemon Color to paint the Linear Indicator with the same color) - https://developer.android.com/develop/ui/views/graphics/palette-colors <br />
+[Palette](https://developer.android.com/develop/ui/views/graphics/palette-colors) is used to retrieve the color from the image; in our case, we are using the Pokémon color to paint the linear indicator with the same color. <br />
 KSP - https://developer.android.com/build/migrate-to-ksp - https://github.com/google/ksp <br />
 Coil For Compose - https://coil-kt.github.io/coil/compose/ - https://coil-kt.github.io/coil/ - https://github.com/coil-kt/coil <br />
 Hilt Dependencies Injection - https://developer.android.com/training/dependency-injection/hilt-android <br />
