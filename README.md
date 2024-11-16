@@ -4,7 +4,7 @@ Also, it contains some other important technologies such as Room Database, KSP, 
 
 # The Project Contain the following technologies
 The programming language is the [Kotlin](https://kotlinlang.org/docs/getting-started.html), it is a modern, JVM-based programming language that is concise, safe, and interoperable with Java. <br />
-Jetpack Compose https://developer.android.com/develop/ui/compose <br />
+The UI is build using [Jetpack Compose](https://developer.android.com/develop/ui/compose). <br />
 Jetpack Compose Navigation - New Shared Element Transition - https://developer.android.com/develop/ui/compose/animation/shared-elements - https://fvilarino.medium.com/shared-element-transitions-in-jetpack-compose-8f553078101e - https://getstream.io/blog/shared-element-compose/  <br />
 Retrofit for Network Manager https://square.github.io/retrofit/ - https://github.com/square/retrofit <br />
 Room Database https://developer.android.com/training/data-storage/room <br />
