@@ -25,8 +25,8 @@ UI State to initial, loading and loaded <br />
   <a title="simulator_image"><img src="examples/example_gif1.gif" height="500" width="200"></a>
 </p>
 
-[!Note] Similar project with (Dart Language)
-https://github.com/NicosNicolaou16/Pokedex_Flutter <br />
+>[!Note] Similar project with (Dart Language)
+> [Pokedex_Flutter](https://github.com/NicosNicolaou16/Pokedex_Flutter) <br />
 
 # Versioning
 Target SDK version: 35 <br />
