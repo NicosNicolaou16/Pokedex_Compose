@@ -5,8 +5,8 @@ Also, it contains some other important technologies such as Room Database, KSP, 
 <br />
 
 > [!IMPORTANT]  
-> Similar project with Flutter (Dart Language) <br />
-> [Pokedex_Flutter](https://github.com/NicosNicolaou16/Pokedex_Flutter) <br />
+> Similar project with Flutter (Dart Language)
+> >>>[Pokedex_Flutter](https://github.com/NicosNicolaou16/Pokedex_Flutter) <<< <br />
 
 # The Project Contain the following technologies
 The programming language is the [Kotlin](https://kotlinlang.org/docs/getting-started.html), it is a modern, JVM-based programming language that is concise, safe, and interoperable with Java. <br />
