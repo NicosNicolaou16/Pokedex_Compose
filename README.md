@@ -2,6 +2,12 @@
 This Pokedex - Pokemon app is a project that contain and apply the latest Android technologies recommended by Google such as Jetpack Compose, the new way to build the design.
 Also, it contains some other important technologies such as Room Database, KSP, Hilt Dependencies Injection, the new Shared Element Transaction and new Navigation Type Safety.
 
+<br />
+
+> [!IMPORTANT]  
+> Similar project with (Dart Language)
+> [Pokedex_Flutter](https://github.com/NicosNicolaou16/Pokedex_Flutter) <br />
+
 # The Project Contain the following technologies
 The programming language is the [Kotlin](https://kotlinlang.org/docs/getting-started.html), it is a modern, JVM-based programming language that is concise, safe, and interoperable with Java. <br />
 The UI is build using [Jetpack Compose](https://developer.android.com/develop/ui/compose). <br />
@@ -24,12 +30,6 @@ UI State to initial, loading and loaded <br />
   <a title="simulator_image"><img src="examples/Screenshot_20240816_221449.png" height="500" width="200"></a>
   <a title="simulator_image"><img src="examples/example_gif1.gif" height="500" width="200"></a>
 </p>
-
-<br />
-
-> [!IMPORTANT]  
-> Similar project with (Dart Language)
-> [Pokedex_Flutter](https://github.com/NicosNicolaou16/Pokedex_Flutter) <br />
 
 # Versioning
 Target SDK version: 35 <br />
