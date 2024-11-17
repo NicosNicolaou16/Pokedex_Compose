@@ -17,6 +17,8 @@ Also, it contains some other important technologies such as Room Database, KSP, 
 
 # The Project Contain the following technologies
 The programming language is the [Kotlin](https://kotlinlang.org/docs/getting-started.html), it is a modern, JVM-based programming language that is concise, safe, and interoperable with Java. <br />
+[Kotlin Coroutines](https://kotlinlang.org/docs/coroutines-overview.html) is used for asynchronous tasks. <br />
+[Kotlin KTX](https://developer.android.com/kotlin/ktx) is a collection of Kotlin extensions that offer more concise and expressive code for working with Android APIs and libraries.
 The UI is build using [Jetpack Compose](https://developer.android.com/develop/ui/compose). <br />
 For Navigation between screens is use the [New Navigation Type Safety](https://medium.com/androiddevelopers/navigation-compose-meet-type-safety-e081fb3cf2f8). <br />
 For Animation and Navigation from the main screen to details screen is use the new [Shared Element Transition](https://developer.android.com/develop/ui/compose/animation/shared-elements). ([Shared Element Transition - Article](https://fvilarino.medium.com/shared-element-transitions-in-jetpack-compose-8f553078101e), [Shared Element Transition - Article](https://getstream.io/blog/shared-element-compose/))  <br />
