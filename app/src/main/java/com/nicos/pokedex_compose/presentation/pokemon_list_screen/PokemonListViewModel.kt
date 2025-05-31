@@ -1,8 +1,8 @@
-package com.nicos.pokedex_compose.compose.pokemon_list_screen
+package com.nicos.pokedex_compose.presentation.pokemon_list_screen
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.nicos.pokedex_compose.domain.repositories.PokemonListRepository
+import com.nicos.pokedex_compose.data.repository_impl.PokemonListRepository
 import com.nicos.pokedex_compose.utils.generic_classes.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers

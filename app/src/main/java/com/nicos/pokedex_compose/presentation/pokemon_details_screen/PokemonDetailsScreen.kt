@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalSharedTransitionApi::class)
 
-package com.nicos.pokedex_compose.compose.pokemon_details_screen
+package com.nicos.pokedex_compose.presentation.pokemon_details_screen
 
 import android.annotation.SuppressLint
 import androidx.activity.SystemBarStyle
@@ -43,7 +43,7 @@ import coil.request.CachePolicy
 import coil.request.ImageRequest
 import com.nicos.percentageswithanimationcompose.LinearPercentage
 import com.nicos.percentageswithanimationcompose.enums.LeftAndRightText
-import com.nicos.pokedex_compose.compose.generic_compose_views.CustomToolbar
+import com.nicos.pokedex_compose.presentation.generic_compose_views.CustomToolbar
 import com.nicos.pokedex_compose.data.models.pokemon_details_data_model.PokemonDetailsDataModel
 import com.nicos.pokedex_compose.data.models.pokemon_details_data_model.PokemonDetailsViewTypes
 import com.nicos.pokedex_compose.utils.extensions.colorToInt

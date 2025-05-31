@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalSharedTransitionApi::class)
 
-package com.nicos.pokedex_compose.compose.pokemon_list_screen
+package com.nicos.pokedex_compose.presentation.pokemon_list_screen
 
 import android.annotation.SuppressLint
 import androidx.compose.animation.AnimatedVisibilityScope
@@ -32,9 +32,9 @@ import androidx.navigation.NavController
 import coil.compose.AsyncImage
 import coil.request.CachePolicy
 import coil.request.ImageRequest
-import com.nicos.pokedex_compose.compose.generic_compose_views.CustomToolbar
-import com.nicos.pokedex_compose.compose.generic_compose_views.ShowDialog
-import com.nicos.pokedex_compose.compose.generic_compose_views.StartDefaultLoader
+import com.nicos.pokedex_compose.presentation.generic_compose_views.CustomToolbar
+import com.nicos.pokedex_compose.presentation.generic_compose_views.ShowDialog
+import com.nicos.pokedex_compose.presentation.generic_compose_views.StartDefaultLoader
 import com.nicos.pokedex_compose.data.room_database.entities.PokemonEntity
 import com.nicos.pokedex_compose.utils.extensions.encodeStringUrl
 import com.nicos.pokedex_compose.utils.extensions.getProgressDrawable

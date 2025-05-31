@@ -1,8 +1,8 @@
-package com.nicos.pokedex_compose.domain.repositories
+package com.nicos.pokedex_compose.data.repository_impl
 
 import com.nicos.pokedex_compose.data.room_database.entities.PokemonDetailsEntity
 import com.nicos.pokedex_compose.data.room_database.init_database.MyRoomDatabase
-import com.nicos.pokedex_compose.domain.remote.PokemonService
+import com.nicos.pokedex_compose.domain.network.PokemonService
 import com.nicos.pokedex_compose.utils.generic_classes.HandlingError
 import com.nicos.pokedex_compose.utils.generic_classes.Resource
 import kotlinx.coroutines.flow.collect
