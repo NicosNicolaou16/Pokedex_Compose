@@ -1,4 +1,4 @@
-package com.nicos.pokedex_compose.di.handing_error
+package com.nicos.pokedex_compose.domain.di.handing_error
 
 import android.content.Context
 import com.nicos.pokedex_compose.utils.generic_classes.HandlingError

@@ -1,4 +1,4 @@
-package com.nicos.pokedex_compose.compose.pokemon_list_screen
+package com.nicos.pokedex_compose.presentation.pokemon_list_screen
 
 import com.nicos.pokedex_compose.data.room_database.entities.PokemonEntity
 

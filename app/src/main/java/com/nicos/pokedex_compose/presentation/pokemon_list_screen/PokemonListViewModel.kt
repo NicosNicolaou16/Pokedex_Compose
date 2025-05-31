@@ -1,8 +1,8 @@
-package com.nicos.pokedex_compose.compose.pokemon_list_screen
+package com.nicos.pokedex_compose.presentation.pokemon_list_screen
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.nicos.pokedex_compose.domain.repositories.PokemonListRepository
+import com.nicos.pokedex_compose.data.repository_impl.PokemonListRepositoryImpl
 import com.nicos.pokedex_compose.utils.generic_classes.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -13,7 +13,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class PokemonListViewModel @Inject constructor(
-    private val pokemonListRepository: PokemonListRepository
+    private val pokemonListRepositoryImpl: PokemonListRepositoryImpl
 ) : ViewModel() {
 
     private val _pokemonListState = MutableStateFlow<PokemonListState>(PokemonListState())
@@ -26,7 +26,7 @@ class PokemonListViewModel @Inject constructor(
 
     fun requestToFetchPokemon(url: String? = null) = viewModelScope.launch(Dispatchers.IO) {
         _pokemonListState.value = _pokemonListState.value.copy(isLoading = true)
-        pokemonListRepository.fetchPokemonList(url = url).let { resource ->
+        pokemonListRepositoryImpl.fetchPokemonList(url = url).let { resource ->
             when (resource) {
                 is Resource.Success -> {
                     _pokemonListState.value =
@@ -50,7 +50,7 @@ class PokemonListViewModel @Inject constructor(
 
     private fun offline() = viewModelScope.launch(Dispatchers.IO) {
         _pokemonListState.value = _pokemonListState.value.copy(isLoading = true)
-        pokemonListRepository.offline().let { resource ->
+        pokemonListRepositoryImpl.offline().let { resource ->
             when (resource) {
                 is Resource.Success -> {
                     _pokemonListState.value =

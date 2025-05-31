@@ -1,4 +1,4 @@
-package com.nicos.pokedex_compose.compose.generic_compose_views
+package com.nicos.pokedex_compose.presentation.generic_compose_views
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable

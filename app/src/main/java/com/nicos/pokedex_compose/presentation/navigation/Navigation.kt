@@ -1,4 +1,4 @@
-package com.nicos.pokedex_compose.compose.navigation
+package com.nicos.pokedex_compose.presentation.navigation
 
 import androidx.activity.SystemBarStyle
 import androidx.compose.animation.ExperimentalSharedTransitionApi
@@ -8,8 +8,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
-import com.nicos.pokedex_compose.compose.pokemon_details_screen.PokemonDetailsScreen
-import com.nicos.pokedex_compose.compose.pokemon_list_screen.PokemonListScreen
+import com.nicos.pokedex_compose.presentation.pokemon_details_screen.PokemonDetailsScreen
+import com.nicos.pokedex_compose.presentation.pokemon_list_screen.PokemonListScreen
 import com.nicos.pokedex_compose.utils.extensions.decodeStringUrl
 import com.nicos.pokedex_compose.utils.screen_routes.PokemonDetails
 import com.nicos.pokedex_compose.utils.screen_routes.PokemonList
