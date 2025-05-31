@@ -163,7 +163,7 @@ fun SharedTransitionScope.ImageAndName(
                 modifier = Modifier
                     .fillMaxSize()
                     .sharedElement(
-                        state = rememberSharedContentState(
+                        sharedContentState = rememberSharedContentState(
                             key = pokemonDetailsDataModel.imageUrl ?: ""
                         ),
                         animatedVisibilityScope = animatedVisibilityScope,

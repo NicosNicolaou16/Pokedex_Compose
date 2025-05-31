@@ -137,7 +137,7 @@ fun SharedTransitionScope.LoadPokemonImage(
             }.build(),
             modifier = Modifier
                 .sharedElement(
-                    state = rememberSharedContentState(key = pokemonEntity.imageUrl ?: ""),
+                    sharedContentState = rememberSharedContentState(key = pokemonEntity.imageUrl ?: ""),
                     animatedVisibilityScope = animatedVisibilityScope,
                 )
                 .fillMaxSize(),
