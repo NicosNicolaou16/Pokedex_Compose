@@ -3,6 +3,7 @@ package com.nicos.pokedex_compose.data.repository_impl
 import com.nicos.pokedex_compose.data.room_database.entities.PokemonEntity
 import com.nicos.pokedex_compose.data.room_database.init_database.MyRoomDatabase
 import com.nicos.pokedex_compose.domain.network.PokemonService
+import com.nicos.pokedex_compose.domain.repositories.PokemonListRepository
 import com.nicos.pokedex_compose.utils.generic_classes.HandlingError
 import com.nicos.pokedex_compose.utils.generic_classes.Resource
 import kotlinx.coroutines.flow.collect
@@ -12,9 +13,9 @@ class PokemonListRepositoryImpl @Inject constructor(
     private val myRoomDatabase: MyRoomDatabase,
     private val pokemonService: PokemonService,
     private val handlingError: HandlingError,
-) {
+) : PokemonListRepository {
 
-    suspend fun fetchPokemonList(url: String?): Resource<MutableList<PokemonEntity>> {
+    override suspend fun fetchPokemonList(url: String?): Resource<MutableList<PokemonEntity>> {
         return try {
             val pokemonService =
                 if (url == null) pokemonService.getPokemon() else pokemonService.getPokemon(url)
@@ -28,13 +29,13 @@ class PokemonListRepositoryImpl @Inject constructor(
         }
     }
 
-    private suspend fun savePokemon(pokemonEntityList: MutableList<PokemonEntity>) =
+    override suspend fun savePokemon(pokemonEntityList: MutableList<PokemonEntity>) =
         PokemonEntity.savePokemonList(
             pokemonEntityList = pokemonEntityList,
             myRoomDatabase = myRoomDatabase
         ).collect()
 
-    suspend fun offline(): Resource<MutableList<PokemonEntity>> {
+    override suspend fun offline(): Resource<MutableList<PokemonEntity>> {
         return try {
             Resource.Success(data = myRoomDatabase.pokemonDao().getAllPokemon())
         } catch (e: Exception) {
