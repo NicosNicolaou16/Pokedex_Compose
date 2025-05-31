@@ -1,4 +1,4 @@
-package com.nicos.pokedex_compose.di.database
+package com.nicos.pokedex_compose.data.di.database
 
 import android.content.Context
 import com.nicos.pokedex_compose.data.room_database.init_database.MyRoomDatabase
