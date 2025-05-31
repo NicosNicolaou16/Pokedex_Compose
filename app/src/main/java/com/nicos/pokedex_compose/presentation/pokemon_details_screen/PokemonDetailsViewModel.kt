@@ -3,7 +3,7 @@ package com.nicos.pokedex_compose.presentation.pokemon_details_screen
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.nicos.pokedex_compose.data.models.pokemon_details_data_model.PokemonDetailsDataModel
-import com.nicos.pokedex_compose.data.repository_impl.PokemonDetailsRepository
+import com.nicos.pokedex_compose.data.repository_impl.PokemonDetailsRepositoryImpl
 import com.nicos.pokedex_compose.utils.generic_classes.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -13,7 +13,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class PokemonDetailsViewModel @Inject constructor(
-    private val pokemonDetailsRepository: PokemonDetailsRepository
+    private val pokemonDetailsRepositoryImpl: PokemonDetailsRepositoryImpl
 ) : ViewModel() {
 
     private val _pokemonDetailsState =
@@ -26,7 +26,7 @@ class PokemonDetailsViewModel @Inject constructor(
         name: String,
     ) = viewModelScope.launch(Dispatchers.IO) {
         _pokemonDetailsState.value = _pokemonDetailsState.value.copy(isLoading = true)
-        pokemonDetailsRepository.fetchPokemonDetails(url, name).let { resource ->
+        pokemonDetailsRepositoryImpl.fetchPokemonDetails(url, name).let { resource ->
             when (resource) {
                 is Resource.Success -> {
                     _pokemonDetailsState.value =
@@ -52,7 +52,7 @@ class PokemonDetailsViewModel @Inject constructor(
 
     fun offline(imageUrl: String, name: String) = viewModelScope.launch(Dispatchers.IO) {
         _pokemonDetailsState.value = _pokemonDetailsState.value.copy(isLoading = true)
-        pokemonDetailsRepository.offline(name).let { resource ->
+        pokemonDetailsRepositoryImpl.offline(name).let { resource ->
             when (resource) {
                 is Resource.Success -> {
                     _pokemonDetailsState.value =

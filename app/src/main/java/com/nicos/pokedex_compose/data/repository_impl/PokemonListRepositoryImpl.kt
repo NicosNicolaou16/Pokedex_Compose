@@ -8,7 +8,7 @@ import com.nicos.pokedex_compose.utils.generic_classes.Resource
 import kotlinx.coroutines.flow.collect
 import javax.inject.Inject
 
-class PokemonListRepository @Inject constructor(
+class PokemonListRepositoryImpl @Inject constructor(
     private val myRoomDatabase: MyRoomDatabase,
     private val pokemonService: PokemonService,
     private val handlingError: HandlingError,
