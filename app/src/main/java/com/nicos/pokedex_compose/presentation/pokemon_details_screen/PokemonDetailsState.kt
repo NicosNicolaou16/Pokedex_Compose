@@ -4,6 +4,6 @@ import com.nicos.pokedex_compose.data.models.pokemon_details_data_model.PokemonD
 
 data class PokemonDetailsState(
     val pokemonDetailsDataModelList: MutableList<PokemonDetailsDataModel>,
-    val isLoading: Boolean = false,
+    val isLoading: Boolean = true,
     val error: String? = null,
 )
