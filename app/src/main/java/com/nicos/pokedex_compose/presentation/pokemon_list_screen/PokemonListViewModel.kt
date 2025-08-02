@@ -6,6 +6,7 @@ import com.nicos.pokedex_compose.data.repository_impl.PokemonListRepositoryImpl
 import com.nicos.pokedex_compose.utils.generic_classes.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
@@ -29,6 +30,7 @@ class PokemonListViewModel @Inject constructor(
         pokemonListRepositoryImpl.fetchPokemonList(url = url).let { resource ->
             when (resource) {
                 is Resource.Success -> {
+                    delay(10000)
                     withContext(Dispatchers.Main) {
                         _pokemonListState.value =
                             _pokemonListState.value.copy(

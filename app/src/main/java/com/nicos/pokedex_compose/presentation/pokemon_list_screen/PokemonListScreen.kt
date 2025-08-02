@@ -100,7 +100,9 @@ fun SharedTransitionScope.GridViewPokemonList(
             }
         }
     }
-    if (state.isLoading) StartDefaultLoader()
+    if (state.isLoading) {
+        StartDefaultLoader()
+    }
 }
 
 @Composable
@@ -137,7 +139,9 @@ fun SharedTransitionScope.LoadPokemonImage(
             }.build(),
             modifier = Modifier
                 .sharedElement(
-                    sharedContentState = rememberSharedContentState(key = pokemonEntity.imageUrl ?: ""),
+                    sharedContentState = rememberSharedContentState(
+                        key = pokemonEntity.imageUrl ?: ""
+                    ),
                     animatedVisibilityScope = animatedVisibilityScope,
                 )
                 .fillMaxSize(),

@@ -29,7 +29,7 @@ fun StartDefaultLoader() {
             .fillMaxSize()
             .background(color = Color.LightGray.copy(alpha = 0.7.toFloat()))
     ) {
-        CircularProgressIndicator(color = Color.Black)
+        CircularProgressIndicator(color = Color.Green)
     }
 }
 
