@@ -9,6 +9,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 @HiltViewModel
@@ -25,16 +26,17 @@ class PokemonListViewModel @Inject constructor(
     }
 
     fun requestToFetchPokemon(url: String? = null) = viewModelScope.launch(Dispatchers.IO) {
-        _pokemonListState.value = _pokemonListState.value.copy(isLoading = true)
         pokemonListRepositoryImpl.fetchPokemonList(url = url).let { resource ->
             when (resource) {
                 is Resource.Success -> {
-                    _pokemonListState.value =
-                        _pokemonListState.value.copy(
-                            isLoading = false,
-                            pokemonMutableList = resource.data,
-                                    nextPage = resource.nextUrl
-                        )
+                    withContext(Dispatchers.Main) {
+                        _pokemonListState.value =
+                            _pokemonListState.value.copy(
+                                isLoading = false,
+                                pokemonMutableList = resource.data,
+                                nextPage = resource.nextUrl
+                            )
+                    }
                 }
 
                 is Resource.Error -> {
@@ -49,15 +51,16 @@ class PokemonListViewModel @Inject constructor(
     }
 
     private fun offline() = viewModelScope.launch(Dispatchers.IO) {
-        _pokemonListState.value = _pokemonListState.value.copy(isLoading = true)
         pokemonListRepositoryImpl.offline().let { resource ->
             when (resource) {
                 is Resource.Success -> {
-                    _pokemonListState.value =
-                        _pokemonListState.value.copy(
-                            isLoading = false,
-                            pokemonMutableList = resource.data
-                        )
+                    withContext(Dispatchers.Main) {
+                        _pokemonListState.value =
+                            _pokemonListState.value.copy(
+                                isLoading = false,
+                                pokemonMutableList = resource.data
+                            )
+                    }
                 }
 
                 is Resource.Error -> {
