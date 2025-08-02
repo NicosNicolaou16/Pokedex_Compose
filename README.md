@@ -93,3 +93,5 @@ https://getstream.io/blog/shared-element-compose/  <br />
 https://medium.com/androiddevelopers/navigation-compose-meet-type-safety-e081fb3cf2f8  <br />
 https://dribbble.com/shots/6540871-Pokedex-App# - Get some UI - not completely use it (CHECK THE
 LINK FOR THE DESIGN)  <br />
+https://ideas.fandom.com/wiki/Pok%C3%A9_Ball_Pok%C3%A9mon_Ideas_(Super_Smash_Bros._series)?file=Pok%C3%A9_Ball_Redraw_by_oykawoo.png - app icon <bf />
+https://ideas.fandom.com/wiki/Pok%C3%A9_Ball_Pok%C3%A9mon_Ideas_(Super_Smash_Bros._series) - app icon <bf />
