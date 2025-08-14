@@ -3,6 +3,9 @@ package com.nicos.pokedex_compose.data.models.pokemon_details_data_model
 import androidx.compose.ui.util.fastForEachIndexed
 import com.nicos.pokedex_compose.data.room_database.entities.PokemonDetailsEntity
 import com.nicos.pokedex_compose.data.room_database.entities.StatsEntity
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
 
 data class PokemonDetailsDataModel(
     val imageUrl: String? = null,
@@ -16,28 +19,31 @@ data class PokemonDetailsDataModel(
         fun createPokemonDetailsDataModel(
             pokemonDetailsEntity: PokemonDetailsEntity?,
             imageUrl: String?
-        ) = mutableListOf<PokemonDetailsDataModel>().apply {
-            add(
-                PokemonDetailsDataModel(
-                    imageUrl = imageUrl,
-                    name = pokemonDetailsEntity?.name ?: "",
-                    weight = pokemonDetailsEntity?.weight ?: 0,
-                    pokemonDetailsViewTypes = PokemonDetailsViewTypes.IMAGE_AND_NAME_VIEW_TYPE
-                )
-            )
-
-            val maxValue: Int = pokemonDetailsEntity?.statsEntity?.maxOfOrNull { it.baseStat ?: 0 }
-                ?: 0
-            pokemonDetailsEntity?.statsEntity?.forEach { statsEntity ->
+        ) = flow {
+            emit(mutableListOf<PokemonDetailsDataModel>().apply {
                 add(
                     PokemonDetailsDataModel(
-                        statsEntity = statsEntity,
-                        maxValue = maxValue,
-                        pokemonDetailsViewTypes = PokemonDetailsViewTypes.STAT_VIEW_TYPE
+                        imageUrl = imageUrl,
+                        name = pokemonDetailsEntity?.name ?: "",
+                        weight = pokemonDetailsEntity?.weight ?: 0,
+                        pokemonDetailsViewTypes = PokemonDetailsViewTypes.IMAGE_AND_NAME_VIEW_TYPE
                     )
                 )
-            }
-        }
+
+                val maxValue: Int =
+                    pokemonDetailsEntity?.statsEntity?.maxOfOrNull { it.baseStat ?: 0 }
+                        ?: 0
+                pokemonDetailsEntity?.statsEntity?.forEach { statsEntity ->
+                    add(
+                        PokemonDetailsDataModel(
+                            statsEntity = statsEntity,
+                            maxValue = maxValue,
+                            pokemonDetailsViewTypes = PokemonDetailsViewTypes.STAT_VIEW_TYPE
+                        )
+                    )
+                }
+            })
+        }.flowOn(Dispatchers.IO)
     }
 }
 

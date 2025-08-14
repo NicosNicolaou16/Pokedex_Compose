@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.flow
 data class PokemonDetailsEntity(
     @PrimaryKey
     val name: String,
-    @SerializedName("stats") val statsEntity: MutableList<StatsEntity>?,
+    @SerializedName("stats") var statsEntity: MutableList<StatsEntity>?,
     val weight: Int?
 ) {
     companion object {
@@ -21,10 +21,26 @@ data class PokemonDetailsEntity(
         ) = flow {
             myRoomDatabase.statsDao().deleteAll()
 
-            StatsEntity.saveStats(pokemonDetailsEntity.statsEntity, myRoomDatabase).collect()
             myRoomDatabase.pokemonDetailDao().insertOrReplaceObject(pokemonDetailsEntity)
+            StatsEntity.saveStats(
+                pokemonDetailsEntity.statsEntity,
+                pokemonDetailsEntity.name,
+                myRoomDatabase
+            ).collect()
 
             emit(pokemonDetailsEntity)
+        }
+
+        suspend fun getPokemonDetails(
+            pokemonName: String,
+            myRoomDatabase: MyRoomDatabase
+        ): PokemonDetailsEntity? {
+            val pokemonDetailsEntity: PokemonDetailsEntity? =
+                myRoomDatabase.pokemonDetailDao().getPokemonInfoByName(pokemonName)
+            val statsEntity: MutableList<StatsEntity>? =
+                myRoomDatabase.statsDao().getPokemonStatsByName(pokemonName)
+            pokemonDetailsEntity?.statsEntity = statsEntity
+            return pokemonDetailsEntity
         }
     }
 }
