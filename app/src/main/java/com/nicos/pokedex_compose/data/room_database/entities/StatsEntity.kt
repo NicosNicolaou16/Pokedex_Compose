@@ -35,15 +35,32 @@ data class StatsEntity(
     )
 
     companion object {
-        fun saveStats(statsEntityList: MutableList<StatsEntity>?, myRoomDatabase: MyRoomDatabase) =
+        fun saveStats(
+            statsEntityList: MutableList<StatsEntity>?,
+            pokemonName: String,
+            myRoomDatabase: MyRoomDatabase
+        ) =
             flow {
-                statsEntityList?.forEach { stat ->
-                    stat.statName = stat.stat?.name
-                    if (stat.statName != null) {
-                        myRoomDatabase.statsDao().insertOrReplaceObject(stat)
+                statsEntityList?.forEach { statsEntity ->
+                    statsEntity.pokemonName = pokemonName
+                    statsEntity.statName = statsEntity.stat?.name
+                    if (statsEntity.statName != null) {
+                        myRoomDatabase.statsDao().insertOrReplaceObject(statsEntity)
                     }
                 }
                 emit(statsEntityList)
             }
+
+        suspend fun getPokemonDetails(
+            pokemonName: String,
+            myRoomDatabase: MyRoomDatabase
+        ): PokemonDetailsEntity? {
+            val pokemonDetailsEntity: PokemonDetailsEntity? =
+                myRoomDatabase.pokemonDetailDao().getPokemonInfoByName(pokemonName)
+            val statsEntity: MutableList<StatsEntity>? =
+                myRoomDatabase.statsDao().getPokemonStatsByName(pokemonName)
+            pokemonDetailsEntity?.statsEntity = statsEntity
+            return pokemonDetailsEntity
+        }
     }
 }
