@@ -26,20 +26,20 @@ class PokemonDetailsViewModel @Inject constructor(
         imageUrl: String,
         name: String,
     ) = viewModelScope.launch(Dispatchers.IO) {
-        pokemonDetailsRepositoryImpl.fetchPokemonDetails(url, name).let { resource ->
+        pokemonDetailsRepositoryImpl.fetchPokemonDetails(url, name).collect { resource ->
             when (resource) {
                 is Resource.Success -> {
-                    val pokemonDetailsDataModelList =
-                        PokemonDetailsDataModel.createPokemonDetailsDataModel(
-                            resource.data,
-                            imageUrl = imageUrl
-                        )
-                    withContext(Dispatchers.Main) {
-                        _pokemonDetailsState.value =
-                            _pokemonDetailsState.value.copy(
-                                isLoading = false,
-                                pokemonDetailsDataModelList = pokemonDetailsDataModelList
-                            )
+                    PokemonDetailsDataModel.createPokemonDetailsDataModel(
+                        resource.data,
+                        imageUrl = imageUrl
+                    ).collect {
+                        withContext(Dispatchers.Main) {
+                            _pokemonDetailsState.value =
+                                _pokemonDetailsState.value.copy(
+                                    isLoading = false,
+                                    pokemonDetailsDataModelList = it
+                                )
+                        }
                     }
                 }
 
@@ -55,20 +55,20 @@ class PokemonDetailsViewModel @Inject constructor(
     }
 
     fun offline(imageUrl: String, name: String) = viewModelScope.launch(Dispatchers.IO) {
-        pokemonDetailsRepositoryImpl.offline(name).let { resource ->
+        pokemonDetailsRepositoryImpl.offline(name).collect { resource ->
             when (resource) {
                 is Resource.Success -> {
-                    val pokemonDetailsDataModelList =
-                        PokemonDetailsDataModel.createPokemonDetailsDataModel(
-                            resource.data,
-                            imageUrl = imageUrl
-                        )
-                    withContext(Dispatchers.Main) {
-                        _pokemonDetailsState.value =
-                            _pokemonDetailsState.value.copy(
-                                isLoading = false,
-                                pokemonDetailsDataModelList = pokemonDetailsDataModelList
-                            )
+                    PokemonDetailsDataModel.createPokemonDetailsDataModel(
+                        resource.data,
+                        imageUrl = imageUrl
+                    ).collect {
+                        withContext(Dispatchers.Main) {
+                            _pokemonDetailsState.value =
+                                _pokemonDetailsState.value.copy(
+                                    isLoading = false,
+                                    pokemonDetailsDataModelList = it
+                                )
+                        }
                     }
                 }
 

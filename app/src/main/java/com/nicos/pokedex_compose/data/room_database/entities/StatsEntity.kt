@@ -50,17 +50,5 @@ data class StatsEntity(
                 }
                 emit(statsEntityList)
             }
-
-        suspend fun getPokemonDetails(
-            pokemonName: String,
-            myRoomDatabase: MyRoomDatabase
-        ): PokemonDetailsEntity? {
-            val pokemonDetailsEntity: PokemonDetailsEntity? =
-                myRoomDatabase.pokemonDetailDao().getPokemonInfoByName(pokemonName)
-            val statsEntity: MutableList<StatsEntity>? =
-                myRoomDatabase.statsDao().getPokemonStatsByName(pokemonName)
-            pokemonDetailsEntity?.statsEntity = statsEntity
-            return pokemonDetailsEntity
-        }
     }
 }
