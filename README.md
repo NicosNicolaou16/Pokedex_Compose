@@ -71,7 +71,7 @@ Android that optimizes and reduces the size of APKs by removing unused code and 
 also obfuscating the remaining code to improve security. <br />
 The percentage for showing the skills of each Pokémon is calculated using
 the [PercentageWithAnimation](https://github.com/NicosNicolaou16/PercentagesWithAnimationCompose)
-built by @NicosNicolaou16. <br />
+built by [@NicosNicolaou16](https://github.com/NicosNicolaou16). <br />
 
 # Versioning
 
