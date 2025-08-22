@@ -1,6 +1,5 @@
-package com.nicos.pokedex_compose.data.models.pokemon_details_data_model
+package com.nicos.pokedex_compose.domain.models.pokemon_details_data_model
 
-import androidx.compose.ui.util.fastForEachIndexed
 import com.nicos.pokedex_compose.data.room_database.entities.PokemonDetailsEntity
 import com.nicos.pokedex_compose.data.room_database.entities.StatsEntity
 import kotlinx.coroutines.Dispatchers

@@ -2,7 +2,7 @@ package com.nicos.pokedex_compose.presentation.pokemon_details_screen
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.nicos.pokedex_compose.data.models.pokemon_details_data_model.PokemonDetailsDataModel
+import com.nicos.pokedex_compose.domain.models.pokemon_details_data_model.PokemonDetailsDataModel
 import com.nicos.pokedex_compose.data.repository_impl.PokemonDetailsRepositoryImpl
 import com.nicos.pokedex_compose.utils.generic_classes.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
