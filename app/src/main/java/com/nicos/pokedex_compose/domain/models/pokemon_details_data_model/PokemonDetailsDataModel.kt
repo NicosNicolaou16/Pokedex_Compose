@@ -1,7 +1,6 @@
-package com.nicos.pokedex_compose.data.models.pokemon_details_data_model
+package com.nicos.pokedex_compose.domain.models.pokemon_details_data_model
 
-import androidx.compose.ui.util.fastForEachIndexed
-import com.nicos.pokedex_compose.data.room_database.entities.PokemonDetailsEntity
+import com.nicos.pokedex_compose.data.room_database.entities.PokemonDetailsWithStatsEntity
 import com.nicos.pokedex_compose.data.room_database.entities.StatsEntity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.flow
@@ -17,23 +16,23 @@ data class PokemonDetailsDataModel(
 ) {
     companion object {
         fun createPokemonDetailsDataModel(
-            pokemonDetailsEntity: PokemonDetailsEntity?,
+            pokemonDetailsWithStatsEntity: PokemonDetailsWithStatsEntity?,
             imageUrl: String?
         ) = flow {
             emit(mutableListOf<PokemonDetailsDataModel>().apply {
                 add(
                     PokemonDetailsDataModel(
                         imageUrl = imageUrl,
-                        name = pokemonDetailsEntity?.name ?: "",
-                        weight = pokemonDetailsEntity?.weight ?: 0,
+                        name = pokemonDetailsWithStatsEntity?.pokemonDetailsEntity?.name ?: "",
+                        weight = pokemonDetailsWithStatsEntity?.pokemonDetailsEntity?.weight ?: 0,
                         pokemonDetailsViewTypes = PokemonDetailsViewTypes.IMAGE_AND_NAME_VIEW_TYPE
                     )
                 )
 
                 val maxValue: Int =
-                    pokemonDetailsEntity?.statsEntity?.maxOfOrNull { it.baseStat ?: 0 }
+                    pokemonDetailsWithStatsEntity?.statsEntityList?.maxOfOrNull { it.baseStat ?: 0 }
                         ?: 0
-                pokemonDetailsEntity?.statsEntity?.forEach { statsEntity ->
+                pokemonDetailsWithStatsEntity?.statsEntityList?.forEach { statsEntity ->
                     add(
                         PokemonDetailsDataModel(
                             statsEntity = statsEntity,

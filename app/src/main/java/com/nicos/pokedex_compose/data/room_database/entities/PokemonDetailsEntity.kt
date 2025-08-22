@@ -34,12 +34,9 @@ data class PokemonDetailsEntity(
         suspend fun getPokemonDetails(
             pokemonName: String,
             myRoomDatabase: MyRoomDatabase
-        ): PokemonDetailsEntity? {
-            val pokemonDetailsEntity: PokemonDetailsEntity? =
-                myRoomDatabase.pokemonDetailDao().getPokemonInfoByName(pokemonName)
-            val statsEntity: MutableList<StatsEntity>? =
-                myRoomDatabase.statsDao().getPokemonStatsByName(pokemonName)
-            pokemonDetailsEntity?.statsEntity = statsEntity
+        ): PokemonDetailsWithStatsEntity? {
+            val pokemonDetailsEntity: PokemonDetailsWithStatsEntity? =
+                myRoomDatabase.pokemonDetailDao().getPokemonDetailsWithStatsByName(pokemonName)
             return pokemonDetailsEntity
         }
     }

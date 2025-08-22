@@ -1,6 +1,7 @@
 package com.nicos.pokedex_compose.data.repository_impl
 
 import com.nicos.pokedex_compose.data.room_database.entities.PokemonDetailsEntity
+import com.nicos.pokedex_compose.data.room_database.entities.PokemonDetailsWithStatsEntity
 import com.nicos.pokedex_compose.data.room_database.init_database.MyRoomDatabase
 import com.nicos.pokedex_compose.domain.network.PokemonService
 import com.nicos.pokedex_compose.domain.repositories.PokemonDetailsRepository
@@ -22,16 +23,16 @@ class PokemonDetailsRepositoryImpl @Inject constructor(
     override suspend fun fetchPokemonDetails(
         url: String,
         name: String
-    ): Flow<Resource<PokemonDetailsEntity>> {
+    ): Flow<Resource<PokemonDetailsWithStatsEntity>> {
         return flow {
             try {
                 val pokemonDetails = pokemonService.getPokemonDetails(url = url)
                 savePokemonDetails(pokemonDetailsEntity = pokemonDetails)
-                val pokemonDetailsEntity: PokemonDetailsEntity? =
+                val pokemonDetailsWithStatsEntity: PokemonDetailsWithStatsEntity? =
                     PokemonDetailsEntity.getPokemonDetails(name, myRoomDatabase)
                 emit(
                     Resource.Success(
-                        data = pokemonDetailsEntity
+                        data = pokemonDetailsWithStatsEntity
                     )
                 )
             } catch (e: Exception) {
@@ -46,14 +47,14 @@ class PokemonDetailsRepositoryImpl @Inject constructor(
             myRoomDatabase = myRoomDatabase
         ).collect()
 
-    override suspend fun offline(name: String): Flow<Resource<PokemonDetailsEntity>> {
+    override suspend fun offline(name: String): Flow<Resource<PokemonDetailsWithStatsEntity>> {
         return flow {
             try {
-                val pokemonDetailsEntity: PokemonDetailsEntity? =
+                val pokemonDetailsWithStatsEntity: PokemonDetailsWithStatsEntity? =
                     PokemonDetailsEntity.getPokemonDetails(name, myRoomDatabase)
                 emit(
                     Resource.Success(
-                        data = pokemonDetailsEntity
+                        data = pokemonDetailsWithStatsEntity
                     )
                 )
             } catch (e: Exception) {

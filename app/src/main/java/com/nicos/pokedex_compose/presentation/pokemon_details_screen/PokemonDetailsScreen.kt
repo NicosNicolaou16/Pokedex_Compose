@@ -44,8 +44,8 @@ import coil.request.ImageRequest
 import com.nicos.percentageswithanimationcompose.LinearPercentage
 import com.nicos.percentageswithanimationcompose.enums.LeftAndRightText
 import com.nicos.pokedex_compose.presentation.generic_compose_views.CustomToolbar
-import com.nicos.pokedex_compose.data.models.pokemon_details_data_model.PokemonDetailsDataModel
-import com.nicos.pokedex_compose.data.models.pokemon_details_data_model.PokemonDetailsViewTypes
+import com.nicos.pokedex_compose.domain.models.pokemon_details_data_model.PokemonDetailsDataModel
+import com.nicos.pokedex_compose.domain.models.pokemon_details_data_model.PokemonDetailsViewTypes
 import com.nicos.pokedex_compose.utils.extensions.colorToInt
 import com.nicos.pokedex_compose.utils.extensions.getProgressDrawable
 import com.nicos.pokedex_compose.utils.extensions.upperCaseFirstLetter
