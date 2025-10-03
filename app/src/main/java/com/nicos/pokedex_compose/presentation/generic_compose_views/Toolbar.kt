@@ -49,7 +49,7 @@ fun CustomToolbar(title: Int, backButton: (() -> Unit)? = null) {
                         .width(width = 50.dp)
                 )
         },
-        colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
+        colors = TopAppBarDefaults.topAppBarColors(
             containerColor = GreenLight
         )
     )
@@ -82,7 +82,7 @@ fun CustomToolbar(title: String, color: Color = GreenLight, backButton: (() -> U
                         .width(width = 50.dp)
                 )
         },
-        colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
+        colors = TopAppBarDefaults.topAppBarColors(
             containerColor = color
         )
     )
