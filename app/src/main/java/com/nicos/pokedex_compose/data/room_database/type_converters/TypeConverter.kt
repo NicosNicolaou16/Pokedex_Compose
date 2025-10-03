@@ -16,14 +16,3 @@ class ConverterStats {
     fun fromStatsListToString(statsEntityList: MutableList<StatsEntity>): String =
         Gson().toJson(statsEntityList)
 }
-
-class ConverterStat {
-
-    @TypeConverter
-    fun fromStringToStat(value: String): StatEntity? {
-        return Gson().fromJson(value, object : TypeToken<StatEntity>() {}.type)
-    }
-
-    @TypeConverter
-    fun fromStatToString(statEntity: StatEntity): String = Gson().toJson(statEntity)
-}
