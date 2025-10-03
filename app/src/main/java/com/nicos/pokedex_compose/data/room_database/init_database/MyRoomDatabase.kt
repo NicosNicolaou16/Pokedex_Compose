@@ -11,7 +11,6 @@ import com.nicos.pokedex_compose.data.room_database.entities.StatsEntity
 import com.nicos.pokedex_compose.data.room_database.entities.daos.PokemonDao
 import com.nicos.pokedex_compose.data.room_database.entities.daos.PokemonDetailsDao
 import com.nicos.pokedex_compose.data.room_database.entities.daos.StatsDao
-import com.nicos.pokedex_compose.data.room_database.type_converters.ConverterStat
 import com.nicos.pokedex_compose.data.room_database.type_converters.ConverterStats
 
 @Database(

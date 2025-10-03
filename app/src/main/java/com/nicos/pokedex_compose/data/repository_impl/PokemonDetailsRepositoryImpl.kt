@@ -7,6 +7,7 @@ import com.nicos.pokedex_compose.data.room_database.entities.toPokemonDetailsEnt
 import com.nicos.pokedex_compose.data.room_database.entities.toStatsEntity
 import com.nicos.pokedex_compose.data.room_database.init_database.MyRoomDatabase
 import com.nicos.pokedex_compose.domain.dto.PokemonDetailsDto
+import com.nicos.pokedex_compose.domain.dto.PokemonDto
 import com.nicos.pokedex_compose.domain.network.PokemonService
 import com.nicos.pokedex_compose.domain.repositories.PokemonDetailsRepository
 import com.nicos.pokedex_compose.presentation.pokemon_details_screen.PokemonDetailsUI
@@ -14,7 +15,6 @@ import com.nicos.pokedex_compose.utils.generic_classes.HandlingError
 import com.nicos.pokedex_compose.utils.generic_classes.Resource
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
@@ -69,7 +69,7 @@ class PokemonDetailsRepositoryImpl @Inject constructor(
                     PokemonDetailsEntity.getPokemonDetails(name, myRoomDatabase)
                 emit(
                     Resource.Success(
-                        data = pokemonDetailsEntity.toPokemonDetailsUi()
+                        data = pokemonDetailsEntity?.toPokemonDetailsUi()
                     )
                 )
             } catch (e: Exception) {
