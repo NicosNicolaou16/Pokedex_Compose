@@ -2,7 +2,7 @@ package com.nicos.pokedex_compose.data.mappers
 
 import com.nicos.pokedex_compose.data.room_database.entities.PokemonDetailsEntity
 import com.nicos.pokedex_compose.data.room_database.entities.PokemonDetailsWithStatsEntity
-import com.nicos.pokedex_compose.presentation.pokemon_details_screen.PokemonDetailsUI
+import com.nicos.pokedex_compose.presentation.pokemon_details_screen.models.PokemonDetailsUI
 
 fun PokemonDetailsWithStatsEntity.toPokemonDetailsUi(): PokemonDetailsUI {
     return PokemonDetailsUI(

@@ -1,7 +1,7 @@
-package com.nicos.pokedex_compose.domain.models.pokemon_details_data_model
+package com.nicos.pokedex_compose.presentation.pokemon_details_screen.models
 
 import com.nicos.pokedex_compose.data.room_database.entities.StatsEntity
-import com.nicos.pokedex_compose.presentation.pokemon_details_screen.PokemonDetailsUI
+import com.nicos.pokedex_compose.presentation.pokemon_details_screen.models.PokemonDetailsUI
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
