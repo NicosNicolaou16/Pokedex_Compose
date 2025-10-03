@@ -2,6 +2,7 @@ package com.nicos.pokedex_compose.data.repository_impl
 
 import androidx.core.text.isDigitsOnly
 import com.nicos.pokedex_compose.data.room_database.entities.PokemonEntity
+import com.nicos.pokedex_compose.data.room_database.entities.toPokemonEntity
 import com.nicos.pokedex_compose.data.room_database.init_database.MyRoomDatabase
 import com.nicos.pokedex_compose.domain.network.PokemonService
 import com.nicos.pokedex_compose.domain.repositories.PokemonListRepository
@@ -32,7 +33,8 @@ class PokemonListRepositoryImpl @Inject constructor(
                     if (url == null) pokemonService.getPokemon() else pokemonService.getPokemon(url)
                 val nextUrl = pokemonService.nextUrl
                 val pokemonEntityList = pokemonService.results
-                savePokemon(pokemonEntityList = pokemonEntityList)
+                savePokemon(pokemonEntityList = pokemonEntityList.map { it.toPokemonEntity() }
+                    .toMutableList())
 
                 emit(
                     Resource.Success(
