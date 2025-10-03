@@ -1,7 +1,7 @@
-package com.nicos.pokedex_compose.domain.models.pokemon_details_data_model
+package com.nicos.pokedex_compose.presentation.pokemon_details_screen.models
 
-import com.nicos.pokedex_compose.data.room_database.entities.PokemonDetailsWithStatsEntity
 import com.nicos.pokedex_compose.data.room_database.entities.StatsEntity
+import com.nicos.pokedex_compose.presentation.pokemon_details_screen.models.PokemonDetailsUI
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
@@ -16,23 +16,23 @@ data class PokemonDetailsDataModel(
 ) {
     companion object {
         fun createPokemonDetailsDataModel(
-            pokemonDetailsWithStatsEntity: PokemonDetailsWithStatsEntity?,
+            pokemonDetailsUI: PokemonDetailsUI?,
             imageUrl: String?
         ) = flow {
             emit(mutableListOf<PokemonDetailsDataModel>().apply {
                 add(
                     PokemonDetailsDataModel(
                         imageUrl = imageUrl,
-                        name = pokemonDetailsWithStatsEntity?.pokemonDetailsEntity?.name ?: "",
-                        weight = pokemonDetailsWithStatsEntity?.pokemonDetailsEntity?.weight ?: 0,
+                        name = pokemonDetailsUI?.name ?: "",
+                        weight = pokemonDetailsUI?.weight ?: 0,
                         pokemonDetailsViewTypes = PokemonDetailsViewTypes.IMAGE_AND_NAME_VIEW_TYPE
                     )
                 )
 
                 val maxValue: Int =
-                    pokemonDetailsWithStatsEntity?.statsEntityList?.maxOfOrNull { it.baseStat ?: 0 }
+                    pokemonDetailsUI?.stats?.maxOfOrNull { it.baseStat ?: 0 }
                         ?: 0
-                pokemonDetailsWithStatsEntity?.statsEntityList?.forEach { statsEntity ->
+                pokemonDetailsUI?.stats?.forEach { statsEntity ->
                     add(
                         PokemonDetailsDataModel(
                             statsEntity = statsEntity,
