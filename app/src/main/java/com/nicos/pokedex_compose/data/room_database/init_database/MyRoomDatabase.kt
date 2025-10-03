@@ -7,7 +7,6 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.nicos.pokedex_compose.data.room_database.entities.PokemonDetailsEntity
 import com.nicos.pokedex_compose.data.room_database.entities.PokemonEntity
-import com.nicos.pokedex_compose.data.room_database.entities.StatEntity
 import com.nicos.pokedex_compose.data.room_database.entities.StatsEntity
 import com.nicos.pokedex_compose.data.room_database.entities.daos.PokemonDao
 import com.nicos.pokedex_compose.data.room_database.entities.daos.PokemonDetailsDao

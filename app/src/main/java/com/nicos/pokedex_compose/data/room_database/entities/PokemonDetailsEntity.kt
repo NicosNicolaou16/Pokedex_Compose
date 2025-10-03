@@ -4,6 +4,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 import com.nicos.pokedex_compose.data.room_database.init_database.MyRoomDatabase
+import com.nicos.pokedex_compose.domain.dto.PokemonDetailsDto
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.flow
 
@@ -11,33 +12,24 @@ import kotlinx.coroutines.flow.flow
 data class PokemonDetailsEntity(
     @PrimaryKey
     val name: String,
-    @SerializedName("stats") var statsEntity: MutableList<StatsEntity>?,
     val weight: Int?
 ) {
     companion object {
-        fun savePokemonDetails(
-            pokemonDetailsEntity: PokemonDetailsEntity,
-            myRoomDatabase: MyRoomDatabase
-        ) = flow {
-            myRoomDatabase.statsDao().deleteAll()
-
-            myRoomDatabase.pokemonDetailDao().insertOrReplaceObject(pokemonDetailsEntity)
-            StatsEntity.saveStats(
-                pokemonDetailsEntity.statsEntity,
-                pokemonDetailsEntity.name,
-                myRoomDatabase
-            ).collect()
-
-            emit(pokemonDetailsEntity)
-        }
-
         suspend fun getPokemonDetails(
             pokemonName: String,
             myRoomDatabase: MyRoomDatabase
         ): PokemonDetailsWithStatsEntity? {
             val pokemonDetailsEntity: PokemonDetailsWithStatsEntity? =
-                myRoomDatabase.pokemonDetailDao().getPokemonDetailsWithStatsByName(pokemonName)
+                myRoomDatabase.pokemonDetailDao()
+                    .getPokemonDetailsWithStatsAndStatsByName(pokemonName)
             return pokemonDetailsEntity
         }
     }
+}
+
+fun PokemonDetailsDto.toPokemonDetailsEntity(): PokemonDetailsEntity {
+    return PokemonDetailsEntity(
+        name = name,
+        weight = weight
+    )
 }
