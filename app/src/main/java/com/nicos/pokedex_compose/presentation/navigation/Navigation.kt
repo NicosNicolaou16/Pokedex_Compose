@@ -5,9 +5,11 @@ package com.nicos.pokedex_compose.presentation.navigation
 import androidx.activity.SystemBarStyle
 import androidx.compose.animation.SharedTransitionLayout
 import androidx.compose.material3.adaptive.ExperimentalMaterial3AdaptiveApi
+import androidx.compose.material3.adaptive.navigation3.ListDetailSceneStrategy
 import androidx.compose.material3.adaptive.navigation3.rememberListDetailSceneStrategy
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
+import androidx.navigation3.runtime.NavKey
 import androidx.navigation3.runtime.entryProvider
 import androidx.navigation3.ui.LocalNavAnimatedContentScope
 import androidx.navigation3.ui.NavDisplay
@@ -25,21 +27,28 @@ fun Navigation(changeSystemBarStyle: (SystemBarStyle) -> Unit) {
 
     val navigator = remember { Navigator(navigationState) }
 
+    val sceneStrategy = rememberListDetailSceneStrategy<NavKey>()
+
     SharedTransitionLayout {
         NavDisplay(
             backStack = navigationState.stacksInUse,
             onBack = {
                 navigator.goBack()
             },
+            sceneStrategy = sceneStrategy,
             entryProvider = entryProvider {
-                entry<PokemonList> {
+                entry<PokemonList>(
+                    metadata = ListDetailSceneStrategy.listPane(),
+                ) {
                     PokemonListScreen(
                         navigator = navigator,
                         animatedVisibilityScope = LocalNavAnimatedContentScope.current,
                     )
                 }
 
-                entry<PokemonDetails> {
+                entry<PokemonDetails>(
+                    metadata = ListDetailSceneStrategy.detailPane(),
+                ) {
                     PokemonDetailsScreen(
                         url = it.url.decodeStringUrl(),
                         imageUrl = it.imageUrl.decodeStringUrl(),
