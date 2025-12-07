@@ -17,7 +17,9 @@ Also, it contains some other important technologies such as Room Database, KSP, 
 Injection, the new Shared Element Transaction and new Navigation Type Safety. <br />
 
 > [!IMPORTANT]  
-> Similar project with Flutter (Dart Language) :point_right: [Pokedex_Flutter](https://github.com/NicosNicolaou16/Pokedex_Flutter) :point_left: <br />
+> Similar project with Flutter (Dart Language) :
+> point_right: [Pokedex_Flutter](https://github.com/NicosNicolaou16/Pokedex_Flutter) :
+> point_left: <br />
 
 # Examples
 
@@ -72,6 +74,10 @@ also obfuscating the remaining code to improve security. <br />
 The percentage for showing the skills of each Pokémon is calculated using
 the [PercentageWithAnimation](https://github.com/NicosNicolaou16/PercentagesWithAnimationCompose)
 built by [@NicosNicolaou16](https://github.com/NicosNicolaou16). <br />
+[Navigation 3](https://developer.android.com/guide/navigation/navigation-3) for Jetpack Compose is a
+modern, Compose-native navigation system where you manage a
+stack of serializable destination keys and display them with NavDisplay, giving you direct control,
+state retention, and flexible adaptive UI without traditional graphs or routes. <br />
 
 # Versioning
 
@@ -94,5 +100,7 @@ https://getstream.io/blog/shared-element-compose/  <br />
 https://medium.com/androiddevelopers/navigation-compose-meet-type-safety-e081fb3cf2f8  <br />
 https://dribbble.com/shots/6540871-Pokedex-App# - Get some UI - not completely use it (CHECK THE
 LINK FOR THE DESIGN)  <br />
-https://ideas.fandom.com/wiki/Pok%C3%A9_Ball_Pok%C3%A9mon_Ideas_(Super_Smash_Bros._series)?file=Pok%C3%A9_Ball_Redraw_by_oykawoo.png - app icon <bf />
-https://ideas.fandom.com/wiki/Pok%C3%A9_Ball_Pok%C3%A9mon_Ideas_(Super_Smash_Bros._series) - app icon <bf />
+https://ideas.fandom.com/wiki/Pok%C3%A9_Ball_Pok%C3%A9mon_Ideas_(Super_Smash_Bros._series)?file=Pok%C3%A9_Ball_Redraw_by_oykawoo.png -
+app icon <bf />
+https://ideas.fandom.com/wiki/Pok%C3%A9_Ball_Pok%C3%A9mon_Ideas_(Super_Smash_Bros._series) - app
+icon <bf />
