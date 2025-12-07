@@ -30,7 +30,6 @@ fun Navigation(changeSystemBarStyle: (SystemBarStyle) -> Unit) {
             onBack = {
                 navigator.goBack()
             },
-            sceneStrategy = sceneStrategy,
             entryProvider = entryProvider {
                 entry<PokemonList> {
                     PokemonListScreen(
