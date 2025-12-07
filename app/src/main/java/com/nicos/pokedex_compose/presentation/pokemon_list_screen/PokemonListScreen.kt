@@ -1,5 +1,3 @@
-@file:OptIn(ExperimentalSharedTransitionApi::class)
-
 package com.nicos.pokedex_compose.presentation.pokemon_list_screen
 
 import android.annotation.SuppressLint
@@ -28,7 +26,6 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
-import androidx.navigation.NavController
 import coil.compose.AsyncImage
 import coil.request.CachePolicy
 import coil.request.ImageRequest
@@ -36,6 +33,7 @@ import com.nicos.pokedex_compose.presentation.generic_compose_views.CustomToolba
 import com.nicos.pokedex_compose.presentation.generic_compose_views.ShowDialog
 import com.nicos.pokedex_compose.presentation.generic_compose_views.StartDefaultLoader
 import com.nicos.pokedex_compose.data.room_database.entities.PokemonEntity
+import com.nicos.pokedex_compose.presentation.navigation.navigation_3.Navigator
 import com.nicos.pokedex_compose.utils.extensions.encodeStringUrl
 import com.nicos.pokedex_compose.utils.extensions.getProgressDrawable
 import com.nicos.pokedex_compose.utils.screen_routes.PokemonDetails
@@ -43,7 +41,7 @@ import com.nicos.pokedex_compose.utils.screen_routes.PokemonDetails
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun SharedTransitionScope.PokemonListScreen(
-    navController: NavController,
+    navigator: Navigator,
     animatedVisibilityScope: AnimatedVisibilityScope,
 ) {
     Scaffold(topBar = {
@@ -55,7 +53,7 @@ fun SharedTransitionScope.PokemonListScreen(
             animatedVisibilityScope = animatedVisibilityScope,
             paddingValues = paddingValues,
             listener = {
-                navController.navigate(
+                navigator.navigate(
                     PokemonDetails(
                         url = it.url?.encodeStringUrl() ?: "",
                         imageUrl = it.imageUrl?.encodeStringUrl() ?: "",
