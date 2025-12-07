@@ -2,7 +2,6 @@ package com.nicos.pokedex_compose.presentation.pokemon_list_screen
 
 import android.annotation.SuppressLint
 import androidx.compose.animation.AnimatedVisibilityScope
-import androidx.compose.animation.ExperimentalSharedTransitionApi
 import androidx.compose.animation.SharedTransitionScope
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.PaddingValues
@@ -29,10 +28,10 @@ import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import coil.compose.AsyncImage
 import coil.request.CachePolicy
 import coil.request.ImageRequest
+import com.nicos.pokedex_compose.data.room_database.entities.PokemonEntity
 import com.nicos.pokedex_compose.presentation.generic_compose_views.CustomToolbar
 import com.nicos.pokedex_compose.presentation.generic_compose_views.ShowDialog
 import com.nicos.pokedex_compose.presentation.generic_compose_views.StartDefaultLoader
-import com.nicos.pokedex_compose.data.room_database.entities.PokemonEntity
 import com.nicos.pokedex_compose.presentation.navigation.navigation_3.Navigator
 import com.nicos.pokedex_compose.utils.extensions.encodeStringUrl
 import com.nicos.pokedex_compose.utils.extensions.getProgressDrawable
