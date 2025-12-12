@@ -18,8 +18,7 @@ Injection, the new Shared Element Transaction and new Navigation Type Safety. <b
 
 > [!IMPORTANT]  
 > Similar project with Flutter (Dart Language) :
-> point_right: [Pokedex_Flutter](https://github.com/NicosNicolaou16/Pokedex_Flutter) :
-> point_left: <br />
+> point_right: [Pokedex_Flutter](https://github.com/NicosNicolaou16/Pokedex_Flutter) :point_left: <br />
 
 # Examples
 
@@ -71,20 +70,20 @@ to initial, loading, loaded and error. <br />
 [R8](https://developer.android.com/build/shrink-code) enabled, is a code shrinker and obfuscator for
 Android that optimizes and reduces the size of APKs by removing unused code and resources, while
 also obfuscating the remaining code to improve security. <br />
-The percentage for showing the skills of each Pokémon is calculated using
-the [PercentageWithAnimation](https://github.com/NicosNicolaou16/PercentagesWithAnimationCompose)
-built by [@NicosNicolaou16](https://github.com/NicosNicolaou16). <br />
 [Navigation 3](https://developer.android.com/guide/navigation/navigation-3) for Jetpack Compose is a
 modern, Compose-native navigation system where you manage a
 stack of serializable destination keys and display them with NavDisplay, giving you direct control,
 state retention, and flexible adaptive UI without traditional graphs or routes. <br />
+The percentage for showing the skills of each Pokémon is calculated using
+the [PercentageWithAnimation](https://github.com/NicosNicolaou16/PercentagesWithAnimationCompose)
+built by [@NicosNicolaou16](https://github.com/NicosNicolaou16). <br />
 
 # Versioning
 
 Target SDK version: 36 <br />
 Minimum SDK version: 29 <br />
 Kotlin version: 2.2.21 <br />
-Gradle version: 8.13.1 <br />
+Gradle version: 8.13.3 <br />
 
 # Feeds/Urls/End Point (parsing some data from the response)
 
