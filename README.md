@@ -84,7 +84,7 @@ state retention, and flexible adaptive UI without traditional graphs or routes. 
 Target SDK version: 36 <br />
 Minimum SDK version: 29 <br />
 Kotlin version: 2.2.21 <br />
-Gradle version: 8.13.1 <br />
+Gradle version: 8.13.3 <br />
 
 # Feeds/Urls/End Point (parsing some data from the response)
 
