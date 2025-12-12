@@ -18,8 +18,7 @@ Injection, the new Shared Element Transaction and new Navigation Type Safety. <b
 
 > [!IMPORTANT]  
 > Similar project with Flutter (Dart Language) :
-> point_right: [Pokedex_Flutter](https://github.com/NicosNicolaou16/Pokedex_Flutter) :
-> point_left: <br />
+> point_right: [Pokedex_Flutter](https://github.com/NicosNicolaou16/Pokedex_Flutter) :point_left: <br />
 
 # Examples
 
