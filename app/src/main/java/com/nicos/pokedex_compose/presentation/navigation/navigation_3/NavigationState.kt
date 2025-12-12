@@ -7,6 +7,6 @@ import androidx.navigation3.runtime.NavKey
 class NavigationState(
     val backStacks: NavBackStack<NavKey>
 ) {
-    val stacksInUse: SnapshotStateList<NavKey>
+    val stacksInUse: NavBackStack<NavKey>
         get() = backStacks
 }
