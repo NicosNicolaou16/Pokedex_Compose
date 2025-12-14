@@ -23,11 +23,12 @@ import com.nicos.pokedex_compose.utils.screen_routes.PokemonList
 
 @Composable
 fun Navigation(changeSystemBarStyle: (SystemBarStyle) -> Unit) {
+    // Navigation 3
     val navigationState = PokemonList.navigationState()
-
     val navigator = remember { Navigator(navigationState) }
-    val listDetailStrategy = rememberListDetailSceneStrategy<NavKey>()
 
+    // Navigation Scene Strategy
+    val listDetailStrategy = rememberListDetailSceneStrategy<NavKey>()
 
     SharedTransitionLayout {
         NavDisplay(
