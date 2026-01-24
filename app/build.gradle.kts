@@ -44,8 +44,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
     }
     buildFeatures {
         compose = true
@@ -60,7 +60,7 @@ android {
 kotlin {
     compilerOptions {
         languageVersion = org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_2_3
-        jvmTarget = JvmTarget.fromTarget("17")
+        jvmTarget = JvmTarget.fromTarget("21")
         freeCompilerArgs = listOf("-Xannotation-default-target=param-property")
     }
 }
