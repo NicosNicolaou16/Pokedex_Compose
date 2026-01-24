@@ -55,23 +55,17 @@ project showcases a clean, scalable architecture and a fluid user interface usin
 This project is built with **[Kotlin](https://kotlinlang.org/docs/getting-started.html)** and
 utilizes a variety of modern Android libraries and tools:
 
-- **UI:
-  ** [Jetpack Compose](https://developer.android.com/develop/ui/compose), [Coil](https://coil-kt.github.io/coil/compose/) (
+- **UI:** [Jetpack Compose](https://developer.android.com/develop/ui/compose), [Coil](https://coil-kt.github.io/coil/compose/) (
   Image
   Loading), [Palette API](https://developer.android.com/develop/ui/views/graphics/palette-colors)
-- **Architecture:
-  ** [MVVM](https://developer.android.com/topic/architecture#recommended-app-arch), [UI State Management](https://developer.android.com/topic/architecture/ui-layer/events#handle-viewmodel-events)
-- **Asynchronicity:
-  ** [Kotlin Coroutines](https://kotlinlang.org/docs/coroutines-overview.html), [Kotlin KTX](https://developer.android.com/kotlin/ktx)
-- **Navigation:
-  ** [Navigation Compose 3](https://developer.android.com/guide/navigation/navigation-3), [Navigation Type Safety](https://medium.com/androiddevelopers/navigation-compose-meet-type-safety-e081fb3cf2f8), [Shared Element Transition](https://developer.android.com/develop/ui/compose/animation/shared-elements)
+- **Architecture:** [MVVM](https://developer.android.com/topic/architecture#recommended-app-arch), [UI State Management](https://developer.android.com/topic/architecture/ui-layer/events#handle-viewmodel-events)
+- **Asynchronicity:** [Kotlin Coroutines](https://kotlinlang.org/docs/coroutines-overview.html), [Kotlin KTX](https://developer.android.com/kotlin/ktx)
+- **Navigation:** [Navigation Compose 3](https://developer.android.com/guide/navigation/navigation-3), [Navigation Type Safety](https://medium.com/androiddevelopers/navigation-compose-meet-type-safety-e081fb3cf2f8), [Shared Element Transition](https://developer.android.com/develop/ui/compose/animation/shared-elements)
 - **Data:** [Retrofit](https://square.github.io/retrofit/) (
   Networking), [Room](https://developer.android.com/training/data-storage/room) (Database)
 - **Dependency Injection:** [Hilt](https://dagger.dev/hilt/)
-- **Build & Optimization:
-  ** [KSP](https://developer.android.com/build/migrate-to-ksp), [R8](https://developer.android.com/build/shrink-code)
-- **Custom Components:
-  ** [PercentageWithAnimation](https://github.com/NicosNicolaou16/PercentagesWithAnimationCompose)
+- **Build & Optimization:** [KSP](https://developer.android.com/build/migrate-to-ksp), [R8](https://developer.android.com/build/shrink-code)
+- **Custom Components:** [PercentageWithAnimation](https://github.com/NicosNicolaou16/PercentagesWithAnimationCompose)
   for displaying Pokémon stats built by [@NicosNicolaou16](https://github.com/NicosNicolaou16).
 
 ## 🔧 Versioning
