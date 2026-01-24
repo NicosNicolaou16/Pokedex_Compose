@@ -64,7 +64,7 @@ utilizes a variety of modern Android libraries and tools:
 - **Asynchronicity:
   ** [Kotlin Coroutines](https://kotlinlang.org/docs/coroutines-overview.html), [Kotlin KTX](https://developer.android.com/kotlin/ktx)
 - **Navigation:
-  ** [Navigation Type Safety](https://medium.com/androiddevelopers/navigation-compose-meet-type-safety-e081fb3cf2f8), [Shared Element Transition](https://developer.android.com/develop/ui/compose/animation/shared-elements)
+  ** [Navigation Compose](https://developer.android.com/guide/navigation/navigation-3), [Navigation Type Safety](https://medium.com/androiddevelopers/navigation-compose-meet-type-safety-e081fb3cf2f8), [Shared Element Transition](https://developer.android.com/develop/ui/compose/animation/shared-elements)
 - **Data:** [Retrofit](https://square.github.io/retrofit/) (
   Networking), [Room](https://developer.android.com/training/data-storage/room) (Database)
 - **Dependency Injection:** [Hilt](https://dagger.dev/hilt/)
