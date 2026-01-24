@@ -39,6 +39,7 @@ A modern Pokédex app for Android built with the latest technologies recommended
 </p>
 <p align="left">
   <img src="examples/Screenshot_20251214_201927.png" alt="Landscape Detail View" height="500" width="400">
+  &nbsp;
   <img src="examples/example_gif3.gif" alt="Landscape to Portrait Transition" height="500" width="400">
 </p>
 
