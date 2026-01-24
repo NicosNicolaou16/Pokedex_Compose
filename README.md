@@ -11,7 +11,8 @@
 [![YouTube](https://img.shields.io/badge/YouTube-%23FF0000.svg?style=for-the-badge&logo=YouTube&logoColor=white)](https://www.youtube.com/@nicosnicolaou16)
 [![Google Developer Profile](https://img.shields.io/badge/Developer_Profile-blue?style=for-the-badge&label=Google)](https://g.dev/nicolaou_nicos)
 
-A modern Pokédex app for Android built with the latest technologies recommended by Google. This project showcases a clean, scalable architecture and a fluid user interface using Jetpack Compose.
+A modern Pokédex app for Android built with the latest technologies recommended by Google. This
+project showcases a clean, scalable architecture and a fluid user interface using Jetpack Compose.
 
 > [!IMPORTANT]  
 > A similar project is also available in Flutter (Dart)!  
@@ -19,14 +20,20 @@ A modern Pokédex app for Android built with the latest technologies recommended
 
 ## ✨ Features
 
-*   **Modern UI:** Built entirely with **Jetpack Compose** for a declarative and intuitive UI.
-*   **Dynamic Theming:** Extracts prominent colors from Pokémon images using the **Palette API** to create dynamic and immersive detail screens.
-*   **Seamless Transitions:** Implements the new **Shared Element Transition** for smooth navigation between the list and detail views.
-*   **Offline Support:** Caches Pokémon data using **Room Database**, allowing the app to work offline.
-*   **Efficient Networking:** Fetches data from the [PokéAPI](https://pokeapi.co/) using **Retrofit**.
-*   **Optimized Performance:** Leverages **Coroutines** for asynchronous operations, **KSP** for faster annotation processing, and **R8** for code shrinking.
-*   **Scalable Architecture:** Follows the **MVVM** pattern with a repository, ensuring a clean separation of concerns and maintainable code.
-*   **Type-Safe Navigation:** Utilizes the latest **Navigation Type Safety** for robust and error-free navigation.
+* **Modern UI:** Built entirely with **Jetpack Compose** for a declarative and intuitive UI.
+* **Dynamic Theming:** Extracts prominent colors from Pokémon images using the **Palette API** to
+  create dynamic and immersive detail screens.
+* **Seamless Transitions:** Implements the new **Shared Element Transition** for smooth navigation
+  between the list and detail views.
+* **Offline Support:** Caches Pokémon data using **Room Database**, allowing the app to work
+  offline.
+* **Efficient Networking:** Fetches data from the [PokéAPI](https://pokeapi.co/) using **Retrofit**.
+* **Optimized Performance:** Leverages **Coroutines** for asynchronous operations, **KSP** for
+  faster annotation processing, and **R8** for code shrinking.
+* **Scalable Architecture:** Follows the **MVVM** pattern with a repository, ensuring a clean
+  separation of concerns and maintainable code.
+* **Type-Safe Navigation:** Utilizes the latest **Navigation Type Safety** for robust and error-free
+  navigation.
 
 ## 📸 Screenshots & Demos
 
@@ -45,41 +52,55 @@ A modern Pokédex app for Android built with the latest technologies recommended
 
 ## 🛠️ Tech Stack & Libraries
 
-This project is built with **[Kotlin](https://kotlinlang.org/docs/getting-started.html)** and utilizes a variety of modern Android libraries and tools:
+This project is built with **[Kotlin](https://kotlinlang.org/docs/getting-started.html)** and
+utilizes a variety of modern Android libraries and tools:
 
--   **UI:** [Jetpack Compose](https://developer.android.com/develop/ui/compose), [Coil](https://coil-kt.github.io/coil/compose/) (Image Loading), [Palette API](https://developer.android.com/develop/ui/views/graphics/palette-colors)
--   **Architecture:** [MVVM](https://developer.android.com/topic/architecture#recommended-app-arch), [UI State Management](https://developer.android.com/topic/architecture/ui-layer/events#handle-viewmodel-events)
--   **Asynchronicity:** [Kotlin Coroutines](https://kotlinlang.org/docs/coroutines-overview.html), [Kotlin KTX](https://developer.android.com/kotlin/ktx)
--   **Navigation:** [Navigation Type Safety](https://medium.com/androiddevelopers/navigation-compose-meet-type-safety-e081fb3cf2f8), [Shared Element Transition](https://developer.android.com/develop/ui/compose/animation/shared-elements)
--   **Data:** [Retrofit](https://square.github.io/retrofit/) (Networking), [Room](https://developer.android.com/training/data-storage/room) (Database)
--   **Dependency Injection:** [Hilt](https://dagger.dev/hilt/)
--   **Build & Optimization:** [KSP](https://developer.android.com/build/migrate-to-ksp), [R8](https://developer.android.com/build/shrink-code)
--   **Custom Components:** [PercentageWithAnimation](https://github.com/NicosNicolaou16/PercentagesWithAnimationCompose) for displaying Pokémon stats.
+- **UI:
+  ** [Jetpack Compose](https://developer.android.com/develop/ui/compose), [Coil](https://coil-kt.github.io/coil/compose/) (
+  Image
+  Loading), [Palette API](https://developer.android.com/develop/ui/views/graphics/palette-colors)
+- **Architecture:
+  ** [MVVM](https://developer.android.com/topic/architecture#recommended-app-arch), [UI State Management](https://developer.android.com/topic/architecture/ui-layer/events#handle-viewmodel-events)
+- **Asynchronicity:
+  ** [Kotlin Coroutines](https://kotlinlang.org/docs/coroutines-overview.html), [Kotlin KTX](https://developer.android.com/kotlin/ktx)
+- **Navigation:
+  ** [Navigation Type Safety](https://medium.com/androiddevelopers/navigation-compose-meet-type-safety-e081fb3cf2f8), [Shared Element Transition](https://developer.android.com/develop/ui/compose/animation/shared-elements)
+- **Data:** [Retrofit](https://square.github.io/retrofit/) (
+  Networking), [Room](https://developer.android.com/training/data-storage/room) (Database)
+- **Dependency Injection:** [Hilt](https://dagger.dev/hilt/)
+- **Build & Optimization:
+  ** [KSP](https://developer.android.com/build/migrate-to-ksp), [R8](https://developer.android.com/build/shrink-code)
+- **Custom Components:
+  ** [PercentageWithAnimation](https://github.com/NicosNicolaou16/PercentagesWithAnimationCompose)
+  for displaying Pokémon stats built by [@NicosNicolaou16](https://github.com/NicosNicolaou16).
 
 ## 🔧 Versioning
 
--   **Target SDK:** 36
--   **Minimum SDK:** 29
--   **Kotlin Version:** 2.3.0
--   **Gradle Version:** 9.0.0
+- **Target SDK:** 36
+- **Minimum SDK:** 29
+- **Kotlin Version:** 2.3.0
+- **Gradle Version:** 9.0.0
 
 ## 📚 APIs & References
 
 ### Data Sources
--   **Primary API:** [PokéAPI (pokeapi.co)](https://pokeapi.co/)
--   **Image Sprites:** [PokeAPI/sprites on GitHub](https://github.com/PokeAPI/sprites)
+
+- **Primary API:** [PokéAPI (pokeapi.co)](https://pokeapi.co/)
+- **Image Sprites:** [PokeAPI/sprites on GitHub](https://github.com/PokeAPI/sprites)
 
 ### Articles & Inspiration
--   **Shared Element Transitions:**
-    -   [Shared Element Transitions in Jetpack Compose](https://fvilarino.medium.com/shared-element-transitions-in-jetpack-compose-8f553078101e)
-    -   [Building a Shared Element Transition in Jetpack Compose](https://getstream.io/blog/shared-element-compose/)
--   **Type-Safe Navigation:**
-    -   [Navigation-Compose meets Type-Safety](https://medium.com/androiddevelopers/navigation-compose-meet-type-safety-e081fb3cf2f8)
--   **UI/UX Design Inspiration:**
-    -   [Dribbble - Pokedex App by Alexandr](https://dribbble.com/shots/6540871-Pokedex-App) (Note: Used as inspiration, not a direct copy)
--   **App Icon:**
-    -   Derived from [Fandom Ideas Wiki](https://ideas.fandom.com/wiki/Pok%C3%A9_Ball_Pok%C3%A9mon_Ideas_(Super_Smash_Bros._series)?file=Pok%C3%A9_Ball_Redraw_by_oykawoo.png)
 
+- **Shared Element Transitions:**
+    - [Shared Element Transitions in Jetpack Compose](https://fvilarino.medium.com/shared-element-transitions-in-jetpack-compose-8f553078101e)
+    - [Building a Shared Element Transition in Jetpack Compose](https://getstream.io/blog/shared-element-compose/)
+- **Type-Safe Navigation:**
+    - [Navigation-Compose meets Type-Safety](https://medium.com/androiddevelopers/navigation-compose-meet-type-safety-e081fb3cf2f8)
+- **UI/UX Design Inspiration:**
+    - [Dribbble - Pokedex App by Alexandr](https://dribbble.com/shots/6540871-Pokedex-App) (Note:
+      Used as inspiration, not a direct copy)
+- **App Icon:**
+    - Derived
+      from [Fandom Ideas Wiki](https://ideas.fandom.com/wiki/Pok%C3%A9_Ball_Pok%C3%A9mon_Ideas_(Super_Smash_Bros._series)?file=Pok%C3%A9_Ball_Redraw_by_oykawoo.png)
 
 <!--# Pokedex_Compose
 
