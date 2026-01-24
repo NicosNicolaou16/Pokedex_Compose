@@ -32,8 +32,8 @@ project showcases a clean, scalable architecture and a fluid user interface usin
   faster annotation processing, and **R8** for code shrinking.
 * **Scalable Architecture:** Follows the **MVVM** pattern with a repository, ensuring a clean
   separation of concerns and maintainable code.
-* **Type-Safe Navigation:** Utilizes the latest **Navigation Type Safety** for robust and error-free
-  navigation.
+* **Navigation:** Leverages **Navigation 3** and its **Type Safety** features for robust,
+  compile-time checked, and error-free navigation.
 
 ## 📸 Screenshots & Demos
 
