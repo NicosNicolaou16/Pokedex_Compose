@@ -47,24 +47,26 @@ android {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
-    kotlin {
-        compilerOptions {
-            languageVersion = org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_2_3
-            jvmTarget = JvmTarget.fromTarget("17")
-            freeCompilerArgs = listOf("-Xannotation-default-target=param-property")
-        }
-    }
     buildFeatures {
         compose = true
-    }
-    composeCompiler {
-        reportsDestination = layout.buildDirectory.dir("compose_compiler")
     }
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+}
+
+kotlin {
+    compilerOptions {
+        languageVersion = org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_2_3
+        jvmTarget = JvmTarget.fromTarget("17")
+        freeCompilerArgs = listOf("-Xannotation-default-target=param-property")
+    }
+}
+
+composeCompiler {
+    reportsDestination = layout.buildDirectory.dir("compose_compiler")
 }
 
 dependencies {
