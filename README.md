@@ -70,10 +70,10 @@ utilizes a variety of modern Android libraries and tools:
 
 ## 🔧 Versioning
 
-- **Target SDK:** 36
-- **Minimum SDK:** 29
-- **Kotlin Version:** 2.3.0
-- **Gradle Version:** 9.0.0
+- **Target SDK:** **36**
+- **Minimum SDK:** **29**
+- **Kotlin Version:** **2.3.10**
+- **Gradle Version:** **9.0.1**
 
 ## 📚 APIs & References
 
@@ -95,6 +95,16 @@ utilizes a variety of modern Android libraries and tools:
 - **App Icon:**
     - Derived
       from [Fandom Ideas Wiki](https://ideas.fandom.com/wiki/Pok%C3%A9_Ball_Pok%C3%A9mon_Ideas_(Super_Smash_Bros._series)?file=Pok%C3%A9_Ball_Redraw_by_oykawoo.png)
+
+## ⭐ Stargazers
+
+If you enjoy this project, please give it a star!
+Check out all the stargazers
+here: [Stargazers on GitHub](https://github.com/NicosNicolaou16/Pokedex_Compose/stargazers)
+
+## 🙏 Support & Contributions
+
+This library is actively maintained. Feedback, bug reports, and feature requests are welcome! Please feel free to **open an issue** or submit a **pull request**.
 
 <!--# Pokedex_Compose
 
