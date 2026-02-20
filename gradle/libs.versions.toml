@@ -27,7 +27,7 @@ swipeRefreshLayoutVersion = "1.2.0"
 gsonVersion = "2.13.2"
 paletteVersion = "1.0.0"
 kotlinSerializationVersion = "1.10.0"
-percentagesWithAnimationComposeVersion = "1.3.6"
+percentagesWithAnimationComposeVersion = "1.3.7"
 nav3Core = "1.0.0"
 material3AdaptiveNav3 = "1.3.0-alpha06"
 
