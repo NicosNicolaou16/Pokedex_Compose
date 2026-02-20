@@ -72,8 +72,8 @@ utilizes a variety of modern Android libraries and tools:
 
 - **Target SDK:** **36**
 - **Minimum SDK:** **29**
-- **Kotlin Version:** **2.3.0**
-- **Gradle Version:** **9.0.0**
+- **Kotlin Version:** **2.3.10**
+- **Gradle Version:** **9.0.1**
 
 ## 📚 APIs & References
 
