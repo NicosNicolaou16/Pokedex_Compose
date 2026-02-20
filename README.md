@@ -70,10 +70,10 @@ utilizes a variety of modern Android libraries and tools:
 
 ## 🔧 Versioning
 
-- **Target SDK:** 36
-- **Minimum SDK:** 29
-- **Kotlin Version:** 2.3.0
-- **Gradle Version:** 9.0.0
+- **Target SDK:** **36**
+- **Minimum SDK:** **29**
+- **Kotlin Version:** **2.3.0**
+- **Gradle Version:** **9.0.0**
 
 ## 📚 APIs & References
 
