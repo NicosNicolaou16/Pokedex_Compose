@@ -104,4 +104,4 @@ here: [Stargazers on GitHub](https://github.com/NicosNicolaou16/Pokedex_Compose/
 
 ## 🙏 Support & Contributions
 
-This library is actively maintained. Feedback, bug reports, and feature requests are welcome! Please feel free to **open an issue** or submit a **pull request**.
+This project is actively maintained. Feedback, bug reports, and feature requests are welcome! Please feel free to **open an issue** or submit a **pull request**.
