@@ -1,4 +1,4 @@
-# Pokedex Compose  Pokédex App
+# Pokedex Compose
 
 [![Linktree](https://img.shields.io/badge/linktree-1de9b6?style=for-the-badge&logo=linktree&logoColor=white)](https://linktr.ee/nicos_nicolaou)
 [![Site](https://img.shields.io/badge/Site-blue?style=for-the-badge&label=Web)](https://nicosnicolaou16.github.io/)
@@ -72,8 +72,8 @@ utilizes a variety of modern Android libraries and tools:
 
 - **Target SDK:** **36**
 - **Minimum SDK:** **29**
-- **Kotlin Version:** **2.3.10**
-- **Gradle Version:** **9.1.0**
+- **Kotlin Version:** **2.3.21**
+- **Gradle Version:** **9.2.0**
 
 ## 📚 APIs & References
 

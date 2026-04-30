@@ -36,7 +36,7 @@ fun Navigation(changeSystemBarStyle: (SystemBarStyle) -> Unit) {
             onBack = {
                 navigator.goBack()
             },
-            sceneStrategy = listDetailStrategy,
+            sceneStrategies = listOf(listDetailStrategy),
             entryProvider = entryProvider {
                 entry<PokemonList>(
                     metadata = ListDetailSceneStrategy.listPane()
