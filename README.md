@@ -73,7 +73,7 @@ utilizes a variety of modern Android libraries and tools:
 - **Target SDK:** **36**
 - **Minimum SDK:** **29**
 - **Kotlin Version:** **2.3.21**
-- **Gradle Version:** **9.2.0**
+- **Gradle Version:** **9.2.1**
 
 ## 📚 APIs & References
 
