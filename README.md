@@ -74,7 +74,7 @@ The project follows **Clean Architecture** principles combined with **MVVM (Mode
 
 ### Project Structure
 
-`├── data/
+```├── data/
 │   ├── di/                 # Hilt Modules
 │   ├── network/            # Retrofit DTOs and API Service
 │   ├── room_database/      # Room Entities and DAOs
@@ -88,7 +88,7 @@ The project follows **Clean Architecture** principles combined with **MVVM (Mode
 │   └── pokemon_details/    # Detail feature (Screen, ViewModel, State)
 ├── ui/
 │   └── theme/              # Compose Theme (Color, Type, etc.)
-└── utils/                  # Extension functions and generic classes`
+└── utils/                  # Extension functions and generic classes```
 
 ## 🔧 Versioning
 
