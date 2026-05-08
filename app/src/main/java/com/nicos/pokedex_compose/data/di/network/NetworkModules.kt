@@ -12,7 +12,6 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object NetworkModules {
 
-
     @Provides
     @Singleton
     fun requestBuilder(): Retrofit = MyNetworkManager.initNetworkManager()
