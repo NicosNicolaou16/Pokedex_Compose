@@ -3,6 +3,7 @@ package com.nicos.pokedex_compose.presentation.pokemon_list_screen
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.nicos.pokedex_compose.data.repository_impl.PokemonListRepositoryImpl
+import com.nicos.pokedex_compose.domain.repositories.PokemonListRepository
 import com.nicos.pokedex_compose.utils.generic_classes.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -14,7 +15,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class PokemonListViewModel @Inject constructor(
-    private val pokemonListRepositoryImpl: PokemonListRepositoryImpl
+    private val pokemonListRepository: PokemonListRepository
 ) : ViewModel() {
 
     private val _pokemonListState = MutableStateFlow<PokemonListState>(PokemonListState())
@@ -26,7 +27,7 @@ class PokemonListViewModel @Inject constructor(
     }
 
     fun requestToFetchPokemon(url: String? = null) = viewModelScope.launch(Dispatchers.IO) {
-        pokemonListRepositoryImpl.fetchPokemonList(url = url).collect { resource ->
+        pokemonListRepository.fetchPokemonList(url = url).collect { resource ->
             when (resource) {
                 is Resource.Success -> {
                     withContext(Dispatchers.Main) {
@@ -51,7 +52,7 @@ class PokemonListViewModel @Inject constructor(
     }
 
     private fun offline() = viewModelScope.launch(Dispatchers.IO) {
-        pokemonListRepositoryImpl.offline().collect { resource ->
+        pokemonListRepository.offline().collect { resource ->
             when (resource) {
                 is Resource.Success -> {
                     withContext(Dispatchers.Main) {
