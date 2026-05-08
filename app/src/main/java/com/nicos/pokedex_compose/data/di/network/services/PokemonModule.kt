@@ -1,4 +1,4 @@
-package com.nicos.pokedex_compose.domain.di.network.services
+package com.nicos.pokedex_compose.data.di.network.services
 
 import com.nicos.pokedex_compose.data.network.PokemonService
 import dagger.Module

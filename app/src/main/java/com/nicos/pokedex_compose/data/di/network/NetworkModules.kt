@@ -1,4 +1,4 @@
-package com.nicos.pokedex_compose.domain.di.network
+package com.nicos.pokedex_compose.data.di.network
 
 import com.nicos.pokedex_compose.data.network.init_network.MyNetworkManager
 import dagger.Module
