@@ -1,4 +1,4 @@
-package com.nicos.pokedex_compose.domain.dto
+package com.nicos.pokedex_compose.data.network.dto
 
 import com.google.gson.annotations.SerializedName
 

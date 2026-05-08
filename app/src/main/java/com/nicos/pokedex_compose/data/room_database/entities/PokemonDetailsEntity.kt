@@ -2,11 +2,8 @@ package com.nicos.pokedex_compose.data.room_database.entities
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.google.gson.annotations.SerializedName
 import com.nicos.pokedex_compose.data.room_database.init_database.MyRoomDatabase
-import com.nicos.pokedex_compose.domain.dto.PokemonDetailsDto
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.flow
+import com.nicos.pokedex_compose.data.network.dto.PokemonDetailsDto
 
 @Entity
 data class PokemonDetailsEntity(
