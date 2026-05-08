@@ -2,7 +2,7 @@ package com.nicos.pokedex_compose.data.room_database.entities
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.nicos.pokedex_compose.domain.dto.PokemonDto
+import com.nicos.pokedex_compose.data.network.dto.PokemonDto
 
 @Entity
 data class PokemonEntity(

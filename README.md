@@ -68,12 +68,36 @@ utilizes a variety of modern Android libraries and tools:
 - **Custom Components:** [PercentageWithAnimation](https://github.com/NicosNicolaou16/PercentagesWithAnimationCompose)
   for displaying Pokémon stats built by [@NicosNicolaou16](https://github.com/NicosNicolaou16).
 
+## 🏗️ Architecture
+
+The project follows **Clean Architecture** principles combined with **MVVM (Model-View-ViewModel)** and **Unidirectional Data Flow (UDF)**. This ensures a clean separation of concerns, making the codebase scalable, maintainable, and testable.
+
+### Project Structure
+
+```
+├── data/
+│   ├── di/                 # Hilt Modules
+│   ├── network/            # Retrofit DTOs and API Service
+│   ├── room_database/      # Room Entities and DAOs
+│   ├── repository_impl/    # Repository Implementations
+│   └── mappers/            # Data transformation logic
+├── domain/
+│   └── repositories/       # Repository Interfaces
+├── presentation/
+│   ├── navigation/         # Navigation 3 setup and Navigator
+│   ├── pokemon_list/       # List feature (Screen, ViewModel, State)
+│   └── pokemon_details/    # Detail feature (Screen, ViewModel, State)
+├── ui/
+│   └── theme/              # Compose Theme (Color, Type, etc.)
+└── utils/                  # Extension functions and generic classes
+```
+
 ## 🔧 Versioning
 
 - **Target SDK:** **36**
 - **Minimum SDK:** **29**
 - **Kotlin Version:** **2.3.21**
-- **Gradle Version:** **9.2.0**
+- **Gradle Version:** **9.2.1**
 
 ## 📚 APIs & References
 

@@ -1,7 +1,5 @@
 package com.nicos.pokedex_compose.presentation.pokemon_details_screen.models
 
-import com.nicos.pokedex_compose.data.room_database.entities.StatsEntity
-import com.nicos.pokedex_compose.presentation.pokemon_details_screen.models.PokemonDetailsUI
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
@@ -10,7 +8,7 @@ data class PokemonDetailsDataModel(
     val imageUrl: String? = null,
     val name: String? = null,
     val weight: Int? = null,
-    val statsEntity: StatsEntity? = null,
+    val statsUi: StatsUi? = null,
     val maxValue: Int? = 0,
     val pokemonDetailsViewTypes: PokemonDetailsViewTypes,
 ) {
@@ -35,7 +33,7 @@ data class PokemonDetailsDataModel(
                 pokemonDetailsUI?.stats?.forEach { statsEntity ->
                     add(
                         PokemonDetailsDataModel(
-                            statsEntity = statsEntity,
+                            statsUi = statsEntity,
                             maxValue = maxValue,
                             pokemonDetailsViewTypes = PokemonDetailsViewTypes.STAT_VIEW_TYPE
                         )

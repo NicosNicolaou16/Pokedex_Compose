@@ -1,6 +1,6 @@
-package com.nicos.pokedex_compose.domain.di.network
+package com.nicos.pokedex_compose.data.di.network
 
-import com.nicos.pokedex_compose.domain.network.init_network.MyNetworkManager
+import com.nicos.pokedex_compose.data.network.init_network.MyNetworkManager
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -11,7 +11,6 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object NetworkModules {
-
 
     @Provides
     @Singleton

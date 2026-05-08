@@ -1,7 +1,7 @@
-package com.nicos.pokedex_compose.domain.network
+package com.nicos.pokedex_compose.data.network
 
-import com.nicos.pokedex_compose.domain.pokemon_response_model.PokemonResponse
-import com.nicos.pokedex_compose.domain.dto.PokemonDetailsDto
+import com.nicos.pokedex_compose.data.network.pokemon_response_model.PokemonResponse
+import com.nicos.pokedex_compose.data.network.dto.PokemonDetailsDto
 import retrofit2.http.GET
 import retrofit2.http.Url
 

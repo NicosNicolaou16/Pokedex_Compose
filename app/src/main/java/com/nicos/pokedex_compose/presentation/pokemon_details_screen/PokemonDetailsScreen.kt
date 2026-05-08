@@ -192,7 +192,7 @@ fun StatView(
     ) {
         Column {
             Text(
-                text = pokemonDetailsViewModel.statsEntity?.statName?.upperCaseFirstLetter() ?: "",
+                text = pokemonDetailsViewModel.statsUi?.statName?.upperCaseFirstLetter() ?: "",
                 style = TextStyle(color = Color.White, fontSize = 19.sp),
                 modifier = Modifier.padding(
                     start = 15.dp,
@@ -201,7 +201,7 @@ fun StatView(
                 )
             )
             LinearPercentage(
-                currentPercentage = pokemonDetailsViewModel.statsEntity?.baseStat?.toFloat()
+                currentPercentage = pokemonDetailsViewModel.statsUi?.baseStat?.toFloat()
                     ?: 0.0F,
                 maxPercentage = pokemonDetailsViewModel.maxValue?.toFloat() ?: 200F,
                 heightPercentageBackground = 25,
