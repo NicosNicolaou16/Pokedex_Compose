@@ -1,4 +1,4 @@
-package com.nicos.pokedex_compose.presentation.mappers
+package com.nicos.pokedex_compose.domain.mappers
 
 import com.nicos.pokedex_compose.data.room_database.entities.PokemonDetailsEntity
 import com.nicos.pokedex_compose.data.room_database.entities.PokemonDetailsWithStatsEntity

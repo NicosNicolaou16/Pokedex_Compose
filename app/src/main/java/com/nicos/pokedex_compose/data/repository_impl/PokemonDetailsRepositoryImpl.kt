@@ -1,6 +1,6 @@
 package com.nicos.pokedex_compose.data.repository_impl
 
-import com.nicos.pokedex_compose.presentation.mappers.toPokemonDetailsUi
+import com.nicos.pokedex_compose.domain.mappers.toPokemonDetailsUi
 import com.nicos.pokedex_compose.data.room_database.entities.PokemonDetailsEntity
 import com.nicos.pokedex_compose.data.room_database.entities.PokemonDetailsWithStatsEntity
 import com.nicos.pokedex_compose.data.room_database.entities.toPokemonDetailsEntity
