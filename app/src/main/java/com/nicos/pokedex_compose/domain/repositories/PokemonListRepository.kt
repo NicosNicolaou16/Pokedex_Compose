@@ -6,6 +6,5 @@ import kotlinx.coroutines.flow.Flow
 
 interface PokemonListRepository {
     suspend fun fetchPokemonList(url: String?): Flow<Resource<MutableList<PokemonEntity>>>
-    suspend fun savePokemon(pokemonEntityList: MutableList<PokemonEntity>)
     suspend fun offline(): Flow<Resource<MutableList<PokemonEntity>>>
 }
