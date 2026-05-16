@@ -1,6 +1,7 @@
 package com.nicos.pokedex_compose.data.repository_impl
 
 import androidx.core.text.isDigitsOnly
+import com.nicos.pokedex_compose.data.mappers.toPokemonUi
 import com.nicos.pokedex_compose.data.room_database.entities.PokemonEntity
 import com.nicos.pokedex_compose.data.room_database.entities.toPokemonEntity
 import com.nicos.pokedex_compose.data.room_database.init_database.MyRoomDatabase
@@ -39,7 +40,8 @@ class PokemonListRepositoryImpl @Inject constructor(
 
                 emit(
                     Resource.Success(
-                        data = myRoomDatabase.pokemonDao().getAllPokemon(),
+                        data = myRoomDatabase.pokemonDao().getAllPokemon().map { it.toPokemonUi() }
+                            .toMutableList(),
                         nextUrl = nextUrl
                     )
                 )
@@ -70,7 +72,12 @@ class PokemonListRepositoryImpl @Inject constructor(
     override suspend fun offline(): Flow<Resource<MutableList<PokemonUi>>> {
         return flow {
             try {
-                emit(Resource.Success(data = myRoomDatabase.pokemonDao().getAllPokemon()))
+                emit(
+                    Resource.Success(
+                        data = myRoomDatabase.pokemonDao().getAllPokemon().map { it.toPokemonUi() }
+                            .toMutableList()
+                    )
+                )
             } catch (e: Exception) {
                 emit(Resource.Error(message = handlingError.handleErrorMessage(e)))
             }
