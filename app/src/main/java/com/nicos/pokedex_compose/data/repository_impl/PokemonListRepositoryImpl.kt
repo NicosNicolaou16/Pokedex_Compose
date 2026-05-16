@@ -6,6 +6,7 @@ import com.nicos.pokedex_compose.data.room_database.entities.toPokemonEntity
 import com.nicos.pokedex_compose.data.room_database.init_database.MyRoomDatabase
 import com.nicos.pokedex_compose.data.network.PokemonService
 import com.nicos.pokedex_compose.domain.repositories.PokemonListRepository
+import com.nicos.pokedex_compose.presentation.pokemon_list_screen.models.PokemonUi
 import com.nicos.pokedex_compose.utils.generic_classes.HandlingError
 import com.nicos.pokedex_compose.utils.generic_classes.Resource
 import kotlinx.coroutines.Dispatchers
@@ -26,7 +27,7 @@ class PokemonListRepositoryImpl @Inject constructor(
         private const val PNG_FORMAT = ".png"
     }
 
-    override suspend fun fetchPokemonList(url: String?): Flow<Resource<MutableList<PokemonEntity>>> {
+    override suspend fun fetchPokemonList(url: String?): Flow<Resource<MutableList<PokemonUi>>> {
         return flow {
             try {
                 val pokemonService =
@@ -66,7 +67,7 @@ class PokemonListRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun offline(): Flow<Resource<MutableList<PokemonEntity>>> {
+    override suspend fun offline(): Flow<Resource<MutableList<PokemonUi>>> {
         return flow {
             try {
                 emit(Resource.Success(data = myRoomDatabase.pokemonDao().getAllPokemon()))
