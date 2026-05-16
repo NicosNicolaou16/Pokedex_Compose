@@ -1,9 +1,9 @@
 package com.nicos.pokedex_compose.presentation.pokemon_list_screen
 
-import com.nicos.pokedex_compose.data.room_database.entities.PokemonEntity
+import com.nicos.pokedex_compose.data.mappers.PokemonUi
 
 data class PokemonListState(
-    val pokemonMutableList: MutableList<PokemonEntity>? = null,
+    val pokemonMutableList: MutableList<PokemonUi>? = null,
     var nextPage: String? = null,
     val isLoading: Boolean = true,
     val error: String? = null,

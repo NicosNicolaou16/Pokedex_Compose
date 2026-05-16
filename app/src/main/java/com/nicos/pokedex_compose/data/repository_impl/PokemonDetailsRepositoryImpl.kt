@@ -9,7 +9,7 @@ import com.nicos.pokedex_compose.data.room_database.init_database.MyRoomDatabase
 import com.nicos.pokedex_compose.data.network.dto.PokemonDetailsDto
 import com.nicos.pokedex_compose.data.network.PokemonService
 import com.nicos.pokedex_compose.domain.repositories.PokemonDetailsRepository
-import com.nicos.pokedex_compose.presentation.pokemon_details_screen.models.PokemonDetailsUI
+import com.nicos.pokedex_compose.data.mappers.PokemonDetailsUI
 import com.nicos.pokedex_compose.utils.generic_classes.HandlingError
 import com.nicos.pokedex_compose.utils.generic_classes.Resource
 import kotlinx.coroutines.Dispatchers
@@ -45,7 +45,7 @@ class PokemonDetailsRepositoryImpl @Inject constructor(
         }.flowOn(Dispatchers.IO)
     }
 
-    override suspend fun savePokemonDetails(pokemonDetailsDto: PokemonDetailsDto) {
+    private suspend fun savePokemonDetails(pokemonDetailsDto: PokemonDetailsDto) {
         myRoomDatabase.statsDao().deleteByPokemonName(name = pokemonDetailsDto.name)
         myRoomDatabase.pokemonDetailDao()
             .insertOrReplaceObject(data = pokemonDetailsDto.toPokemonDetailsEntity())
