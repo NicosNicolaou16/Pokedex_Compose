@@ -1,4 +1,4 @@
-package com.nicos.pokedex_compose.presentation.pokemon_list_screen.models
+package com.nicos.pokedex_compose.data.mappers
 
 data class PokemonUi(
     val name: String,

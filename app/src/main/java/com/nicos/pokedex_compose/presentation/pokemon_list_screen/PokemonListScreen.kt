@@ -39,7 +39,7 @@ import com.nicos.pokedex_compose.presentation.generic_compose_views.CustomToolba
 import com.nicos.pokedex_compose.presentation.generic_compose_views.ShowDialog
 import com.nicos.pokedex_compose.presentation.generic_compose_views.StartDefaultLoader
 import com.nicos.pokedex_compose.presentation.navigation.navigation_3.Navigator
-import com.nicos.pokedex_compose.presentation.pokemon_list_screen.models.PokemonUi
+import com.nicos.pokedex_compose.data.mappers.PokemonUi
 import com.nicos.pokedex_compose.utils.extensions.encodeStringUrl
 import com.nicos.pokedex_compose.utils.extensions.getProgressDrawable
 import com.nicos.pokedex_compose.utils.screen_routes.PokemonDetails

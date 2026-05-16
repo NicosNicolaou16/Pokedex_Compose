@@ -1,6 +1,6 @@
 package com.nicos.pokedex_compose.domain.repositories
 
-import com.nicos.pokedex_compose.presentation.pokemon_list_screen.models.PokemonUi
+import com.nicos.pokedex_compose.data.mappers.PokemonUi
 import com.nicos.pokedex_compose.utils.generic_classes.Resource
 import kotlinx.coroutines.flow.Flow
 

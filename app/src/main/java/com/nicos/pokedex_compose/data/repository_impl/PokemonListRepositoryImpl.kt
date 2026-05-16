@@ -7,7 +7,7 @@ import com.nicos.pokedex_compose.data.room_database.entities.toPokemonEntity
 import com.nicos.pokedex_compose.data.room_database.init_database.MyRoomDatabase
 import com.nicos.pokedex_compose.data.network.PokemonService
 import com.nicos.pokedex_compose.domain.repositories.PokemonListRepository
-import com.nicos.pokedex_compose.presentation.pokemon_list_screen.models.PokemonUi
+import com.nicos.pokedex_compose.data.mappers.PokemonUi
 import com.nicos.pokedex_compose.utils.generic_classes.HandlingError
 import com.nicos.pokedex_compose.utils.generic_classes.Resource
 import kotlinx.coroutines.Dispatchers
