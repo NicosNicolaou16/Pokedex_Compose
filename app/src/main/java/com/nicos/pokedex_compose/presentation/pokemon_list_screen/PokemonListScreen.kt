@@ -42,6 +42,7 @@ import com.nicos.pokedex_compose.presentation.generic_compose_views.CustomToolba
 import com.nicos.pokedex_compose.presentation.generic_compose_views.ShowDialog
 import com.nicos.pokedex_compose.presentation.generic_compose_views.StartDefaultLoader
 import com.nicos.pokedex_compose.presentation.navigation.navigation_3.Navigator
+import com.nicos.pokedex_compose.presentation.pokemon_list_screen.models.PokemonUi
 import com.nicos.pokedex_compose.utils.extensions.encodeStringUrl
 import com.nicos.pokedex_compose.utils.extensions.getProgressDrawable
 import com.nicos.pokedex_compose.utils.screen_routes.PokemonDetails
@@ -75,7 +76,7 @@ fun SharedTransitionScope.PokemonListScreen(
 
 @Composable
 fun SharedTransitionScope.GridViewPokemonList(
-    listener: (PokemonEntity) -> Unit,
+    listener: (PokemonUi) -> Unit,
     paddingValues: PaddingValues,
     animatedVisibilityScope: AnimatedVisibilityScope,
     pokemonListViewModel: PokemonListViewModel = hiltViewModel()
@@ -89,20 +90,21 @@ fun SharedTransitionScope.GridViewPokemonList(
     var columns by remember { mutableIntStateOf(2) }
     // Get the screen density to convert px to dp
     val density = LocalDensity.current
-    Box( modifier = Modifier
-        .padding(paddingValues)
-        .fillMaxSize()
-        .onPlaced { coordinates ->
-            // This block is called after the Box is measured and placed.
-            // We get the measured width in pixels and convert it to Dp.
-            val widthInDp = with(density) { coordinates.size.width.toDp() }
+    Box(
+        modifier = Modifier
+            .padding(paddingValues)
+            .fillMaxSize()
+            .onPlaced { coordinates ->
+                // This block is called after the Box is measured and placed.
+                // We get the measured width in pixels and convert it to Dp.
+                val widthInDp = with(density) { coordinates.size.width.toDp() }
 
-            // Calculate columns based on the actual width.
-            // Check for > 0.dp to avoid issues on the very first composition.
-            if (widthInDp > 0.dp) {
-                columns = (widthInDp / 180.dp).toInt().coerceAtLeast(2)
-            }
-        }) {
+                // Calculate columns based on the actual width.
+                // Check for > 0.dp to avoid issues on the very first composition.
+                if (widthInDp > 0.dp) {
+                    columns = (widthInDp / 180.dp).toInt().coerceAtLeast(2)
+                }
+            }) {
         LazyVerticalGrid(
             modifier = Modifier.fillMaxSize(),
             columns = GridCells.Fixed(columns)
@@ -113,7 +115,7 @@ fun SharedTransitionScope.GridViewPokemonList(
                 LoadPokemonImage(
                     listener = listener,
                     animatedVisibilityScope = animatedVisibilityScope,
-                    pokemonEntity = pokemon
+                    pokemonUi = pokemon
                 )
             }
             item {
@@ -132,16 +134,16 @@ fun SharedTransitionScope.GridViewPokemonList(
 
 @Composable
 fun SharedTransitionScope.LoadPokemonImage(
-    listener: (PokemonEntity) -> Unit,
+    listener: (PokemonUi) -> Unit,
     animatedVisibilityScope: AnimatedVisibilityScope,
-    pokemonEntity: PokemonEntity
+    pokemonUi: PokemonUi
 ) {
     val context = LocalContext.current
     Card(
         modifier = Modifier
             .padding(5.dp)
             .clickable {
-                listener(pokemonEntity)
+                listener(pokemonUi)
             },
         elevation = CardDefaults.cardElevation(
             defaultElevation = 0.dp
@@ -156,7 +158,7 @@ fun SharedTransitionScope.LoadPokemonImage(
     ) {
         AsyncImage(
             model = ImageRequest.Builder(context = context).apply {
-                data(pokemonEntity.imageUrl)
+                data(pokemonUi.imageUrl)
                 placeholder(getProgressDrawable(context))
                 error(android.R.drawable.stat_notify_error)
                 fallback(android.R.drawable.stat_notify_error)
@@ -165,7 +167,7 @@ fun SharedTransitionScope.LoadPokemonImage(
             modifier = Modifier
                 .sharedElement(
                     sharedContentState = rememberSharedContentState(
-                        key = pokemonEntity.imageUrl ?: ""
+                        key = pokemonUi.imageUrl ?: ""
                     ),
                     animatedVisibilityScope = animatedVisibilityScope,
                 )
