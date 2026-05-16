@@ -48,7 +48,7 @@ class PokemonListRepositoryImpl @Inject constructor(
         }.flowOn(Dispatchers.IO)
     }
 
-    override suspend fun savePokemon(pokemonEntityList: MutableList<PokemonEntity>) {
+    private suspend fun savePokemon(pokemonEntityList: MutableList<PokemonEntity>) {
         pokemonEntityList.forEach {
             buildPokemonImageUrl(it)
             if (it.imageUrl != null) {
