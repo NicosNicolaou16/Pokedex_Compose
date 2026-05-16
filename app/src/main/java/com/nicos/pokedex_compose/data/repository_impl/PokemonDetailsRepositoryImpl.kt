@@ -45,7 +45,7 @@ class PokemonDetailsRepositoryImpl @Inject constructor(
         }.flowOn(Dispatchers.IO)
     }
 
-    override suspend fun savePokemonDetails(pokemonDetailsDto: PokemonDetailsDto) {
+    private suspend fun savePokemonDetails(pokemonDetailsDto: PokemonDetailsDto) {
         myRoomDatabase.statsDao().deleteByPokemonName(name = pokemonDetailsDto.name)
         myRoomDatabase.pokemonDetailDao()
             .insertOrReplaceObject(data = pokemonDetailsDto.toPokemonDetailsEntity())
