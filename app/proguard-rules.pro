@@ -120,3 +120,5 @@
 -dontwarn okhttp3.internal.platform.ConscryptPlatform
 -dontwarn org.conscrypt.ConscryptHostnameVerifier
 # End OkHttp proguard rules
+
+-keep class * extends androidx.room3.RoomDatabase { <init>(); }
