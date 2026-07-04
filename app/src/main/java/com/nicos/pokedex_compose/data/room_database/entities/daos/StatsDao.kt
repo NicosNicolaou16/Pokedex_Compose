@@ -1,8 +1,8 @@
 package com.nicos.pokedex_compose.data.room_database.entities.daos
 
-import androidx.room.Dao
-import androidx.room.Query
-import androidx.room.Transaction
+import androidx.room3.Dao
+import androidx.room3.Query
+import androidx.room3.Transaction
 import com.nicos.pokedex_compose.data.room_database.entities.StatsEntity
 import com.nicos.pokedex_compose.data.room_database.init_database.BaseDao
 

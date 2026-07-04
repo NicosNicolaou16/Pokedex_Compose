@@ -1,7 +1,7 @@
 package com.nicos.pokedex_compose.data.room_database.entities
 
-import androidx.room.Entity
-import androidx.room.PrimaryKey
+import androidx.room3.Entity
+import androidx.room3.PrimaryKey
 import com.nicos.pokedex_compose.data.room_database.init_database.MyRoomDatabase
 import com.nicos.pokedex_compose.data.network.dto.PokemonDetailsDto
 
