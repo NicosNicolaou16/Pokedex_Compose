@@ -14,11 +14,11 @@ import com.nicos.pokedex_compose.data.room_database.entities.daos.StatsDao
 import com.nicos.pokedex_compose.data.room_database.type_converters.ConverterStats
 
 @Database(
-    entities = [PokemonEntity::class, PokemonDetailsEntity::class, StatsEntity::class/*, StatEntity::class*/],
+    entities = [PokemonEntity::class, PokemonDetailsEntity::class, StatsEntity::class],
     version = 1,
     exportSchema = false
 )
-@ColumnTypeConverters(ConverterStats::class/*, ConverterStat::class*/)
+@ColumnTypeConverters(ConverterStats::class)
 abstract class MyRoomDatabase : RoomDatabase() {
 
     abstract fun pokemonDao(): PokemonDao
