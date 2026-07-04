@@ -7,6 +7,7 @@ plugins {
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.parcelize)
     alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.androidx.room)
 }
 
 android {
@@ -57,6 +58,10 @@ android {
     }
 }
 
+room3 {
+    schemaDirectory("$projectDir/schemas")
+}
+
 kotlin {
     compilerOptions {
         languageVersion = org.jetbrains.kotlin.gradle.dsl.KotlinVersion.KOTLIN_2_3
@@ -93,7 +98,6 @@ dependencies {
     // Room Database
     implementation(libs.androidx.room.runtime)
     ksp(libs.androidx.room.compiler)
-    implementation(libs.androidx.room.ktx)
     // Retrofit
     implementation(libs.retrofit)
     implementation(libs.retrofit.gson)

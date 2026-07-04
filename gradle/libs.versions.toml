@@ -52,8 +52,8 @@ androidx-lifecycle-viewmodel-compose = { group = "androidx.lifecycle", name = "l
 androidx-animation = { group = "androidx.compose.animation", name = "animation", version.ref = "animationComposeVersion" }
 androidx-foundation = { group = "androidx.compose.foundation", name = "foundation", version.ref = "foundationComposeVersion" }
 # Room Database
-androidx-room3-runtime = { group = "androidx.room3", name = "room3-runtime", version.ref = "roomVersion" }
-androidx-room3-compiler = { group = "androidx.room3", name = "room3-compiler", version.ref = "roomVersion" }
+androidx-room-runtime = { group = "androidx.room3", name = "room3-runtime", version.ref = "roomVersion" }
+androidx-room-compiler = { group = "androidx.room3", name = "room3-compiler", version.ref = "roomVersion" }
 # Retrofit
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofitVersion" }
 retrofit-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofitVersion" }
