@@ -13,7 +13,7 @@ uiComposeVersion = "1.11.4"
 animationComposeVersion = "1.11.4"
 foundationComposeVersion = "1.11.4"
 composeBom = "2026.06.01"
-roomVersion = "2.8.4"
+roomVersion = "3.0.0"
 kspVersion = "2.3.9"
 retrofitVersion = "3.0.0"
 okHttpVersion = "5.4.0"
@@ -52,9 +52,8 @@ androidx-lifecycle-viewmodel-compose = { group = "androidx.lifecycle", name = "l
 androidx-animation = { group = "androidx.compose.animation", name = "animation", version.ref = "animationComposeVersion" }
 androidx-foundation = { group = "androidx.compose.foundation", name = "foundation", version.ref = "foundationComposeVersion" }
 # Room Database
-androidx-room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "roomVersion" }
-androidx-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "roomVersion" }
-androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "roomVersion" }
+androidx-room3-runtime = { group = "androidx.room3", name = "room3-runtime", version.ref = "roomVersion" }
+androidx-room3-compiler = { group = "androidx.room3", name = "room3-compiler", version.ref = "roomVersion" }
 # Retrofit
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofitVersion" }
 retrofit-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofitVersion" }
@@ -100,4 +99,5 @@ hilt-android = { id = "com.google.dagger.hilt.android", version.ref = "hiltVersi
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+androidx-room = { id = "androidx.room3", version.ref = "roomVersion" }
 
