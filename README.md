@@ -97,7 +97,7 @@ The project follows **Clean Architecture** principles combined with **MVVM (Mode
 - **Target SDK:** **37**
 - **Minimum SDK:** **29**
 - **Kotlin Version:** **2.4.10**
-- **Gradle Version:** **9.2.1**
+- **Gradle Version:** **9.4.0**
 
 ## 📚 APIs & References
 
