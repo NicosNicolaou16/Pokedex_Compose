@@ -67,6 +67,8 @@ utilizes a variety of modern Android libraries and tools:
 - **Build & Optimization:** [KSP](https://developer.android.com/build/migrate-to-ksp), [R8](https://developer.android.com/build/shrink-code)
 - **Custom Components:** [PercentageWithAnimation](https://github.com/NicosNicolaou16/PercentagesWithAnimationCompose)
   for displaying Pokémon stats built by [@NicosNicolaou16](https://github.com/NicosNicolaou16).
+- **[Baseline Profiles](https://developer.android.com/topic/performance/baselineprofiles)**: Improves app performance by pre-compiling critical code paths.
+- **[Startup Benchmarks](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-overview)**: Measures cold app startup time to verify Baseline Profile effectiveness.
 
 ## 🏗️ Architecture
 
@@ -91,6 +93,30 @@ The project follows **Clean Architecture** principles combined with **MVVM (Mode
 │   └── theme/              # Compose Theme (Color, Type, etc.)
 └── utils/                  # Extension functions and generic classes
 ```
+
+## ⚡ Performance Optimization
+
+To ensure the best user experience and smooth animations in a spatial environment, Pokedex Compose XR uses **Baseline Profiles**. These profiles provide a list of classes and methods that are pre-compiled on the device, reducing startup time and improving frame rates by minimizing Just-In-Time (JIT) compilation during critical user journeys.
+
+### Key Optimized Journeys:
+*   **App Startup**: Faster initial launch.
+*   **List Navigation**: Smooth scrolling through the Pokémon collection.
+*   **Image Loading**: Optimized Coil image loading during list interactions.
+*   **Screen Transitions**: Seamless navigation between the list and detail screens.
+
+### Generating Baseline Profiles:
+You can generate a new Baseline Profile by running the following Gradle command:
+```bash
+./gradlew :app:generateReleaseBaselineProfile
+```
+The generated profile will be automatically picked up during the release build process to optimize the final APK.
+
+### Measuring Startup Performance:
+To verify how effective the Baseline Profile is, run the Startup Benchmarks. They compare cold startup time **without** compilation (`CompilationMode.None`) against startup **with** the Baseline Profile applied (`CompilationMode.Partial`):
+```bash
+./gradlew :baselineProfile:connectedBenchmarkReleaseAndroidTest
+```
+Run this on a **physical device** (not an emulator) for accurate results. Baseline Profile generation and benchmarking require **API 33+**, or a rooted (AOSP) device/emulator on API 28+.
 
 ## 🔧 Versioning
 
