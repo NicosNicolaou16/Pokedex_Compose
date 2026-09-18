@@ -28,13 +28,17 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.onPlaced
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
-import coil.compose.AsyncImage
-import coil.request.CachePolicy
-import coil.request.ImageRequest
+import coil3.compose.AsyncImage
+import coil3.request.ImageRequest
+import coil3.request.CachePolicy
+import coil3.request.placeholder
+import coil3.request.error
+import coil3.request.fallback
 import com.nicos.pokedex_compose.presentation.generic_compose_views.CustomToolbar
 import com.nicos.pokedex_compose.presentation.generic_compose_views.ShowDialog
 import com.nicos.pokedex_compose.presentation.generic_compose_views.StartDefaultLoader
@@ -103,7 +107,7 @@ fun SharedTransitionScope.GridViewPokemonList(
                 }
             }) {
         LazyVerticalGrid(
-            modifier = Modifier.fillMaxSize(),
+            modifier = Modifier.fillMaxSize().testTag("pokemon_grid"),
             columns = GridCells.Fixed(columns)
         ) {
             items(state.pokemonMutableList ?: mutableListOf(), key = { pokemon ->
@@ -139,6 +143,7 @@ fun SharedTransitionScope.LoadPokemonImage(
     Card(
         modifier = Modifier
             .padding(5.dp)
+            .testTag("pokemon_grid")
             .clickable {
                 listener(pokemonUi)
             },
@@ -160,6 +165,8 @@ fun SharedTransitionScope.LoadPokemonImage(
                 error(android.R.drawable.stat_notify_error)
                 fallback(android.R.drawable.stat_notify_error)
                 memoryCachePolicy(CachePolicy.ENABLED)
+                diskCachePolicy(CachePolicy.ENABLED)
+                networkCachePolicy(CachePolicy.ENABLED)
             }.build(),
             modifier = Modifier
                 .sharedElement(

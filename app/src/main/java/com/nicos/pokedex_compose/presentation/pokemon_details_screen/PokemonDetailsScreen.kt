@@ -3,6 +3,7 @@
 package com.nicos.pokedex_compose.presentation.pokemon_details_screen
 
 import android.annotation.SuppressLint
+import android.util.Log
 import androidx.activity.SystemBarStyle
 import androidx.compose.animation.AnimatedVisibilityScope
 import androidx.compose.animation.ExperimentalSharedTransitionApi
@@ -33,14 +34,19 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalResources
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
-import coil.compose.AsyncImage
-import coil.request.CachePolicy
-import coil.request.ImageRequest
+import coil3.asDrawable
+import coil3.compose.AsyncImage
+import coil3.request.ImageRequest
+import coil3.request.CachePolicy
+import coil3.request.placeholder
+import coil3.request.error
+import coil3.request.fallback
 import com.nicos.percentageswithanimationcompose.LinearPercentage
 import com.nicos.percentageswithanimationcompose.enums.LeftAndRightText
 import com.nicos.pokedex_compose.presentation.generic_compose_views.CustomToolbar
@@ -49,6 +55,7 @@ import com.nicos.pokedex_compose.presentation.pokemon_details_screen.models.Poke
 import com.nicos.pokedex_compose.utils.extensions.colorToInt
 import com.nicos.pokedex_compose.utils.extensions.getProgressDrawable
 import com.nicos.pokedex_compose.utils.extensions.upperCaseFirstLetter
+import kotlinx.coroutines.Dispatchers
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
@@ -130,6 +137,7 @@ fun SharedTransitionScope.ImageAndName(
     color: MutableIntState,
 ) {
     val context = LocalContext.current
+    val resources = LocalResources.current
     Box {
         Box(
             modifier = Modifier
@@ -154,11 +162,14 @@ fun SharedTransitionScope.ImageAndName(
                     error(android.R.drawable.stat_notify_error)
                     fallback(android.R.drawable.stat_notify_error)
                     memoryCachePolicy(CachePolicy.ENABLED)
+                    diskCachePolicy(CachePolicy.ENABLED)
+                    networkCachePolicy(CachePolicy.ENABLED)
                 }.build(),
                 contentDescription = null,
                 contentScale = ContentScale.None,
                 onSuccess = { success ->
-                    color.intValue = success.result.drawable.colorToInt(context)
+                    val drawable = success.result.image.asDrawable(resources)
+                    color.intValue = drawable.colorToInt(context)
                 },
                 modifier = Modifier
                     .fillMaxSize()

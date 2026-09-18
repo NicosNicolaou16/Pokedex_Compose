@@ -8,6 +8,8 @@ plugins {
     alias(libs.plugins.parcelize)
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.androidx.room)
+    // Baseline Profile
+    alias(libs.plugins.baselineprofile)
 }
 
 android {
@@ -78,6 +80,7 @@ composeCompiler {
 
 dependencies {
 
+    implementation(libs.androidx.profileinstaller)
     // My Library - https://github.com/NicosNicolaou16/PercentagesWithAnimationCompose
     implementation(libs.percentages.with.animation.compose)
     //Architecture
@@ -99,6 +102,7 @@ dependencies {
     implementation(libs.androidx.foundation)
     // Room Database
     implementation(libs.androidx.room.runtime)
+    "baselineProfile"(project(":baselineprofile"))
     ksp(libs.androidx.room.compiler)
     // Retrofit
     implementation(libs.retrofit)
@@ -109,6 +113,7 @@ dependencies {
     implementation(libs.gson)
     // Coil
     implementation(libs.coil)
+    implementation(libs.coil.network.okhttp)
     // Coroutines
     implementation(libs.coroutine.core)
     implementation(libs.coroutine.android)
