@@ -109,6 +109,7 @@ dependencies {
     implementation(libs.gson)
     // Coil
     implementation(libs.coil)
+    implementation(libs.coil.network.okhttp)
     // Coroutines
     implementation(libs.coroutine.core)
     implementation(libs.coroutine.android)
