@@ -8,6 +8,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.testTagsAsResourceId
 import com.nicos.pokedex_compose.presentation.navigation.Navigation
 import com.nicos.pokedex_compose.ui.theme.Pokedex_ComposeTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -21,7 +23,9 @@ class MainActivity : ComponentActivity() {
             Pokedex_ComposeTheme(darkTheme = true) {
                 // A surface container using the 'background' color from the theme
                 Surface(
-                    modifier = Modifier.fillMaxSize(),
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .semantics { testTagsAsResourceId = true },
                     color = MaterialTheme.colorScheme.background
                 ) {
                     Navigation({ enableEdgeToEdge() })
