@@ -29,6 +29,11 @@ kotlinSerializationVersion = "1.11.0"
 percentagesWithAnimationComposeVersion = "1.4.0"
 nav3Core = "1.1.7"
 material3AdaptiveNav3 = "1.3.0"
+# Baseline Profile
+baselineProfileVersion = "1.4.1"
+profileInstaller = "1.4.1"
+uiAutomator = "2.3.0"
+benchmarkMacroJunit4 = "1.4.1"
 
 [libraries]
 # My Library - https://github.com/NicosNicolaou16/PercentagesWithAnimationCompose
@@ -85,6 +90,10 @@ kotlinx-serialization-core = { module = "org.jetbrains.kotlinx:kotlinx-serializa
 androidx-material3-adaptive-navigation3 = { group = "androidx.compose.material3.adaptive", name = "adaptive-navigation3", version.ref = "material3AdaptiveNav3" }
 # Material 3 Adaptive
 androidx-compose-material3-adaptive = { group = "androidx.compose.material3.adaptive", name = "adaptive-layout", version.ref = "material3AdaptiveNav3" }
+# Baseline Profile
+androidx-profileinstaller = { group = "androidx.profileinstaller", name = "profileinstaller", version.ref = "profileInstaller" }
+androidx-uiautomator = { group = "androidx.test.uiautomator", name = "uiautomator", version.ref = "uiAutomator" }
+androidx-benchmark-macro-junit4 = { group = "androidx.benchmark", name = "benchmark-macro-junit4", version.ref = "benchmarkMacroJunit4" }
 # Unit Test
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
@@ -101,4 +110,7 @@ kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", versi
 parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 androidx-room = { id = "androidx.room3", version.ref = "roomVersion" }
+# Baseline Profile
+androidTest = { id = "com.android.test", version.ref = "agp" }
+baselineprofile = { id = "androidx.baselineprofile", version.ref = "baselineProfileVersion" }
 
