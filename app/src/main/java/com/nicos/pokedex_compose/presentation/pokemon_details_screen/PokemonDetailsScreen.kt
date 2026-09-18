@@ -162,6 +162,8 @@ fun SharedTransitionScope.ImageAndName(
                     error(android.R.drawable.stat_notify_error)
                     fallback(android.R.drawable.stat_notify_error)
                     memoryCachePolicy(CachePolicy.ENABLED)
+                    diskCachePolicy(CachePolicy.ENABLED)
+                    networkCachePolicy(CachePolicy.ENABLED)
                 }.build(),
                 contentDescription = null,
                 contentScale = ContentScale.None,
