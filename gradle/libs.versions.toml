@@ -17,7 +17,7 @@ roomVersion = "3.0.3"
 kspVersion = "2.3.11"
 retrofitVersion = "3.0.0"
 okHttpVersion = "5.5.0"
-coilVersion = "2.7.0"
+coilVersion = "3.6.3"
 coroutineVersion = "1.11.0"
 materialVersion = "1.14.0"
 hiltVersion = "2.60.1"
@@ -62,7 +62,7 @@ okHttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okHtt
 # Gson
 gson = { group = "com.google.code.gson", name = "gson", version.ref = "gsonVersion" }
 # Coil
-coil = { group = "io.coil-kt", name = "coil-compose", version.ref = "coilVersion" }
+coil = { group = "io.coil-kt.coil3", name = "coil-compose", version.ref = "coilVersion" }
 # Coroutine
 coroutine-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutineVersion" }
 coroutine-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutineVersion" }
