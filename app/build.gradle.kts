@@ -8,6 +8,8 @@ plugins {
     alias(libs.plugins.parcelize)
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.androidx.room)
+    // Baseline Profile
+    alias(libs.plugins.baselineprofile)
 }
 
 android {
