@@ -1,7 +1,6 @@
 package com.nicos.pokedex_compose.presentation.pokemon_list_screen
 
 import android.annotation.SuppressLint
-import android.util.Log
 import androidx.compose.animation.AnimatedVisibilityScope
 import androidx.compose.animation.SharedTransitionScope
 import androidx.compose.foundation.clickable
@@ -29,14 +28,12 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.onPlaced
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import coil3.compose.AsyncImage
-import coil3.disk.DiskCache
-import coil3.disk.directory
-import coil3.memory.MemoryCache
 import coil3.request.ImageRequest
 import coil3.request.CachePolicy
 import coil3.request.placeholder
@@ -50,7 +47,6 @@ import com.nicos.pokedex_compose.data.mappers.PokemonUi
 import com.nicos.pokedex_compose.utils.extensions.encodeStringUrl
 import com.nicos.pokedex_compose.utils.extensions.getProgressDrawable
 import com.nicos.pokedex_compose.utils.screen_routes.PokemonDetails
-import kotlinx.coroutines.Dispatchers
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
@@ -111,7 +107,7 @@ fun SharedTransitionScope.GridViewPokemonList(
                 }
             }) {
         LazyVerticalGrid(
-            modifier = Modifier.fillMaxSize(),
+            modifier = Modifier.fillMaxSize().testTag("pokemon_grid"),
             columns = GridCells.Fixed(columns)
         ) {
             items(state.pokemonMutableList ?: mutableListOf(), key = { pokemon ->
@@ -147,6 +143,7 @@ fun SharedTransitionScope.LoadPokemonImage(
     Card(
         modifier = Modifier
             .padding(5.dp)
+            .testTag("pokemon_grid")
             .clickable {
                 listener(pokemonUi)
             },
