@@ -22,3 +22,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Pokedex_Compose"
 include(":app")
+include(":baselineprofile")

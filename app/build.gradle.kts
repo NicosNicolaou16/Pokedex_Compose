@@ -80,6 +80,7 @@ composeCompiler {
 
 dependencies {
 
+    implementation(libs.androidx.profileinstaller)
     // My Library - https://github.com/NicosNicolaou16/PercentagesWithAnimationCompose
     implementation(libs.percentages.with.animation.compose)
     //Architecture
@@ -101,6 +102,7 @@ dependencies {
     implementation(libs.androidx.foundation)
     // Room Database
     implementation(libs.androidx.room.runtime)
+    "baselineProfile"(project(":baselineprofile"))
     ksp(libs.androidx.room.compiler)
     // Retrofit
     implementation(libs.retrofit)
