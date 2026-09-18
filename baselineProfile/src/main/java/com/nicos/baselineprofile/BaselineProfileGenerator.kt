@@ -4,6 +4,9 @@ import androidx.benchmark.macro.junit4.BaselineProfileRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
 import androidx.test.platform.app.InstrumentationRegistry
+import androidx.test.uiautomator.By
+import androidx.test.uiautomator.Direction
+import androidx.test.uiautomator.Until
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -63,6 +66,35 @@ class BaselineProfileGenerator {
 
             // Check UiAutomator documentation for more information how to interact with the app.
             // https://d.android.com/training/testing/other-components/ui-automator
+
+            // The grid is a scrollable container; wait until one appears.
+            device.wait(Until.hasObject(By.scrollable(true)), 10_000)
+
+            val list = device.findObject(By.scrollable(true))
+
+            // Scroll the list to capture list rendering + paging.
+            if (list != null) {
+                list.setGestureMargin(device.displayWidth / 5)
+                repeat(3) {
+                    list.scroll(Direction.DOWN, 0.8f)
+                    device.waitForIdle()
+                }
+                list.scroll(Direction.UP, 1.0f)
+                device.waitForIdle()
+            }
+
+            // Navigate into a detail screen to profile the shared-element
+            // transition and PokemonDetailsScreen composition.
+            val firstCard = device.findObject(By.scrollable(true))
+                ?.children?.firstOrNull()
+            if (firstCard != null) {
+                firstCard.click()
+                device.waitForIdle()
+                // Give the detail screen + image load a moment to compose.
+                Thread.sleep(1_500)
+                device.pressBack()
+                device.waitForIdle()
+            }
         }
     }
 }
