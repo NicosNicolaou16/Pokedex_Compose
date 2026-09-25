@@ -7,6 +7,7 @@ plugins {
     alias(libs.plugins.parcelize) apply false
     alias(libs.plugins.compose.compiler) apply false
     alias(libs.plugins.androidx.room) apply false
+    // Baseline Profile
     alias(libs.plugins.androidTest) apply false
     alias(libs.plugins.baselineprofile) apply false
 }
