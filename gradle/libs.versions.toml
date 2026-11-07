@@ -23,7 +23,6 @@ materialVersion = "1.14.0"
 hiltVersion = "2.60.1"
 hiltCompilerVersion = "1.4.0"
 swipeRefreshLayoutVersion = "1.2.0"
-gsonVersion = "2.14.0"
 paletteVersion = "1.1.0"
 kotlinSerializationVersion = "1.12.0"
 percentagesWithAnimationComposeVersion = "1.4.0"
@@ -61,11 +60,9 @@ androidx-room-runtime = { group = "androidx.room3", name = "room3-runtime", vers
 androidx-room-compiler = { group = "androidx.room3", name = "room3-compiler", version.ref = "roomVersion" }
 # Retrofit
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofitVersion" }
-retrofit-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofitVersion" }
+retrofit-kotlinx-serialization = { group = "com.squareup.retrofit2", name = "converter-kotlinx-serialization", version.ref = "retrofitVersion" }
 # OkHttp
 okHttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okHttpVersion" }
-# Gson
-gson = { group = "com.google.code.gson", name = "gson", version.ref = "gsonVersion" }
 # Coil
 coil = { group = "io.coil-kt.coil3", name = "coil-compose", version.ref = "coilVersion" }
 coil-network-okhttp = { module = "io.coil-kt.coil3:coil-network-okhttp", version.ref = "coilVersion" }
