@@ -123,8 +123,8 @@ Run this on a **physical device** (not an emulator) for accurate results. Baseli
 - **Target SDK:** **37**
 - **Minimum SDK:** **29**
 - **Kotlin Version:** **2.4.21**
-- **Gradle Version:** **9.4.1**
-- **Gradle Version:** **9.5.1**
+- **AGP Version:** **9.4.1**
+- **Gradle Version:** **9.9.0**
 
 ## 📚 APIs & References
 
