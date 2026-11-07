@@ -27,7 +27,7 @@ gsonVersion = "2.14.0"
 paletteVersion = "1.1.0"
 kotlinSerializationVersion = "1.12.0"
 percentagesWithAnimationComposeVersion = "1.4.0"
-nav3Core = "1.2.0"
+nav3Core = "1.2.1"
 material3AdaptiveNav3 = "1.3.0"
 # Baseline Profile
 baselineProfileVersion = "1.5.0"
