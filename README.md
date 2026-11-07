@@ -61,8 +61,7 @@ utilizes a variety of modern Android libraries and tools:
 - **Architecture:** [MVVM](https://developer.android.com/topic/architecture#recommended-app-arch), [UI State Management](https://developer.android.com/topic/architecture/ui-layer/events#handle-viewmodel-events)
 - **Asynchronicity:** [Kotlin Coroutines](https://kotlinlang.org/docs/coroutines-overview.html), [Kotlin KTX](https://developer.android.com/kotlin/ktx)
 - **Navigation:** [Navigation Compose 3](https://developer.android.com/guide/navigation/navigation-3), [Navigation Type Safety](https://medium.com/androiddevelopers/navigation-compose-meet-type-safety-e081fb3cf2f8), [Shared Element Transition](https://developer.android.com/develop/ui/compose/animation/shared-elements)
-- **Data:** [Retrofit](https://square.github.io/retrofit/) (
-  Networking), [Room](https://developer.android.com/training/data-storage/room), [Room 3](https://developer.android.com/kotlin/multiplatform/room#migrate-from-support-sqlite) (Database)
+- **Data:** [Retrofit](https://square.github.io/retrofit/) (Networking), [Room](https://developer.android.com/training/data-storage/room), [Room 3](https://developer.android.com/kotlin/multiplatform/room#migrate-from-support-sqlite) (Database)
 - **Dependency Injection:** [Hilt](https://dagger.dev/hilt/)
 - **Build & Optimization:** [KSP](https://developer.android.com/build/migrate-to-ksp), [R8](https://developer.android.com/build/shrink-code)
 - **Custom Components:** [PercentageWithAnimation](https://github.com/NicosNicolaou16/PercentagesWithAnimationCompose)
