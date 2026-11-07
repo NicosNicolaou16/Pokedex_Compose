@@ -1,18 +1,18 @@
 package com.nicos.pokedex_compose.data.room_database.type_converters
 
 import androidx.room3.ColumnTypeConverter
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
 import com.nicos.pokedex_compose.data.room_database.entities.StatsEntity
+import kotlinx.serialization.json.Json
 
 class ConverterStats {
 
+    private val json = Json { ignoreUnknownKeys = true }
+
     @ColumnTypeConverter
-    fun fromStringToStatsList(value: String): MutableList<StatsEntity>? {
-        return Gson().fromJson(value, object : TypeToken<MutableList<StatsEntity>>() {}.type)
-    }
+    fun fromStringToStatsList(value: String): MutableList<StatsEntity>? =
+        runCatching { json.decodeFromString<MutableList<StatsEntity>>(value) }.getOrNull()
 
     @ColumnTypeConverter
     fun fromStatsListToString(statsEntityList: MutableList<StatsEntity>): String =
-        Gson().toJson(statsEntityList)
+        json.encodeToString(statsEntityList)
 }
