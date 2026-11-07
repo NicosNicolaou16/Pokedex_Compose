@@ -104,6 +104,7 @@ dependencies {
     ksp(libs.androidx.room.compiler)
     // Retrofit
     implementation(libs.retrofit)
+    implementation(libs.retrofit.kotlinx.serialization)
     // OkHttp
     implementation(libs.okHttp)
     // Coil
